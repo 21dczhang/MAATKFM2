@@ -60,15 +60,8 @@
     // },
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
-        },
-        {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
+            "name": "启动游戏",
+            "entry": "StartGame_Start"
         },
         {
             "name": "参数任务",

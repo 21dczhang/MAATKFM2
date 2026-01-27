@@ -1,0 +1,10 @@
+{
+    "StartGame_Start": {
+        "action": "StartApp",
+        "next": [],
+        "post_delay": 8000,
+        "pre_wait_freezes": 500,
+        "package": "com.pinkcore.tkfm.erolabs",
+        "doc": "启动游戏"
+    },
+}
