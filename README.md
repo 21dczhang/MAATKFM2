@@ -63,9 +63,15 @@
 
     ```bash
     # CI 检测到 tag 会自动进行发版
-    git tag v1.0.0
-    git push origin v1.0.0
+    git tag v0.0.1
+    git push origin v0.0.1
     ```
+
+    撤销提交部分：git log --oneline -10
+    git reset --hard HEAD ~1
+    git push --force-with-lease origin main
+    git tag -d v0.0.1
+    git push origin --delete v1.2.3
 
 7. 更多操作，请参考 [个性化配置](./docs/zh_cn/个性化配置.md)（可选）
 
