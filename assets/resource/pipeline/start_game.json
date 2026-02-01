@@ -1,10 +1,197 @@
 {
     "StartGame_Start": {
         "action": "StartApp",
-        "next": [],
-        "post_delay": 8000,
+        "next": [
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "StartGame_Logo",
+            "StartGame_TouchStart"
+        ],
         "pre_wait_freezes": 500,
         "package": "com.pinkcore.tkfm.erolabs",
         "doc": "启动游戏"
     },
+    "StartGame_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "StartGame_LoadingPage",
+            "StartGame_Logo",
+            "StartGame_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "StartGame_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "[JumpBack]StartGame_Skip_Notice",
+            "StartGame_TouchStart",
+            "StartGame_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "StartGame_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "StartGame_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "StartGame_HomePage",
+            "[JumpBack]StartGame_TouchStart_Connecting",
+            "StartGame_TouchStart",
+            "[JumpBack]StartGame_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "StartGame_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+    },
+    "StartGame_callBackup_button": {
+        "recognition": "DirectHit",
+        "action": "ClickKey",
+        "key": 4,
+        "pre_wait_freezes": 500,
+        "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "StartGame_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "[JumpBack]StartGame_HomePage_Conneting",
+            "StartGame_HomePage2",
+            "[JumpBack]StartGame_callBackup_button",
+        ],
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "post_delay": 10000,
+        "focus": "检测到 正下方 - 协会，等待10s再次检查"
+    },
+    "StartGame_HomePage2": {
+        "recognition": "OCR",
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+    },
+    "StartGame_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "focus": "主界面：网络波动中"
+    },
+    "StartGame_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "StartGame_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "连线不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "StartGame_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "StartGame_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "StartGame_LinkError2": {
+        "recognition": "OCR",
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
 }

@@ -1,0 +1,56 @@
+{
+    "Dispatch_Entry": {},
+    "Dispatch_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+    },
+    "Dispatch_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "Dispatch_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "连线不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "Dispatch_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "StartGame_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "Dispatch_LinkError2": {
+        "recognition": "OCR",
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}
