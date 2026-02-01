@@ -1,0 +1,580 @@
+{
+    "Alchemy_Start": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_Logo",
+            "[JumpBack]Alchemy_TouchStart",
+            "Alchemy_HomePage",
+            "[JumpBack]Alchemy_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始自动炼金",
+        "focus": "开始自动炼金",
+    },
+    "Alchemy_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_LoadingPage",
+            "Alchemy_Logo",
+            "Alchemy_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "Alchemy_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_Skip_Notice",
+            "Alchemy_TouchStart",
+            "Alchemy_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "Alchemy_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "Alchemy_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "Alchemy_HomePage",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_TouchStart",
+            "[JumpBack]Alchemy_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "Alchemy_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "action": "DoNothing"
+    },
+    "Alchemy_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+        ],
+        "timeout": 2500,
+        "action": "ClickKey",
+        "key": 4,
+        "pre_wait_freezes": 500,
+        "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "Alchemy_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_HomePage_Conneting",
+            "Alchemy_HomePage2",
+            "[JumpBack]Alchemy_Logo",
+            "[JumpBack]Alchemy_LoadingPage",
+            "[JumpBack]Alchemy_callBackup_button",
+        ],
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+    },
+    "Alchemy_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_GotoAlchemy1"
+        ],
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "focus": "已回到主界面"
+    },
+    "Alchemy_GotoAlchemy1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_GotoAlchemy2",
+        ],
+        "target": [
+            15,
+            617,
+            26,
+            27
+        ],
+        "post_delay": 1500,
+        "focus": "点击 炼金界面"
+    },
+    "Alchemy_GotoAlchemy2": {
+        "recognition": "TemplateMatch",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Collect_Complete",
+            "Alchemy_AlchemyStart"
+        ],
+        "roi": [
+            1,
+            451,
+            165,
+            94
+        ],
+        "template": [
+            "alchemy.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 2000,
+        "focus": "进入 炼金界面"
+    },
+    "Alchemy_Collect_Complete": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_Collect_Complete_Comeback",
+            "Alchemy_Collect_Complete",
+            "Alchemy_AlchemyStart"
+        ],
+        "roi": [
+            386,
+            775,
+            208,
+            53
+        ],
+        "action": "Click",
+        "expected": "收取",
+        "post_wait_freezes": 1000,
+        "max_hit": 3,
+        "focus": "一键领取 炼金收获"
+    },
+    "Alchemy_Collect_Complete_Comeback": {
+        "recognition": "OCR",
+        "roi": [
+            256,
+            713,
+            205,
+            62
+        ],
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "focus": "关闭 收获界面"
+    },
+    "Alchemy_AlchemyStart": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_AlchemyStart_Home1",
+            "[JumpBack]Alchemy_AlchemyStart_Home2",
+            "[JumpBack]Alchemy_AlchemyStart_Home3",
+            "[JumpBack]Alchemy_Collect_Order_Start",
+            "Alchemy_Comeback_home",
+        ],
+        "post_wait_freezes": 1500,
+        "focus": "准备 炼金"
+    },
+    "Alchemy_AlchemyStart_Home1": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home1",
+            "Alchemy_AlchemyStart_Home1"
+        ],
+        "roi": [
+            94,
+            197,
+            528,
+            132
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "expected": "中",
+        "focus": "点击槽位1"
+    },
+    "Alchemy_Alchemy_Home1": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home1_Max",
+            "Alchemy_Alchemy_Home1_Start"
+        ],
+        "focus": "开始炼金 槽位1",
+        "timeout": 3000
+    },
+    "Alchemy_Alchemy_Home1_Max": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home1_Start"
+        ],
+        "roi": [
+            64,
+            401,
+            590,
+            475
+        ],
+        "action": "Click",
+        "expected": [
+            "MAX"
+        ],
+        "timeout": 1000
+    },
+    "Alchemy_Alchemy_Home1_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+        ],
+        "roi": [
+            102,
+            804,
+            532,
+            70
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "expected": [
+            "炼金"
+        ],
+        "timeout": 1000
+    },
+    "Alchemy_AlchemyStart_Home2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home2",
+            "Alchemy_AlchemyStart_Home2"
+        ],
+        "roi": [
+            108,
+            397,
+            500,
+            122
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "expected": "中",
+        "focus": "点击槽位2"
+    },
+    "Alchemy_Alchemy_Home2": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home2_Max",
+            "Alchemy_Alchemy_Home2_Start"
+        ],
+        "focus": "开始炼金 槽位2",
+        "timeout": 3000
+    },
+    "Alchemy_Alchemy_Home2_Max": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home2_Start"
+        ],
+        "max_hit": 5,
+        "roi": [
+            64,
+            401,
+            590,
+            475
+        ],
+        "expected": [
+            "MAX"
+        ],
+        "action": "Click",
+        "timeout": 1000
+    },
+    "Alchemy_Alchemy_Home2_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting"
+        ],
+        "max_hit": 1,
+        "roi": [
+            102,
+            804,
+            532,
+            70
+        ],
+        "expected": [
+            "炼金"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "timeout": 1000
+    },
+    "Alchemy_AlchemyStart_Home3": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home3",
+            "Alchemy_AlchemyStart_Home3"
+        ],
+        "roi": [
+            108,
+            584,
+            489,
+            114
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "expected": "中",
+        "focus": "点击槽位3"
+    },
+    "Alchemy_Alchemy_Home3": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home3_Max",
+            "Alchemy_Alchemy_Home3_Start"
+        ],
+        "focus": "开始炼金 槽位3",
+        "timeout": 3000
+    },
+    "Alchemy_Alchemy_Home3_Max": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Alchemy_Home3_Start"
+        ],
+        "max_hit": 5,
+        "roi": [
+            64,
+            401,
+            590,
+            475
+        ],
+        "action": "Click",
+        "expected": [
+            "MAX"
+        ],
+        "timeout": 1000
+    },
+    "Alchemy_Alchemy_Home3_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting"
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "roi": [
+            102,
+            804,
+            532,
+            70
+        ],
+        "expected": [
+            "炼金"
+        ],
+        "post_wait_freezes": 1000,
+        "timeout": 1000
+    },
+    "Alchemy_Collect_Order_Start": {
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_Collect_Order"
+        ],
+        "max_hit": 1,
+        "timeout": 5000,
+        "focus": "自动完成订单"
+    },
+    "Alchemy_Collect_Order": {
+        "recognition": "OCR",
+        "next": [],
+        "roi": [
+            27,
+            897,
+            691,
+            291
+        ],
+        "action": "Click",
+        "expected": "贸易",
+        "max_hit": 10,
+        "post_wait_freezes": 500,
+        "focus": "自动完成订单",
+    },
+    "Alchemy_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_HomePage_Without_Next",
+            "Alchemy_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "领取完毕，返回主界面 - 输入返回键"
+    },
+    "Alchemy_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+    },
+    "Alchemy_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "focus": "主界面：网络波动中"
+    },
+    "Alchemy_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "Alchemy_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "Alchemy_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "Alchemy_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "Alchemy_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

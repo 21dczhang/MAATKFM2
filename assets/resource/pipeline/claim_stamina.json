@@ -8,7 +8,7 @@
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取好友体力",
-        "focus": "LOGO:EROLABS",
+        "focus": "开始领取好友体力",
     },
     "ClaimStamina_Logo": {
         "recognition": "OCR",
@@ -249,7 +249,7 @@
             343,
             65
         ],
-        "expected": "连线不稳定",
+        "expected": "不稳定",
         "focus": "网络连线不稳定",
     },
     "ClaimStamina_LinkError_ServerError": {

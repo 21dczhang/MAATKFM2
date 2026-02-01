@@ -9,7 +9,11 @@
 
 </div>
 
-本仓库为 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 所提供的项目模板，开发者可基于此模板直接创建自己的 MaaXXX 项目。
+本项目是基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 开发的自动化脚本，专为手游 **《天下布魔》** 设计，支持在 **MuMu 模拟器** 上自动完成日常任务、刷图等操作。
+
+> ✅ 适配分辨率：**1920 × 1080**  
+> ✅ 适配 DPI：**280**  
+> ✅ 推荐模拟器：**MuMu 模拟器**
 
 > **MaaFramework** 是基于图像识别技术、运用 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 开发经验去芜存菁、完全重写的新一代自动化黑盒测试框架。
 > 低代码的同时仍拥有高扩展性，旨在打造一款丰富、领先、且实用的开源库，助力开发者轻松编写出更好的黑盒测试程序，并推广普及。

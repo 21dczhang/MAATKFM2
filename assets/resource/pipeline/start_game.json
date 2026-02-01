@@ -165,7 +165,7 @@
             343,
             65
         ],
-        "expected": "连线不稳定",
+        "expected": "不稳定",
         "focus": "网络连线不稳定",
     },
     "StartGame_LinkError_ServerError": {
