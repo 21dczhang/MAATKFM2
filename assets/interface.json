@@ -40,7 +40,7 @@
             ]
         },
         {
-            "name": "I 服",
+            "name": "工 服",
             "path": [
                 "./resource",
                 "./resource_bilibili"
@@ -64,6 +64,188 @@
             "name": "领取好友体力",
             "entry": "ClaimStamina_Start",
             "description": "自动领取好友体力,需要自己先把好友加满",
+        },
+        {
+            "name": "自动派遣",
+            "entry": "Dispatch_Start",
+            "description": "自动派遣，只需要选房间，默认自动派遣最高等级",
+            "option": [
+                "派遣房间1选择",
+                "派遣房间2选择",
+                "派遣房间3选择",
+            ],
+        },
+        {
+            "name": "测试任务",
+            "entry": "Dispatch_Dispatch_MoWangQinShi",
+            "description": "测试子任务",
         }
     ],
+    "option": {
+        "派遣房间1选择": {
+            "description": "房间奖励:<br>魔王寝室掉落铁类素材与火属性调教道具<br>地牢掉落水类素材与水属性调教道具<br>训练所掉落爪类素材与风属性调教道具<br>宝藏库掉落黏液类素材与光属性调教道具<br>封印密室掉落粉类素材与暗属性调教道具",
+            "cases": [
+                {
+                    "name": "魔王寝室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home1": {
+                            "next": [
+                                "Dispatch_Dispatch_MoWangQinShi"
+                            ]
+                        },
+                    }
+                },
+                {
+                    "name": "地牢",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home1": {
+                            "next": [
+                                "Dispatch_Dispatch_DiLao"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "训练所",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home1": {
+                            "next": [
+                                "Dispatch_Dispatch_XunLianSuo"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "藏宝库",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home1": {
+                            "next": [
+                                "Dispatch_Dispatch_BaoZangKu"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "封印密室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home1": {
+                            "next": [
+                                "Dispatch_Dispatch_FengYinMiShi"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "派遣房间2选择": {
+            "description": "房间奖励:<br>魔王寝室掉落铁类素材与火属性调教道具<br>地牢掉落水类素材与水属性调教道具<br>训练所掉落爪类素材与风属性调教道具<br>宝藏库掉落黏液类素材与光属性调教道具<br>封印密室掉落粉类素材与暗属性调教道具",
+            "cases": [
+                {
+                    "name": "魔王寝室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home2": {
+                            "next": [
+                                "Dispatch_Dispatch_MoWangQinShi"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "地牢",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home2": {
+                            "next": [
+                                "Dispatch_Dispatch_DiLao"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "训练所",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home2": {
+                            "next": [
+                                "Dispatch_Dispatch_XunLianSuo"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "藏宝库",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home2": {
+                            "next": [
+                                "Dispatch_Dispatch_BaoZangKu"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "封印密室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home2": {
+                            "next": [
+                                "Dispatch_Dispatch_FengYinMiShi"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "派遣房间3选择": {
+            "description": "房间奖励:<br>魔王寝室掉落铁类素材与火属性调教道具<br>地牢掉落水类素材与水属性调教道具<br>训练所掉落爪类素材与风属性调教道具<br>宝藏库掉落黏液类素材与光属性调教道具<br>封印密室掉落粉类素材与暗属性调教道具",
+            "cases": [
+                {
+                    "name": "魔王寝室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home3": {
+                            "next": [
+                                "Dispatch_Dispatch_MoWangQinShi"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "地牢",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home3": {
+                            "next": [
+                                "Dispatch_Dispatch_DiLao"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "训练所",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home3": {
+                            "next": [
+                                "Dispatch_Dispatch_XunLianSuo"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "藏宝库",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home3": {
+                            "next": [
+                                "Dispatch_Dispatch_BaoZangKu"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "封印密室",
+                    "pipeline_override": {
+                        "Dispatch_Dispatch_Home3": {
+                            "next": [
+                                "Dispatch_Dispatch_FengYinMiShi"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
 }
