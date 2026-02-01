@@ -4,6 +4,7 @@
         "next": [
             "[JumpBack]StartGame_LinkError",
             "[JumpBack]StartGame_LinkError_ServerError",
+            "[JumpBack]StartGame_TouchStart_Connecting",
             "StartGame_Logo",
             "StartGame_TouchStart"
         ],
@@ -16,6 +17,7 @@
         "next": [
             "[JumpBack]StartGame_LinkError",
             "[JumpBack]StartGame_LinkError_ServerError",
+            "[JumpBack]StartGame_TouchStart_Connecting",
             "StartGame_LoadingPage",
             "StartGame_Logo",
             "StartGame_TouchStart"
@@ -39,6 +41,7 @@
             "[JumpBack]StartGame_LinkError",
             "[JumpBack]StartGame_LinkError_ServerError",
             "[JumpBack]StartGame_Skip_Notice",
+            "[JumpBack]StartGame_TouchStart_Connecting",
             "StartGame_TouchStart",
             "StartGame_LoadingPage"
         ],

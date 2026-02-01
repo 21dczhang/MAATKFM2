@@ -60,5 +60,10 @@
             "entry": "StartGame_Start",
             "description": "启动游戏ing"
         },
+        {
+            "name": "领取好友体力",
+            "entry": "ClaimStamina_Start",
+            "description": "自动领取好友体力,需要自己先把好友加满",
+        }
     ],
 }
