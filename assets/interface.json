@@ -101,8 +101,18 @@
             "description": "协会奖励自动领取(需要提前加入协会",
         },
         {
+            "name": "商店物品自动购买",
+            "entry": "Shop_Start",
+            "description": "日常商店、协会商店、神秘商店自动购买",
+            "option": [
+                "是否购买交易所",
+                "是否购买协会商店",
+                "是否购买神秘商店",
+            ],
+        },
+        {
             "name": "测试任务",
-            "entry": "AdvancedDungeon_Start",
+            "entry": "JiYiSuo_Goto_XieHui",
             "description": "测试子任务",
         }
     ],
@@ -391,6 +401,116 @@
                 },
                 {
                     "name": "No"
+                },
+            ]
+        },
+        "是否购买交易所": {
+            "description": "是否购买交易所物品(招募命令和体力药水必买，其他看选项)",
+            "type": "select",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "option": [
+                        "交易所打折升级材料",
+                        "交易所打折记忆精粹"
+                    ]
+                },
+                {
+                    "name": "No"
+                },
+            ]
+        },
+        "是否购买协会商店": {
+            "description": "是否购买协会商店物品(折扣银币和魔晶石、招募券必买，其他看选项)",
+            "type": "select",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "option": [
+                        "协会商城购买打折属性石头"
+                    ]
+                },
+                {
+                    "name": "No"
+                },
+            ]
+        },
+        "是否购买神秘商店": {
+            "description": "是否购买神秘商店物品，占位，神秘商店只有5抽值得买",
+            "type": "select",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "option": []
+                },
+                {
+                    "name": "No"
+                },
+            ]
+        },
+        "交易所打折升级材料": {
+            "description": "是否购买打折升级材料？占位，没有实现",
+            "type": "select",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                },
+                {
+                    "name": "No"
+                },
+            ]
+        },
+        "交易所打折记忆精粹": {
+            "description": "是否购买打折记忆精粹？占位，没有实现",
+            "type": "select",
+            "default_case": "不购买",
+            "cases": [
+                {
+                    "name": "不购买"
+                },
+                {
+                    "name": "购买全部打折精粹",
+                },
+                {
+                    "name": "购买全部SSR精粹"
+                },
+                {
+                    "name": "购买全部SR精粹"
+                },
+                {
+                    "name": "购买全部R精粹"
+                },
+                {
+                    "name": "购买全部N精粹"
+                },
+            ]
+        },
+        "协会商城购买打折属性石头": {
+            "description": "是否购买打折属性石头？占位，没有实现",
+            "type": "select",
+            "default_case": "不购买",
+            "cases": [
+                {
+                    "name": "不购买"
+                },
+                {
+                    "name": "购买全部风属性石头",
+                },
+                {
+                    "name": "购买全部火属性石头"
+                },
+                {
+                    "name": "购买全部水属性石头"
+                },
+                {
+                    "name": "购买全部光属性石头"
+                },
+                {
+                    "name": "购买全部暗属性石头"
                 },
             ]
         },
