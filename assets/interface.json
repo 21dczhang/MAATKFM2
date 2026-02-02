@@ -85,8 +85,24 @@
             ],
         },
         {
+            "name": "自动刷高级银币、经验药水、影像副本",
+            "entry": "AdvancedDungeon_Start",
+            "description": "自动刷高级副本，需要准备好一只队伍，名称叫 扫荡队，或者选择扫荡方式刷",
+            "option": [
+                "刷副本方式",
+                "是否刷银币副本",
+                "是否刷药水副本",
+                "是否刷影像副本",
+            ],
+        },
+        {
+            "name": "协会奖励自动领取(需要提前加入协会",
+            "entry": "Association_Start",
+            "description": "协会奖励自动领取(需要提前加入协会",
+        },
+        {
             "name": "测试任务",
-            "entry": "Alchemy_Start",
+            "entry": "AdvancedDungeon_Start",
             "description": "测试子任务",
         }
     ],
@@ -284,6 +300,97 @@
                 },
                 {
                     "name": "只接蓝水晶订单"
+                },
+            ]
+        },
+        "刷副本方式": {
+            "description": "刷高级副本的方式选择，扫荡/队伍自动刷， 扫荡需要准备好扫荡券",
+            "default_case": "扫荡队自动刷",
+            "cases": [
+                {
+                    "name": "扫荡队自动刷",
+                    "pipeline_override": {
+                        "AdvancedDungeon_YinBi_SaoDang": {
+                            "enabled": false
+                        },
+                        "AdvancedDungeon_YingXiang_Select_Role_Start": {
+                            "enabled": true
+                        },
+                        "AdvancedDungeon_JingYanYaoShui_SaoDang": {
+                            "enabled": false
+                        },
+                        "AdvancedDungeon_JingYanYaoShui_Select_Role_Start": {
+                            "enabled": true
+                        },
+                        "AdvancedDungeon_YingXiang_SaoDang": {
+                            "enabled": false
+                        },
+                        "AdvancedDungeon_YingXiang_Select_Role_Start": {
+                            "enabled": true
+                        },
+                    }
+                },
+                {
+                    "name": "扫荡券扫荡",
+                    "AdvancedDungeon_YinBi_SaoDang": {
+                        "enabled": true
+                    },
+                    "AdvancedDungeon_YingXiang_Select_Role_Start": {
+                        "enabled": false
+                    },
+                    "AdvancedDungeon_JingYanYaoShui_SaoDang": {
+                        "enabled": true
+                    },
+                    "AdvancedDungeon_JingYanYaoShui_Select_Role_Start": {
+                        "enabled": false
+                    },
+                    "AdvancedDungeon_YingXiang_SaoDang": {
+                        "enabled": true
+                    },
+                    "AdvancedDungeon_YingXiang_Select_Role_Start": {
+                        "enabled": false
+                    }
+                },
+            ]
+        },
+        "是否刷银币副本": {
+            "description": "刷高级副本的方式选择，扫荡/队伍自动刷， 扫荡需要准备好扫荡券",
+            "type": "switch",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
+                },
+            ]
+        },
+        "是否刷药水副本": {
+            "description": "刷高级副本的方式选择，扫荡/队伍自动刷， 扫荡需要准备好扫荡券",
+            "type": "switch",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No"
+                },
+            ]
+        },
+        "是否刷影像副本": {
+            "description": "刷高级副本的方式选择，扫荡/队伍自动刷， 扫荡需要准备好扫荡券",
+            "type": "switch",
+            "default_case": "Yes",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No"
                 },
             ]
         },

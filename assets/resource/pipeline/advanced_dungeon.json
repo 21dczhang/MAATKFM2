@@ -1,0 +1,889 @@
+{
+    "AdvancedDungeon_Start": {
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_Logo",
+            "[JumpBack]AdvancedDungeon_TouchStart",
+            "AdvancedDungeon_HomePage",
+            "[JumpBack]AdvancedDungeon_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始自动刷高级副本",
+        "focus": "开始自动刷高级副本",
+    },
+    "AdvancedDungeon_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_LoadingPage",
+            "AdvancedDungeon_Logo",
+            "AdvancedDungeon_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "AdvancedDungeon_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_Skip_Notice",
+            "AdvancedDungeon_TouchStart",
+            "AdvancedDungeon_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "AdvancedDungeon_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "AdvancedDungeon_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "AdvancedDungeon_HomePage",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_TouchStart",
+            "[JumpBack]AdvancedDungeon_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "AdvancedDungeon_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "action": "DoNothing"
+    },
+    "AdvancedDungeon_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+        ],
+        "timeout": 2500,
+        "action": "ClickKey",
+        "key": 4,
+        "pre_wait_freezes": 500,
+        "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "AdvancedDungeon_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_HomePage_Conneting",
+            "AdvancedDungeon_HomePage2",
+            "[JumpBack]AdvancedDungeon_Logo",
+            "[JumpBack]AdvancedDungeon_LoadingPage",
+            "[JumpBack]AdvancedDungeon_callBackup_button",
+        ],
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+    },
+    "AdvancedDungeon_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_GotoAdvancedDungeon1"
+        ],
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "focus": "已回到主界面"
+    },
+    "AdvancedDungeon_GotoAdvancedDungeon1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_GotoAdvancedDungeon2",
+        ],
+        "target": [
+            528,
+            894,
+            100,
+            58
+        ],
+        "post_delay": 1500,
+        "focus": "点击 征战界面"
+    },
+    "AdvancedDungeon_GotoAdvancedDungeon2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_GotoAdvancedDungeon_MeiRiZhengWu"
+        ],
+        "roi": [
+            72,
+            107,
+            547,
+            50
+        ],
+        "action": "Click",
+        "expected": [
+            "活动"
+        ],
+        "focus": "点击限时活动"
+    },
+    "AdvancedDungeon_GotoAdvancedDungeon_MeiRiZhengWu": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_GotoAdvancedDungeon_Start"
+        ],
+        "roi": [
+            93,
+            266,
+            544,
+            323
+        ],
+        "expected": [
+            "务"
+        ],
+        "action": "Click",
+        "focus": "点击每日政务"
+    },
+    "AdvancedDungeon_GotoAdvancedDungeon_Start": {
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_YinBi",
+            "[JumpBack]AdvancedDungeon_JingYanYaoShui",
+            "[JumpBack]AdvancedDungeon_YingXiang",
+            "AdvancedDungeon_Comeback_home",
+        ]
+    },
+    "AdvancedDungeon_YinBi": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_Select_LV"
+        ],
+        "action": "Click",
+        "roi": [
+            425,
+            114,
+            183,
+            1118
+        ],
+        "expected": "银币",
+        "max_hit": 1,
+        "focus": "打银币副本"
+    },
+    "AdvancedDungeon_YinBi_Select_LV": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_SaoDang",
+            "AdvancedDungeon_YinBi_Select_Role_Start"
+        ],
+        "expected": [
+            "60"
+        ],
+        "action": "Click",
+        "roi": [
+            80,
+            1038,
+            545,
+            136
+        ],
+        "focus": "选择最高级银币副本 - 60级，如果没到需要先手动打到60级"
+    },
+    "AdvancedDungeon_YinBi_SaoDang": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_NoEnoutht_JingShangZhengMing",
+            "[JumpBack]AdvancedDungeon_YinBi_Select_Max_Num",
+            "AdvancedDungeon_YinBi_IsMax"
+        ],
+        "action": "Click",
+        "expected": [
+            "军团",
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_YinBi_IsMax": {
+        "recognition": "OCR",
+        "next": [
+            "AdvancedDungeon_YinBi_SaoDang_Start"
+        ],
+        "expected": [
+            "0"
+        ],
+        "roi": [
+            299,
+            503,
+            129,
+            247
+        ],
+    },
+    "AdvancedDungeon_YinBi_SaoDang_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_SaoDang_Complete"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始"
+        ]
+    },
+    "AdvancedDungeon_YinBi_SaoDang_Complete": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": "完成"
+    },
+    "AdvancedDungeon_YinBi_Select_Max_Num": {
+        "recognition": "TemplateMatch",
+        "next": [],
+        "template": [
+            "AdvancedDungeonMax.png"
+        ],
+        "action": "Click",
+        "max_hit": 3
+    },
+    "AdvancedDungeon_YinBi_Select_Role_Start": {
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_Select_Role",
+            "[JumpBack]AdvancedDungeon_YinBi_Select_Role_Click_right"
+        ],
+    },
+    "AdvancedDungeon_YinBi_Select_Role": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YinBi_Start"
+        ],
+        "expected": [
+            "扫荡"
+        ],
+        "roi": [
+            606,
+            657,
+            105,
+            53
+        ],
+        "focus": "当前为扫荡队，开始战斗..."
+    },
+    "AdvancedDungeon_YinBi_Select_Role_Click_right": {
+        "action": "Click",
+        "target": [
+            632,
+            869,
+            14,
+            19
+        ],
+        "focus": "队伍名称非扫荡队，选择下一个..."
+    },
+    "AdvancedDungeon_YinBi_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_In_Battle",
+            "AdvancedDungeon_YinBi_NoEnoutht_JingShangZhengMing",
+            "AdvancedDungeon_YinBi_Start"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始",
+            "挑战"
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_In_Battle": {
+        "recognition": "OCR",
+        "expected": [
+            "A"
+        ],
+        "roi": [
+            12,
+            48,
+            149,
+            85
+        ],
+        "focus": "战斗中..."
+    },
+    "AdvancedDungeon_YinBi_NoEnoutht_JingShangZhengMing": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": [
+            "确定"
+        ],
+    },
+    "AdvancedDungeon_Goto_AdvancedDungeon_Home": {
+        "action": "ClickKey",
+        "key": [
+            4
+        ],
+        "post_wait_freezes": 1000
+    },
+    "AdvancedDungeon_Is_AdvancedDungeon_Home": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "经营"
+        ],
+        "focus": "已返回到每日政务界面"
+    },
+    "AdvancedDungeon_JingYanYaoShui": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_Select_LV"
+        ],
+        "action": "Click",
+        "roi": [
+            425,
+            114,
+            183,
+            1118
+        ],
+        "expected": "演习",
+        "max_hit": 1,
+        "focus": "打经验药水副本"
+    },
+    "AdvancedDungeon_JingYanYaoShui_Select_LV": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_SaoDang",
+            "AdvancedDungeon_JingYanYaoShui_Select_Role_Start"
+        ],
+        "expected": [
+            "60"
+        ],
+        "action": "Click",
+        "roi": [
+            80,
+            1038,
+            545,
+            136
+        ],
+        "focus": "选择最高级经验药水副本 - 60级，如果没到需要先手动打到60级"
+    },
+    "AdvancedDungeon_JingYanYaoShui_SaoDang": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_NoEnoutht_ZhanZhengYanXi",
+            "[JumpBack]AdvancedDungeon_JingYanYaoShui_Select_Max_Num",
+            "AdvancedDungeon_JingYanYaoShui_IsMax"
+        ],
+        "action": "Click",
+        "expected": [
+            "军团",
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_JingYanYaoShui_IsMax": {
+        "recognition": "OCR",
+        "next": [
+            "AdvancedDungeon_JingYanYaoShui_SaoDang_Start"
+        ],
+        "expected": [
+            "0"
+        ],
+        "roi": [
+            299,
+            503,
+            129,
+            247
+        ],
+    },
+    "AdvancedDungeon_JingYanYaoShui_SaoDang_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_SaoDang_Complete"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始"
+        ]
+    },
+    "AdvancedDungeon_JingYanYaoShui_SaoDang_Complete": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": "完成"
+    },
+    "AdvancedDungeon_JingYanYaoShui_Select_Max_Num": {
+        "recognition": "TemplateMatch",
+        "next": [],
+        "template": [
+            "AdvancedDungeonMax.png"
+        ],
+        "action": "Click",
+        "max_hit": 3
+    },
+    "AdvancedDungeon_JingYanYaoShui_Select_Role_Start": {
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_Select_Role",
+            "[JumpBack]AdvancedDungeon_JingYanYaoShui_Select_Role_Click_right"
+        ],
+    },
+    "AdvancedDungeon_JingYanYaoShui_Select_Role": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_JingYanYaoShui_Start"
+        ],
+        "expected": [
+            "扫荡"
+        ],
+        "roi": [
+            606,
+            657,
+            105,
+            53
+        ],
+        "focus": "当前为扫荡队，开始战斗..."
+    },
+    "AdvancedDungeon_JingYanYaoShui_Select_Role_Click_right": {
+        "action": "Click",
+        "target": [
+            632,
+            869,
+            14,
+            19
+        ],
+        "focus": "队伍名称非扫荡队，选择下一个..."
+    },
+    "AdvancedDungeon_JingYanYaoShui_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_In_Battle",
+            "AdvancedDungeon_JingYanYaoShui_NoEnoutht_ZhanZhengYanXi",
+            "AdvancedDungeon_JingYanYaoShui_Start"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始",
+            "挑战"
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_JingYanYaoShui_NoEnoutht_ZhanZhengYanXi": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": [
+            "确定"
+        ],
+    },
+    "AdvancedDungeon_YingXiang": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_Select_LV"
+        ],
+        "action": "Click",
+        "roi": [
+            425,
+            114,
+            183,
+            1118
+        ],
+        "expected": "搜集",
+        "max_hit": 1,
+        "focus": "打影像副本"
+    },
+    "AdvancedDungeon_YingXiang_Select_LV": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_SaoDang",
+            "AdvancedDungeon_YingXiang_Select_Role_Start"
+        ],
+        "expected": [
+            "40"
+        ],
+        "action": "Click",
+        "roi": [
+            98,
+            383,
+            501,
+            115
+        ],
+        "focus": "选择最高级影像副本 - 40级，如果没到需要先手动打到60级"
+    },
+    "AdvancedDungeon_YingXiang_SaoDang": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_NoEnoutht_JiMiYingXiang",
+            "[JumpBack]AdvancedDungeon_YingXiang_Select_Max_Num",
+            "AdvancedDungeon_YingXiang_IsMax"
+        ],
+        "action": "Click",
+        "expected": [
+            "军团",
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_YingXiang_IsMax": {
+        "recognition": "OCR",
+        "next": [
+            "AdvancedDungeon_YingXiang_SaoDang_Start"
+        ],
+        "expected": [
+            "0"
+        ],
+        "roi": [
+            299,
+            503,
+            129,
+            247
+        ],
+    },
+    "AdvancedDungeon_YingXiang_SaoDang_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_SaoDang_Complete"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始"
+        ]
+    },
+    "AdvancedDungeon_YingXiang_SaoDang_Complete": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": "完成"
+    },
+    "AdvancedDungeon_YingXiang_Select_Max_Num": {
+        "recognition": "TemplateMatch",
+        "next": [],
+        "template": [
+            "AdvancedDungeonMax.png"
+        ],
+        "action": "Click",
+        "max_hit": 3
+    },
+    "AdvancedDungeon_YingXiang_Select_Role_Start": {
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_Select_Role",
+            "[JumpBack]AdvancedDungeon_YingXiang_Select_Role_Click_right"
+        ],
+    },
+    "AdvancedDungeon_YingXiang_Select_Role": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_YingXiang_Start"
+        ],
+        "expected": [
+            "扫荡"
+        ],
+        "roi": [
+            606,
+            657,
+            105,
+            53
+        ],
+        "focus": "当前为扫荡队，开始战斗..."
+    },
+    "AdvancedDungeon_YingXiang_Select_Role_Click_right": {
+        "action": "Click",
+        "target": [
+            632,
+            869,
+            14,
+            19
+        ],
+        "focus": "队伍名称非扫荡队，选择下一个..."
+    },
+    "AdvancedDungeon_YingXiang_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_In_Battle",
+            "AdvancedDungeon_YingXiang_NoEnoutht_JiMiYingXiang",
+            "AdvancedDungeon_YingXiang_Start"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始",
+            "挑战"
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "AdvancedDungeon_YingXiang_NoEnoutht_JiMiYingXiang": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_Is_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+        ],
+        "expected": [
+            "确定"
+        ],
+    },
+    "AdvancedDungeon_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]AdvancedDungeon_LinkError",
+            "[JumpBack]AdvancedDungeon_LinkError_ServerError",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_HomePage_Without_Next",
+            "AdvancedDungeon_Comeback_home"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "领取完毕，返回主界面 - 输入返回键"
+    },
+    "AdvancedDungeon_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            306,
+            1174,
+            99,
+            63
+        ],
+        "expected": "协会",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+    },
+    "AdvancedDungeon_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "focus": "主界面：网络波动中"
+    },
+    "AdvancedDungeon_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "AdvancedDungeon_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "AdvancedDungeon_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "AdvancedDungeon_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "AdvancedDungeon_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "AdvancedDungeon_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

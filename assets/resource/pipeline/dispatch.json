@@ -201,6 +201,7 @@
             389
         ],
         "expected": "完成",
+        "action": "Click",
         "focus": "收集 派遣完成 队伍"
     },
     "Dispatch_Collect_Complete_Comeback": {
@@ -214,6 +215,7 @@
         "expected": [
             "关闭"
         ],
+        "action": "Click",
         "post_wait_freezes": 1500,
         "focus": "关闭 收获界面"
     },
