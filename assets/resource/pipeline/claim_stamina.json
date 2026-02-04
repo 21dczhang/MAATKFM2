@@ -108,8 +108,8 @@
         "recognition": "DirectHit",
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "ClaimStamina_HomePage": {

@@ -115,11 +115,11 @@
             "[JumpBack]Template_LinkError_ServerError",
             "[JumpBack]Template_TouchStart_Connecting",
         ],
-        "timeout": 2500,
+        "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "Template_HomePage": {
@@ -134,14 +134,14 @@
             "[JumpBack]Template_callBackup_button",
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
     },
     "Template_HomePage2": {
         "recognition": "OCR",
@@ -152,12 +152,12 @@
             "Template_GotoTemplate1"
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "focus": "已回到主界面"
     },
     "Template_GotoTemplate1": {
@@ -184,7 +184,7 @@
             "[JumpBack]Template_LinkError_ServerError",
             "[JumpBack]Template_TouchStart_Connecting",
             "Template_HomePage_Without_Next",
-            "Template_callBackup_button"
+            "[JumpBack]Template_callBackup_button"
         ],
         "key": [
             4
@@ -194,14 +194,14 @@
     "Template_HomePage_Without_Next": {
         "recognition": "OCR",
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            389,
+            837,
+            303,
+            295
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
     },
     "Template_HomePage_Conneting": {
         "recognition": "OCR",

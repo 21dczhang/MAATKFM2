@@ -115,11 +115,11 @@
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
         ],
-        "timeout": 2500,
+        "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "Shop_HomePage": {
@@ -134,14 +134,14 @@
             "[JumpBack]Shop_callBackup_button",
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            389,
+            837,
+            303,
+            295
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
     },
     "Shop_HomePage2": {
         "recognition": "OCR",
@@ -152,12 +152,12 @@
             "Shop_GotoShop1"
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            389,
+            837,
+            303,
+            295
         ],
-        "expected": "协会",
+        "expected": "出征",
         "focus": "已回到主界面"
     },
     "Shop_GotoShop1": {
@@ -190,7 +190,7 @@
             "Shop_Shop_Start",
         ],
         "expected": [
-            "兑换"
+            "特殊"
         ],
         "post_delay": 1500,
         "focus": "已经进入商店界面"
@@ -211,6 +211,7 @@
             736
         ],
         "timeout": 2000,
+        "post_wait_freezes": 1000,
         "focus": "点击购买以及确定"
     },
     "Shop_Shop_Start": {
@@ -240,6 +241,7 @@
             "[JumpBack]Shop_TouchStart_Connecting",
             "[JumpBack]JiaoYiSuo_ZhaoMuMingLing",
             "[JumpBack]JiaoYiSuo_TiliYaoShui",
+            "[JumpBack]JiaoYiSuo_JinJiLuYong",
             //后续有什么要购买的，加这里，参考JiaoYiSuo_ZhaoMuMingLing
             "JiYiSuo_Goto_XieHui"
         ],
@@ -256,15 +258,16 @@
         ],
         "max_hit": 1,
         "roi": [
-            79,
-            310,
-            161,
-            325
+            61,
+            290,
+            552,
+            367
         ],
         "expected": [
             "命令"
         ],
         "action": "Click",
+        "timeout": 1000,
         "focus": "购买 交易所:招募命令"
     },
     "JiaoYiSuo_TiliYaoShui": {
@@ -280,12 +283,31 @@
             "体力"
         ],
         "action": "Click",
+        "timeout": 1000,
         "focus": "购买 交易所: 体力药水"
+    },
+    "JiaoYiSuo_JinJiLuYong": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Shop_LinkError",
+            "[JumpBack]Shop_LinkError_ServerError",
+            "[JumpBack]Shop_TouchStart_Connecting",
+            "Shop_Buy_And_Confirm",
+        ],
+        "max_hit": 1,
+        "expected": [
+            "录用"
+        ],
+        "action": "Click",
+        "timeout": 1000,
+        "focus": "购买 交易所: 紧急录用证"
     },
     "JiYiSuo_Goto_XieHui": {
         "recognition": "OCR",
         "next": [],
         "action": "Click",
+        "pre_wait_freezes": 2500,
+        "post_wait_freezes": 2500,
         "expected": [
             "协会"
         ],
@@ -320,15 +342,16 @@
         ],
         "max_hit": 1,
         "roi": [
-            79,
-            310,
-            161,
-            325
+            61,
+            290,
+            552,
+            367
         ],
         "expected": [
-            "银币"
+            "^80$"
         ],
         "action": "Click",
+        "timeout": 1000,
         "focus": "购买 协会:折扣银币"
     },
     "XieHui_ZhaoHuanQiYue": {
@@ -344,6 +367,7 @@
             "契约"
         ],
         "action": "Click",
+        "timeout": 1000,
         "focus": "购买 交易所:召唤契约"
     },
     "XieHui_MoJingShi": {
@@ -359,6 +383,7 @@
             "魔晶石"
         ],
         "action": "Click",
+        "timeout": 1000,
         "focus": "购买 交易所:魔晶石"
     },
     "JiYiSuo_Goto_ShenMi": {},
@@ -372,7 +397,7 @@
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
             "Shop_HomePage_Without_Next",
-            "Shop_callBackup_button"
+            "[JumpBack]Shop_callBackup_button"
         ],
         "key": [
             4
@@ -382,14 +407,14 @@
     "Shop_HomePage_Without_Next": {
         "recognition": "OCR",
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            389,
+            837,
+            303,
+            295
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
     },
     "Shop_HomePage_Conneting": {
         "recognition": "OCR",

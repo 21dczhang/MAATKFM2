@@ -115,11 +115,11 @@
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
         ],
-        "timeout": 2500,
+        "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "Alchemy_HomePage": {
@@ -489,8 +489,9 @@
         ],
         "action": "Click",
         "expected": "贸易",
-        "max_hit": 10,
+        "max_hit": 15,
         "post_wait_freezes": 500,
+        "timeout": 5000,
         "focus": "自动完成订单",
     },
     "Alchemy_Comeback_home": {
@@ -500,7 +501,7 @@
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
             "Alchemy_HomePage_Without_Next",
-            "Alchemy_callBackup_button"
+            "[JumpBack]Alchemy_callBackup_button"
         ],
         "key": [
             4

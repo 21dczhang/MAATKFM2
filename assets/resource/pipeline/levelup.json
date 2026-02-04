@@ -1,0 +1,506 @@
+{
+    "LevelUP_Start": {
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_Logo",
+            "[JumpBack]LevelUP_TouchStart",
+            "LevelUP_HomePage",
+            "[JumpBack]LevelUP_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始自动升级",
+        "focus": "开始自动升级",
+    },
+    "LevelUP_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_LoadingPage",
+            "LevelUP_Logo",
+            "LevelUP_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "LevelUP_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_Skip_Notice",
+            "LevelUP_TouchStart",
+            "LevelUP_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "LevelUP_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "LevelUP_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "LevelUP_HomePage",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_TouchStart",
+            "[JumpBack]LevelUP_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "LevelUP_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "action": "DoNothing"
+    },
+    "LevelUP_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "LevelUP_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_HomePage_Conneting",
+            "LevelUP_HomePage2",
+            "[JumpBack]LevelUP_Logo",
+            "[JumpBack]LevelUP_LoadingPage",
+            "[JumpBack]LevelUP_callBackup_button",
+        ],
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "LevelUP_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_GotoLevelUP1"
+        ],
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "LevelUP_GotoLevelUP1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_GotoLevelUP_Start",
+        ],
+        "target": [
+            207,
+            1180,
+            70,
+            55
+        ],
+        "post_delay": 1500,
+        "focus": "点击 角色界面"
+    },
+    "LevelUP_GotoLevelUP_Start": {
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Select_Sort",
+            "[JumpBack]LevelUP_GotoLevelUP_Select_Rule",
+            "LevelUP_Comeback_home"
+        ],
+        "focus": "开始升级角色 "
+    },
+    "LevelUP_GotoLevelUP_Select_Sort": {
+        "recognition": "TemplateMatch",
+        "next": [],
+        "template": [
+            "排序-大到小.png"
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "focus": "排序方式为大到小，选择为小到大"
+    },
+    "LevelUP_GotoLevelUP_Select_Rule": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_GotoLevelUP_Is_Select_Rule"
+        ],
+        "roi": [
+            550,
+            542,
+            111,
+            43
+        ],
+        "expected": [
+            "等级",
+            "稀有度",
+            "必杀技",
+            "HP",
+            "ATK",
+            "进化",
+            "潜力",
+            "房间"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "focus": "点击筛选按键"
+    },
+    "LevelUP_GotoLevelUP_Is_Select_Rule": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Select_Lv",
+            "[JumpBack]LevelUP_GotoLevelUP_Select_Rarity",
+            "[JumpBack]LevelUP_GotoLevelUP_Select_Confirm",
+            "LevelUP_GotoLevelUP_Start_LevelUP_Select_Role"
+        ],
+        "expected": [
+            "序"
+        ],
+        "focus": "确认当前是否筛选界面"
+    },
+    "LevelUP_GotoLevelUP_Select_Lv": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "等级"
+        ],
+        "max_hit": 2,
+        "action": "Click",
+        "focus": "选择等级优先"
+    },
+    "LevelUP_GotoLevelUP_Select_Rarity": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "N"
+        ],
+        "max_hit": 1,
+        "pre_wait_freezes": 1500,
+        "action": "Click",
+        "focus": "选择品质,可选,默认N卡"
+    },
+    "LevelUP_GotoLevelUP_Select_Confirm": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "确定"
+        ],
+        "max_hit": 1,
+        "pre_wait_freezes": 1500,
+        "action": "Click",
+        "focus": "点击确定"
+    },
+    "LevelUP_GotoLevelUP_Start_LevelUP_Select_Role": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_GotoLevelUP_Start_LevelUP_Start_UP"
+        ],
+        "target": [
+            443,
+            773,
+            37,
+            41
+        ],
+        "focus": "选择第三个角色"
+    },
+    "LevelUP_GotoLevelUP_Start_LevelUP_Start_UP": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up1",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up2",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up3"
+        ],
+        "roi": [
+            586,
+            932,
+            133,
+            207
+        ],
+        "expected": [
+            "升级"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1500,
+        "timeout": 5500,
+        "focus": "角色选择完毕， 点击升级"
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up1": {
+        "action": "Click",
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up1"
+        ],
+        "target": [
+            125,
+            824,
+            44,
+            35
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+        "focus": "第一次选择 药水 - 升级"
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up1": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "升级"
+        ],
+        "action": "Click",
+        "roi": [
+            257,
+            1027,
+            204,
+            61
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up2": {
+        "action": "Click",
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up2"
+        ],
+        "target": [
+            125,
+            822,
+            46,
+            31
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+        "focus": "第二次选择 药水 - 升级"
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up2": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "升级"
+        ],
+        "action": "Click",
+        "roi": [
+            257,
+            1027,
+            204,
+            61
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_And_Up3": {
+        "action": "Click",
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up3"
+        ],
+        "target": [
+            125,
+            822,
+            46,
+            31
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+        "focus": "第三次选择 药水 - 升级"
+    },
+    "LevelUP_GotoLevelUP_Start_Select_JingYanYaoShui_Up3": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "升级"
+        ],
+        "action": "Click",
+        "roi": [
+            257,
+            1027,
+            204,
+            61
+        ],
+        "max_hit": 1,
+        "timeout": 2000,
+    },
+    "LevelUP_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]LevelUP_LinkError",
+            "[JumpBack]LevelUP_LinkError_ServerError",
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_HomePage_Without_Next",
+            "[JumpBack]LevelUP_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "领取完毕，返回主界面 - 输入返回键"
+    },
+    "LevelUP_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "LevelUP_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "focus": "主界面：网络波动中"
+    },
+    "LevelUP_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LevelUP_TouchStart_Connecting",
+            "LevelUP_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "LevelUP_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "LevelUP_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "LevelUP_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "LevelUP_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

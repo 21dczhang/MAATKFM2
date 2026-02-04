@@ -109,8 +109,9 @@
         "recognition": "DirectHit",
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "timeout": 1000,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "Dispatch_HomePage": {
@@ -182,6 +183,7 @@
             "完成"
         ],
         "action": "Click",
+        "post_delay": 2000,
         "focus": "进入 派遣界面"
     },
     "Dispatch_Collect_Complete": {
@@ -500,13 +502,41 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_Role_RenyuanBuchong",
-            "[JumpBack]Dispatch_Dispatch_Select_Role_WuheshiRenxuan"
+            "[JumpBack]Dispatch_Dispatch_Select_Role_WuheshiRenxuan",
+            "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen",
         ],
         "expected": [
             "条件推荐"
         ],
         "action": "Click",
         "focus": "点击条件推荐"
+    },
+    "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen": {
+        "recognition": "ColorMatch",
+        "next": [
+            "[JumpBack]Dispatch_LinkError",
+            "[JumpBack]Dispatch_LinkError_ServerError",
+            "[JumpBack]Dispatch_TouchStart_Connecting",
+            "Dispatch_Dispatch_Depart",
+            "[JumpBack]Dispatch_Dispatch_Select_Role_Back",
+        ],
+        "roi": [
+            531,
+            487,
+            16,
+            17
+        ],
+        "upper": [
+            175,
+            169,
+            165
+        ],
+        "lower": [
+            155,
+            149,
+            145
+        ],
+        "focus": "条件推荐的时候，已经满人，不需要再点击角色补充"
     },
     "Dispatch_Dispatch_Select_Role_RenyuanBuchong": {
         "recognition": "OCR",
@@ -711,7 +741,7 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_HomePage_Without_Next",
-            "Dispatch_callBackup_button"
+            "[JumpBack]Dispatch_callBackup_button"
         ],
         "key": [
             4

@@ -115,11 +115,11 @@
             "[JumpBack]Association_LinkError_ServerError",
             "[JumpBack]Association_TouchStart_Connecting",
         ],
-        "timeout": 2500,
+        "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        "pre_wait_freezes": 500,
-        "post_wait_freezes": 500,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
         "focus": "触发返回键：跳过签到、礼包及各种弹窗"
     },
     "Association_HomePage": {
@@ -175,7 +175,7 @@
             27
         ],
         "post_delay": 1500,
-        "focus": "点击 炼金界面"
+        "focus": "点击 协会界面"
     },
     "Association_GotoAssociation2": {
         "recognition": "OCR",
@@ -183,7 +183,8 @@
             "[JumpBack]Association_LinkError",
             "[JumpBack]Association_LinkError_ServerError",
             "[JumpBack]Association_TouchStart_Connecting",
-            "Association_Is_Association"
+            "Association_Is_Association",
+            "Association_Not_Association"
         ],
         "action": "Click",
         "roi": [
@@ -211,6 +212,20 @@
         ],
         "focus": "确认已加入公会，领取奖励"
     },
+    "Association_Not_Association": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Association_LinkError",
+            "[JumpBack]Association_LinkError_ServerError",
+            "[JumpBack]Association_TouchStart_Connecting",
+            "Association_Comeback_home"
+        ],
+        "expected": [
+            "共"
+        ],
+        "enabled": false,
+        "focus": "没有加入公会，结束"
+    },
     "Association_Is_Association_Receive_Award": {
         "action": "Click",
         "next": [
@@ -236,7 +251,7 @@
             "[JumpBack]Association_LinkError_ServerError",
             "[JumpBack]Association_TouchStart_Connecting",
             "Association_HomePage_Without_Next",
-            "Association_callBackup_button"
+            "[JumpBack]Association_callBackup_button"
         ],
         "key": [
             4
@@ -246,14 +261,14 @@
     "Association_HomePage_Without_Next": {
         "recognition": "OCR",
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            389,
+            837,
+            303,
+            295
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
     },
     "Association_HomePage_Conneting": {
         "recognition": "OCR",
