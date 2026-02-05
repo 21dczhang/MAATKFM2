@@ -197,7 +197,9 @@
     },
     "Shop_Buy_And_Confirm": {
         "recognition": "OCR",
-        "next": [],
+        "next": [
+            "Shop_Buy_And_Confirm"
+        ],
         "action": "Click",
         "expected": [
             "购买",
@@ -268,6 +270,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
+        "post_wait_freezes": 500,
         "focus": "购买 交易所:招募命令"
     },
     "JiaoYiSuo_TiliYaoShui": {
@@ -284,6 +287,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
+        "post_wait_freezes": 500,
         "focus": "购买 交易所: 体力药水"
     },
     "JiaoYiSuo_JinJiLuYong": {
@@ -300,6 +304,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
+        "post_wait_freezes": 500,
         "focus": "购买 交易所: 紧急录用证"
     },
     "JiYiSuo_Goto_XieHui": {
@@ -325,6 +330,7 @@
             "[JumpBack]Shop_TouchStart_Connecting",
             "[JumpBack]XieHui_ZhaoHuanQiYue",
             "[JumpBack]XieHui_MoJingShi",
+            "[JumpBack]XieHui_JiLu",
             "[JumpBack]XieHui_YinBi",
             //后续有什么要购买的，加这里，参考JiaoYiSuo_ZhaoMuMingLing
             "JiYiSuo_Goto_ShenMi", //这个后续用来跳转神秘商店，目前不打算做神秘商店的，因为神秘商店一个月手动一次购买就行了
@@ -351,6 +357,7 @@
             "^80$"
         ],
         "action": "Click",
+        "post_wait_freezes": 500,
         "timeout": 1000,
         "focus": "购买 协会:折扣银币"
     },
@@ -368,7 +375,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
-        "focus": "购买 交易所:召唤契约"
+        "focus": "购买 协会:召唤契约"
     },
     "XieHui_MoJingShi": {
         "recognition": "OCR",
@@ -384,7 +391,24 @@
         ],
         "action": "Click",
         "timeout": 1000,
-        "focus": "购买 交易所:魔晶石"
+        "focus": "购买 协会:魔晶石"
+    },
+    "XieHui_JiLu": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Shop_LinkError",
+            "[JumpBack]Shop_LinkError_ServerError",
+            "[JumpBack]Shop_TouchStart_Connecting",
+            "Shop_Buy_And_Confirm",
+        ],
+        "max_hit": 1,
+        "expected": [
+            "克"
+        ],
+        "action": "Click",
+        "timeout": 1000,
+        "post_wait_freezes": 500,
+        "focus": "购买 协会:阿克色纪录"
     },
     "JiYiSuo_Goto_ShenMi": {},
     "Shop_ShopStart_ShenMi": {

@@ -5,6 +5,7 @@
             "[JumpBack]ClaimStamina_LinkError_ServerError",
             "[JumpBack]ClaimStamina_TouchStart_Connecting",
             "ClaimStamina_HomePage",
+            "[JumpBack]ClaimStamina_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取好友体力",
@@ -124,12 +125,12 @@
             "[JumpBack]ClaimStamina_callBackup_button",
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
         "focus": "检测到 正下方 - 协会，等待1s再次检查"
     },
@@ -142,12 +143,12 @@
             "ClaimStamina_GotoFriend1"
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "focus": "已回到主界面"
     },
     "ClaimStamina_GotoFriend1": {

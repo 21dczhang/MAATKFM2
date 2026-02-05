@@ -58,16 +58,19 @@
         {
             "name": "启动游戏",
             "entry": "StartGame_Start",
+            "default_check": true,
             "description": "启动游戏ing"
         },
         {
             "name": "领取好友体力",
             "entry": "ClaimStamina_Start",
+            "default_check": true,
             "description": "自动领取好友体力,需要自己先把好友加满",
         },
         {
             "name": "自动派遣",
             "entry": "Dispatch_Start",
+            "default_check": true,
             "description": "自动派遣，只需要选房间，默认自动派遣最高等级",
             "option": [
                 "派遣房间1选择",
@@ -78,6 +81,7 @@
         {
             "name": "自动炼金 & 提交订单",
             "entry": "Alchemy_Start",
+            "default_check": true,
             "description": "自动炼金，默认2紫1蓝，后续可能增加高级材料炼金支持,(都没做，默认炼金数量加满)",
             "option": [
                 "炼金槽位分配",
@@ -87,6 +91,7 @@
         {
             "name": "自动刷高级银币、经验药水、影像副本",
             "entry": "AdvancedDungeon_Start",
+            "default_check": true,
             "description": "自动刷高级副本，需要准备好一只队伍，名称叫 扫荡队，或者选择扫荡方式刷",
             "option": [
                 "刷副本方式",
@@ -98,11 +103,13 @@
         {
             "name": "协会奖励自动领取(需要提前加入协会",
             "entry": "Association_Start",
+            "default_check": true,
             "description": "协会奖励自动领取(需要提前加入协会",
         },
         {
             "name": "商店物品自动购买",
             "entry": "Shop_Start",
+            "default_check": true,
             "description": "日常商店、协会商店、神秘商店自动购买",
             "option": [
                 "是否购买交易所",
@@ -113,6 +120,7 @@
         {
             "name": "日常任务 - 角色升级3次",
             "entry": "LevelUP_Start",
+            "default_check": true,
             "description": "日常任务 - 角色升级3次",
             "option": [
                 "升级喜好策略",
@@ -121,6 +129,7 @@
         {
             "name": "日常任务 - 角色调教3次",
             "entry": "TiaoJiao_Start",
+            "default_check": true,
             "description": "日常任务 - 角色调教3次",
             "option": [
                 "调教喜好策略 - 属性选择",
@@ -130,12 +139,21 @@
         {
             "name": "日常任务 - 领取日常任务奖励",
             "entry": "DailyTask_Start",
+            "default_check": true,
             "description": "日常任务 - 领取奖励（日常、每周、每月、个人、活动、协会",
         },
         {
+            "name": "战斗",
+            "entry": "DailyTask_Start",
+            "default_check": true,
+            "description": "战斗 - 选择消耗体力的方式",
+            "option": [
+                "战斗选择 - 目前只支持限时活动"
+            ]
+        },
+        {
             "name": "测试任务",
-            "entry": "TiaoJiao_GotoTiaoJiao_Select_Rule",
-            "description": "测试子任务",
+            "entry": "Dispatch_Dispatch_XunLianSuo_Slide_Once"
         }
     ],
     "option": {
@@ -596,6 +614,16 @@
                 },
                 {
                     "name": "优先选择暗属性"
+                },
+            ]
+        },
+        "战斗选择 - 目前只支持限时活动": {
+            "description": "战斗选择 - 目前只支持限时活动",
+            "type": "select",
+            "default_case": "限时活动",
+            "cases": [
+                {
+                    "name": "限时活动"
                 },
             ]
         },

@@ -126,14 +126,14 @@
             "[JumpBack]Dispatch_callBackup_button",
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
     },
     "Dispatch_HomePage2": {
         "recognition": "OCR",
@@ -144,12 +144,12 @@
             "Dispatch_GotoDispatch1"
         ],
         "roi": [
-            306,
-            1174,
-            99,
-            63
+            445,
+            867,
+            250,
+            249
         ],
-        "expected": "协会",
+        "expected": "出征",
         "focus": "已回到主界面"
     },
     "Dispatch_GotoDispatch1": {
@@ -167,6 +167,7 @@
             27
         ],
         "post_delay": 1500,
+        "timeout": 6000,
         "focus": "点击 派遣界面"
     },
     "Dispatch_GotoDispatch2": {
@@ -231,7 +232,7 @@
             "[JumpBack]Dispatch_DispatchStart_Home3",
             "Dispatch_Comeback_home",
         ],
-        "post_wait_freezes": 1500,
+        "post_wait_freezes": 500,
         "focus": "准备 派遣"
     },
     "Dispatch_DispatchStart_Home1": {
@@ -662,7 +663,7 @@
         "action": "Click",
         "target": [
             630,
-            421,
+            540,
             3,
             3
         ],

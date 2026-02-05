@@ -196,7 +196,8 @@
         ],
         "max_hit": 1,
         "action": "Click",
-        "focus": "排序方式为大到小，选择为小到大"
+        "focus": "排序方式为大到小，选择为小到大",
+        "post_delay": 2500
     },
     "LevelUP_GotoLevelUP_Select_Rule": {
         "recognition": "OCR",
