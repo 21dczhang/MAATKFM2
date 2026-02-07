@@ -4,6 +4,7 @@
             "[JumpBack]LevelUP_LinkError",
             "[JumpBack]LevelUP_LinkError_ServerError",
             "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_Skip_Notice",
             "[JumpBack]LevelUP_Logo",
             "[JumpBack]LevelUP_TouchStart",
             "LevelUP_HomePage",
@@ -83,6 +84,7 @@
             "[JumpBack]LevelUP_LinkError_ServerError",
             "LevelUP_HomePage",
             "[JumpBack]LevelUP_TouchStart_Connecting",
+            "[JumpBack]LevelUP_Skip_Notice",
             "LevelUP_TouchStart",
             "[JumpBack]LevelUP_callBackup_button",
         ],
@@ -106,6 +108,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "action": "DoNothing"
     },
     "LevelUP_callBackup_button": {
@@ -191,7 +194,7 @@
     "LevelUP_GotoLevelUP_Select_Sort": {
         "recognition": "TemplateMatch",
         "next": [],
-        "template": [
+        "LevelUP": [
             "排序-大到小.png"
         ],
         "max_hit": 1,
@@ -455,6 +458,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "LevelUP_LinkError": {
@@ -489,6 +493,7 @@
     "LevelUP_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]LevelUP_LinkError2",
             "LevelUP_Start"
         ],
         "roi": [

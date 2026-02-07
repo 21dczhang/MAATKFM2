@@ -4,14 +4,15 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_Skip_Notice",
             "[JumpBack]DailyTask_Logo",
             "[JumpBack]DailyTask_TouchStart",
             "DailyTask_HomePage",
             "[JumpBack]DailyTask_callBackup_button",
         ],
         "pre_wait_freezes": 500,
-        "doc": "开始自动炼金",
-        "focus": "开始自动炼金",
+        "doc": "开始领取每日任务奖励",
+        "focus": "开始领取每日任务奖励",
     },
     "DailyTask_Logo": {
         "recognition": "OCR",
@@ -83,6 +84,7 @@
             "[JumpBack]DailyTask_LinkError_ServerError",
             "DailyTask_HomePage",
             "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_Skip_Notice",
             "DailyTask_TouchStart",
             "[JumpBack]DailyTask_callBackup_button",
         ],
@@ -456,6 +458,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "DailyTask_LinkError": {
@@ -490,6 +493,7 @@
     "DailyTask_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]DailyTask_LinkError2",
             "DailyTask_Start"
         ],
         "roi": [

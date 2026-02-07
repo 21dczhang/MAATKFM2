@@ -279,6 +279,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "Association_LinkError": {

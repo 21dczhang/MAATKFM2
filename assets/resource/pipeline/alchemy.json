@@ -4,7 +4,7 @@
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
-            "[JumpBack]Alchemy_Logo",
+            "[JumpBack]Alchemy_Skip_Notice",
             "[JumpBack]Alchemy_TouchStart",
             "Alchemy_HomePage",
             "[JumpBack]Alchemy_callBackup_button",
@@ -83,6 +83,7 @@
             "[JumpBack]Alchemy_LinkError_ServerError",
             "Alchemy_HomePage",
             "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_Skip_Notice",
             "Alchemy_TouchStart",
             "[JumpBack]Alchemy_callBackup_button",
         ],
@@ -529,6 +530,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "Alchemy_LinkError": {

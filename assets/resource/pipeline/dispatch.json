@@ -4,6 +4,8 @@
             "[JumpBack]Dispatch_LinkError",
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
+            "[JumpBack]Dispatch_Skip_Notice",
+            "[JumpBack]Dispatch_TouchStart",
             "Dispatch_HomePage",
             "[JumpBack]Dispatch_callBackup_button",
         ],
@@ -81,6 +83,7 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "Dispatch_HomePage",
             "[JumpBack]Dispatch_TouchStart_Connecting",
+            "[JumpBack]Dispatch_Skip_Notice",
             "Dispatch_TouchStart",
             "[JumpBack]Dispatch_callBackup_button",
         ],
@@ -205,6 +208,7 @@
         ],
         "expected": "完成",
         "action": "Click",
+        "post_delay": 1500,
         "focus": "收集 派遣完成 队伍"
     },
     "Dispatch_Collect_Complete_Comeback": {
@@ -510,6 +514,7 @@
             "条件推荐"
         ],
         "action": "Click",
+        "post_wait_freezes": 1000,
         "focus": "点击条件推荐"
     },
     "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen": {
@@ -537,6 +542,7 @@
             149,
             145
         ],
+        "pre_wait_freezes": 1000,
         "focus": "条件推荐的时候，已经满人，不需要再点击角色补充"
     },
     "Dispatch_Dispatch_Select_Role_RenyuanBuchong": {
@@ -562,6 +568,7 @@
             "确定"
         ],
         "action": "Click",
+        "post_delay": 2000,
         "focus": "没有合适人选"
     },
     "Dispatch_Dispatch_Select_Role_Back": {
@@ -770,6 +777,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "Dispatch_LinkError": {
@@ -804,6 +812,7 @@
     "Dispatch_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]Dispatch_LinkError2",
             "Dispatch_Start"
         ],
         "roi": [

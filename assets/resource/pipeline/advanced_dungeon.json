@@ -4,6 +4,7 @@
             "[JumpBack]AdvancedDungeon_LinkError",
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_Skip_Notice",
             "[JumpBack]AdvancedDungeon_Logo",
             "[JumpBack]AdvancedDungeon_TouchStart",
             "AdvancedDungeon_HomePage",
@@ -83,6 +84,7 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "AdvancedDungeon_HomePage",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_Skip_Notice",
             "AdvancedDungeon_TouchStart",
             "[JumpBack]AdvancedDungeon_callBackup_button",
         ],
@@ -106,6 +108,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "action": "DoNothing"
     },
     "AdvancedDungeon_callBackup_button": {
@@ -331,7 +334,7 @@
     "AdvancedDungeon_YinBi_Select_Max_Num": {
         "recognition": "TemplateMatch",
         "next": [],
-        "template": [
+        "AdvancedDungeon": [
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
@@ -428,7 +431,7 @@
         "key": [
             4
         ],
-        "post_wait_freezes": 1000
+        "post_delay": 1000
     },
     "AdvancedDungeon_Is_AdvancedDungeon_Home": {
         "recognition": "OCR",
@@ -541,7 +544,7 @@
     "AdvancedDungeon_JingYanYaoShui_Select_Max_Num": {
         "recognition": "TemplateMatch",
         "next": [],
-        "template": [
+        "AdvancedDungeon": [
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
@@ -723,7 +726,7 @@
     "AdvancedDungeon_YingXiang_Select_Max_Num": {
         "recognition": "TemplateMatch",
         "next": [],
-        "template": [
+        "AdvancedDungeon": [
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
@@ -837,6 +840,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "AdvancedDungeon_LinkError": {
@@ -871,6 +875,7 @@
     "AdvancedDungeon_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]AdvancedDungeon_LinkError2",
             "AdvancedDungeon_Start"
         ],
         "roi": [

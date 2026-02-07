@@ -4,6 +4,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
+            "[JumpBack]Shop_Skip_Notice",
             "[JumpBack]Shop_Logo",
             "[JumpBack]Shop_TouchStart",
             "Shop_HomePage",
@@ -83,6 +84,7 @@
             "[JumpBack]Shop_LinkError_ServerError",
             "Shop_HomePage",
             "[JumpBack]Shop_TouchStart_Connecting",
+            "[JumpBack]Shop_Skip_Notice",
             "Shop_TouchStart",
             "[JumpBack]Shop_callBackup_button",
         ],
@@ -106,6 +108,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "action": "DoNothing"
     },
     "Shop_callBackup_button": {
@@ -449,6 +452,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "Shop_LinkError": {
@@ -483,6 +487,7 @@
     "Shop_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]Shop_LinkError2",
             "Shop_Start"
         ],
         "roi": [

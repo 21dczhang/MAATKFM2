@@ -137,23 +137,34 @@
             ],
         },
         {
+            "name": "限时活动 - 首次通关",
+            "entry": "LimitedTime_Event_First_Start",
+            "default_check": true,
+            "description": "限时活动 - 首次通关，需要设置一个队伍，叫 活动队,并且需要auto 能打过",
+            "option": [
+                "首次通关 - 体力消耗选择 ",
+                "首次通关 - 限时活动类型"
+            ]
+        },
+        {
+            "name": "战斗",
+            "entry": "LimitedTime_Event_Start",
+            "default_check": true,
+            "description": "战斗 - 选择消耗体力的方式 选择限时活动时，需要设置一个队伍，叫 活动队",
+            "option": [
+                "战斗选择 - 目前只支持限时活动",
+                "体力消耗选择 "
+            ]
+        },
+        {
             "name": "日常任务 - 领取日常任务奖励",
             "entry": "DailyTask_Start",
             "default_check": true,
             "description": "日常任务 - 领取奖励（日常、每周、每月、个人、活动、协会",
         },
         {
-            "name": "战斗",
-            "entry": "DailyTask_Start",
-            "default_check": true,
-            "description": "战斗 - 选择消耗体力的方式",
-            "option": [
-                "战斗选择 - 目前只支持限时活动"
-            ]
-        },
-        {
             "name": "测试任务",
-            "entry": "Dispatch_Dispatch_XunLianSuo_Slide_Once"
+            "entry": "LimitedTime_Event_First_Click_Skip"
         }
     ],
     "option": {
@@ -623,9 +634,219 @@
             "default_case": "限时活动",
             "cases": [
                 {
-                    "name": "限时活动"
+                    "description": "需要手动通关一次，默认选最高体力本打，没有手动通关默认勾选了也没有作用",
+                    "name": "限时活动",
+                    "option": [
+                        "限时活动类型"
+                    ]
+                },
+                {
+                    "description": "开发中，无限期ing...",
+                    "name": "摸鱼塔"
+                }
+            ]
+        },
+        "限时活动类型": {
+            "description": "限时活动 类型 选择 ，即剧情类或者材料兑换类。8w 分 换 SSR属于剧情类， 只能兑换材料的属于材料兑换类",
+            "type": "select",
+            "default_case": "剧情类",
+            "cases": [
+                {
+                    "description": "需要手动通关一次，默认选最高体力本打，没有手动通关默认勾选了也没有作用",
+                    "name": "剧情类",
+                    "pipeline_override": {
+                        "LimitedTime_Event_Select_Level_And_Start": {
+                            "next": [
+                                "LimitedTime_Event_8W_SSR"
+                            ]
+                        },
+                    }
+                },
+                {
+                    "description": "需要手动通关一次，默认选最高体力本打，没有手动通关默认勾选了也没有作用",
+                    "name": "材料兑换类",
+                    "pipeline_override": {
+                        "LimitedTime_Event_Select_Level_And_Start": {
+                            "next": [
+                                "LimitedTime_Event_HuanSuCai"
+                            ]
+                        },
+                    }
                 },
             ]
+        },
+        "体力消耗选择 ": {
+            "description": "体力消耗选择 ",
+            "type": "select",
+            "default_case": "用完当前体力，不使用魔晶石和药水",
+            "cases": [
+                {
+                    "description": "只消耗当前体力，不使用魔晶石和体力药水",
+                    "name": "用完当前体力，不使用魔晶石和药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "使用全部药水",
+                    "name": "使用全部体力药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_NoEnoutht_AP_Use_All_TiLiYaoShui"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "使用期限低于3天的体力药水",
+                    "name": "使用期限低于3天的体力药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "开发中，无限期ing...",
+                    "name": "使用魔晶石购买药水",
+                    "option": [
+                        "魔晶石购买体力次数"
+                    ],
+                    "pipeline_override": {
+                        "LimitedTime_Event_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_NoEnoutht_AP_Use_MoJingshi"
+                            ],
+                        },
+                    }
+                },
+            ]
+        },
+        "魔晶石购买体力次数": {
+            "description": "魔晶石购买体力次数， 建议不要太多次，每天有次数限制，目前代码没有做次数校验",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "购买次数",
+                    "description": "购买次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "LimitedTime_Event_Buy_AP": {
+                    "max_hit": "{购买次数}"
+                }
+            }
+        },
+        "首次通关 - 限时活动类型": {
+            "description": "限时活动 类型 选择 ，即剧情类或者材料兑换类。8w 分 换 SSR属于剧情类， 只能兑换材料的属于材料兑换类",
+            "type": "select",
+            "default_case": "剧情类",
+            "cases": [
+                {
+                    "description": "选择活动类型",
+                    "name": "剧情类",
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_Select_Level_And_Start": {
+                            "next": [
+                                "LimitedTime_Event_First_8W_SSR"
+                            ]
+                        },
+                    }
+                },
+                {
+                    "description": "选择活动类型",
+                    "name": "材料兑换类",
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_Select_Level_And_Start": {
+                            "next": [
+                                "LimitedTime_Event_First_HuanSuCai"
+                            ]
+                        },
+                    }
+                },
+            ]
+        },
+        "首次通关 - 体力消耗选择 ": {
+            "description": "体力消耗选择 ",
+            "type": "select",
+            "default_case": "用完当前体力，不使用魔晶石和药水",
+            "cases": [
+                {
+                    "description": "只消耗当前体力，不使用魔晶石和体力药水",
+                    "name": "用完当前体力，不使用魔晶石和药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_First_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "使用全部体力药水",
+                    "name": "使用全部体力药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_First_NoEnoutht_AP_Use_All_TiLiYaoShui"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "使用期限低于3天的体力药水",
+                    "name": "使用期限低于3天的体力药水",
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_First_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui"
+                            ],
+                        },
+                    }
+                },
+                {
+                    "description": "开发中，无限期ing...",
+                    "name": "使用魔晶石购买药水",
+                    "option": [
+                        "首次通关 - 魔晶石购买体力次数"
+                    ],
+                    "pipeline_override": {
+                        "LimitedTime_Event_First_NoEnoutht_AP": {
+                            "next": [
+                                "LimitedTime_Event_First_NoEnoutht_AP_Use_MoJingshi"
+                            ],
+                        },
+                    }
+                },
+            ]
+        },
+        "首次通关 - 魔晶石购买体力次数": {
+            "description": "魔晶石购买体力次数， 建议不要太多次，每天有次数限制，目前代码没有做次数校验",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "购买次数",
+                    "description": "购买次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "LimitedTime_Event_Buy_AP": {
+                    "max_hit": "{购买次数}"
+                }
+            }
         },
     },
 }

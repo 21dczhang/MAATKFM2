@@ -1,0 +1,722 @@
+{
+    "LimitedTime_Event_First_Start": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Skip_Notice",
+            "[JumpBack]LimitedTime_Event_First_TouchStart",
+            "LimitedTime_Event_First_HomePage",
+            "[JumpBack]LimitedTime_Event_First_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始自动战斗 - 消耗体力",
+        "focus": "开始自动战斗 - 消耗体力",
+    },
+    "LimitedTime_Event_First_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_LoadingPage",
+            "LimitedTime_Event_First_Logo",
+            "LimitedTime_Event_First_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "LimitedTime_Event_First_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Skip_Notice",
+            "LimitedTime_Event_First_TouchStart",
+            "LimitedTime_Event_First_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "LimitedTime_Event_First_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "LimitedTime_Event_First_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "LimitedTime_Event_First_HomePage",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Skip_Notice",
+            "LimitedTime_Event_First_TouchStart",
+            "[JumpBack]LimitedTime_Event_First_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "LimitedTime_Event_First_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing"
+    },
+    "LimitedTime_Event_First_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "LimitedTime_Event_First_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_HomePage_Conneting",
+            "LimitedTime_Event_First_HomePage2",
+            "[JumpBack]LimitedTime_Event_First_Logo",
+            "[JumpBack]LimitedTime_Event_First_LoadingPage",
+            "[JumpBack]LimitedTime_Event_First_callBackup_button",
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "LimitedTime_Event_First_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_GotoLimitedTime_Event_First1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "LimitedTime_Event_First_GotoLimitedTime_Event_First1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_GotoLimitedTime_Event_First2",
+            "LimitedTime_Event_First_GotoLimitedTime_Event_First1"
+            //这里是任务起点，在这里添加自己的任务
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "出征"
+        ],
+        "post_delay": 1500,
+        "target_offset": [
+            -20,
+            0,
+            0,
+            0
+        ],
+        "focus": "点击 出征界面"
+    },
+    "LimitedTime_Event_First_GotoLimitedTime_Event_First2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_GotoLimitedTime-Home_Page"
+        ],
+        "action": "Click",
+        "expected": [
+            "限时"
+        ],
+        "roi": [
+            30,
+            61,
+            646,
+            157
+        ],
+        "focus": "点击限时活动"
+    },
+    "LimitedTime_Event_First_GotoLimitedTime-Home_Page": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_GotoLimitedTime-Start"
+        ],
+        "focus": "已经进入限时活动 选择活动 界面"
+    },
+    "LimitedTime_Event_First_GotoLimitedTime-Start": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Select_Level_And_Start",
+            "LimitedTime_Event_First_Comeback_home"
+        ],
+        "action": "Click",
+        "target": [
+            309,
+            459,
+            81,
+            52
+        ],
+        "post_delay": 1500
+    },
+    "LimitedTime_Event_First_Select_Level_And_Start": {
+        "max_hit": 1,
+        "next": [], //在interface设置什么类型的副本
+        "focus": "根据活动类型 选择 还没打的 副本"
+    },
+    "LimitedTime_Event_First_8W_SSR": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Find_New_Level",
+            "[JumpBack]LimitedTime_Event_First_Find_Right_Button",
+        ],
+        "timeout": 5000,
+        "focus": "8w分换SSR类 活动，属于剧情类，直接查询未满3星的关卡",
+    },
+    "LimitedTime_Event_First_Find_New_Level": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Select_Role",
+            "[JumpBack]LimitedTime_Event_First_Select_Role_Click_right"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "template": [
+            "最新的未打关卡.png"
+        ],
+        "post_delay": 1500
+    },
+    "LimitedTime_Event_First_Find_Right_Button": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "活动页-向右按键.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "post_delay": 1000
+    },
+    "LimitedTime_Event_First_Select_Role_Click_right": {
+        "action": "Click",
+        "target": [
+            634,
+            878,
+            6,
+            5
+        ],
+        "focus": "队伍名称非活动队，选择下一个..."
+    },
+    "LimitedTime_Event_First_Select_Role": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Fight_Start"
+        ],
+        "expected": [
+            "活动"
+        ],
+        "roi": [
+            622,
+            654,
+            93,
+            56
+        ],
+        "focus": "当前为活动队，开始战斗..."
+    },
+    "LimitedTime_Event_First_Fight_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_In_Battle",
+            "[JumpBack]LimitedTime_Event_First_Click_Skip",
+            "LimitedTime_Event_First_NoEnoutht_AP",
+            "LimitedTime_Event_First_Fight_Start",
+            "LimitedTime_Event_First_Fight_Start_Over"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始",
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+    },
+    "LimitedTime_Event_First_Fight_Start_Over": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Fight_Start_Over",
+            "[JumpBack]LimitedTime_Event_First_Click_Skip"
+        ],
+        "action": "Click",
+        "expected": [
+            "地图",
+        ],
+        "timeout": 2500,
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+        "focus": "战斗结束 返回地图"
+    },
+    "LimitedTime_Event_First_NoEnoutht_AP": {
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "回复",
+            "魔晶石"
+        ],
+        "roi": [
+            286,
+            296,
+            143,
+            42
+        ],
+        "max_hit": 1, //因为只执行一次，后面肯定不用再执行。以及是为了防止嵌套逻辑太深，后面每个都要复制一份
+        "focus": "体力不足， 根据 策略 选择是否要使用体力药水 或者魔晶石"
+    },
+    "LimitedTime_Event_First_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi": {
+        "next": [
+            // "[JumpBack]LimitedTime_Event_First_LinkError",
+            // "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            // "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            // "LimitedTime_Event_First_Comeback_home"
+        ],
+        "focus": "不使用体力药水和魔晶石, 结束任务"
+    },
+    "LimitedTime_Event_First_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui"
+        ],
+        "focus": "使用 剩余有效期小于等于3天的 体力药水"
+    },
+    "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Select_3Days_TiLiYaoShui",
+            "LimitedTime_Event_First_After_Use_Or_Buy_TiLiYaoShui_Complete"
+        ],
+        "timeout": 5000
+    },
+    // "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight": {
+    //     "recognition": "OCR",
+    //     "next": [
+    //         "[JumpBack]LimitedTime_Event_First_LinkError",
+    //         "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+    //         "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+    //         "[JumpBack]LimitedTime_Event_First_In_Battle",
+    //         "LimitedTime_Event_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_NotEnought_AP",
+    //         "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_Start",
+    //         "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_Start_Over"
+    //     ],
+    //     "action": "Click",
+    //     "expected": [
+    //         "开始",
+    //     ],
+    //     "roi": [
+    //         12,
+    //         965,
+    //         694,
+    //         293
+    //     ],
+    // },
+    // "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_Start": {},
+    // "LimitedTime_Event_First_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_Start_Over": {},
+    "LimitedTime_Event_First_Select_3Days_TiLiYaoShui": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Use_Less_3Days_TiLiYaoShui"
+        ],
+        "action": "Click",
+        "expected": [
+            "^[123](?:日)?$"
+        ],
+        "roi": [
+            70,
+            630,
+            572,
+            41
+        ],
+        "target_offset": [
+            0,
+            -55,
+            0,
+            0
+        ]
+    },
+    "LimitedTime_Event_First_Use_Less_3Days_TiLiYaoShui": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [],
+        "expected": [
+            "确定"
+        ],
+        "timeout": 2000,
+        "post_delay": 500,
+    },
+    "LimitedTime_Event_First_NoEnoutht_AP_Use_All_TiLiYaoShui": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Select_And_Use_All_TiLiYaoShui"
+        ],
+        "focus": "使用 所有 体力药水"
+    },
+    "LimitedTime_Event_First_Select_And_Use_All_TiLiYaoShui": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Select_All_TiLiYaoShui",
+            "LimitedTime_Event_First_After_Use_Or_Buy_TiLiYaoShui_Complete"
+        ],
+        "timeout": 5000
+    },
+    "LimitedTime_Event_First_Select_All_TiLiYaoShui": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Use_All_TiLiYaoShui"
+        ],
+        "action": "Click",
+        "expected": [
+            "日"
+        ],
+        "roi": [
+            70,
+            630,
+            572,
+            41
+        ],
+        "target_offset": [
+            0,
+            -55,
+            0,
+            0
+        ]
+    },
+    "LimitedTime_Event_First_Use_All_TiLiYaoShui": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [],
+        "expected": [
+            "确定"
+        ],
+        "timeout": 2000,
+        "post_delay": 500,
+    },
+    "LimitedTime_Event_First_NoEnoutht_AP_Use_MoJingshi": {
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_Goto_Buy_AP1",
+            "LimitedTime_Event_First_After_Use_Or_Buy_TiLiYaoShui_Complete"
+        ],
+        "focus": "使用魔晶石购买体力"
+    },
+    "LimitedTime_Event_First_Goto_Buy_AP1": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Buy_AP",
+        ],
+        "roi": [
+            128,
+            353,
+            461,
+            51
+        ],
+        "expected": [
+            "魔晶"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "focus": "点击魔晶购买体力界面"
+    },
+    "LimitedTime_Event_First_Buy_AP": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Buy_AP",
+        ],
+        "roi": [
+            407,
+            910,
+            157,
+            43
+        ],
+        "max_hit": 0,
+        "expected": [
+            "确定"
+        ],
+        "timeout": 2500,
+        "action": "Click",
+        "focus": "购买体力"
+    },
+    "LimitedTime_Event_First_In_Battle": {
+        "recognition": "OCR",
+        "expected": [
+            "A"
+        ],
+        "roi": [
+            12,
+            48,
+            149,
+            85
+        ],
+        "focus": "战斗中..."
+    },
+    "LimitedTime_Event_First_HuanSuCai": {
+        "focus": "兑换材料类 活动，需要手动滑动选择45体力本"
+    },
+    "LimitedTime_Event_First_Click_Skip": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Click_Skip_And_Confirm",
+            "LimitedTime_Event_First_Click_Skip"
+        ],
+        "roi": [
+            467,
+            1014,
+            135,
+            46
+        ],
+        "expected": [
+            "[kK]"
+        ],
+        "threshold": 0.9
+    },
+    "LimitedTime_Event_First_After_Use_Or_Buy_TiLiYaoShui_Complete": {
+        "action": "ClickKey",
+        "key": [
+            4
+        ],
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Fight_Start",
+            "[JumpBack]LimitedTime_Event_First_After_Use_Or_Buy_TiLiYaoShui_Complete",
+        ],
+        "focus": "体力药水使用完毕，返回战斗界面"
+    },
+    "LimitedTime_Event_First_Click_Skip_And_Confirm": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+        ],
+        "roi": [
+            125,
+            743,
+            464,
+            55
+        ],
+        "expected": [
+            "确定"
+        ],
+        "timeout": 1000,
+        "threshold": 0.9
+    },
+    "LimitedTime_Event_First_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_HomePage_Without_Next",
+            "[JumpBack]LimitedTime_Event_First_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "执行完毕，返回主界面 - 输入返回键"
+    },
+    "LimitedTime_Event_First_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "LimitedTime_Event_First_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "主界面：网络波动中"
+    },
+    "LimitedTime_Event_First_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "LimitedTime_Event_First_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "LimitedTime_Event_First_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "LimitedTime_Event_First_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError2",
+            "LimitedTime_Event_First_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

@@ -4,7 +4,7 @@
             "[JumpBack]Template_LinkError",
             "[JumpBack]Template_LinkError_ServerError",
             "[JumpBack]Template_TouchStart_Connecting",
-            "[JumpBack]Template_Logo",
+            "[JumpBack]Template_Skip_Notice",
             "[JumpBack]Template_TouchStart",
             "Template_HomePage",
             "[JumpBack]Template_callBackup_button",
@@ -83,6 +83,7 @@
             "[JumpBack]Template_LinkError_ServerError",
             "Template_HomePage",
             "[JumpBack]Template_TouchStart_Connecting",
+            "[JumpBack]Template_Skip_Notice",
             "Template_TouchStart",
             "[JumpBack]Template_callBackup_button",
         ],
@@ -106,6 +107,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "action": "DoNothing"
     },
     "Template_callBackup_button": {
@@ -212,6 +214,7 @@
             34
         ],
         "expected": "(?i)N",
+        "threshold": 0.5,
         "focus": "主界面：网络波动中"
     },
     "Template_LinkError": {
@@ -246,6 +249,7 @@
     "Template_LinkError2": {
         "recognition": "OCR",
         "next": [
+            "[JumpBack]Template_LinkError2",
             "Template_Start"
         ],
         "roi": [
