@@ -1,24 +1,57 @@
 # MAATKFM2 Batch Download and Extract Script
-# Configuration Section - You can modify the version number
-$VERSION = "v0.1.0"
-
-# ============================================
-# Do not modify the following unless necessary
+# Configuration Section
 # ============================================
 
-# Download URL
-$DOWNLOAD_URL = "https://github.com/21dczhang/MAATKFM2/releases/download/$VERSION/MaaTKFM2-win-x86_64-$VERSION.zip"
+$REPO_API_URL = "https://api.github.com/repos/21dczhang/MAATKFM2/releases/latest"
+$REPO_RELEASES_URL = "https://github.com/21dczhang/MAATKFM2/releases/latest"
+$DEFAULT_VERSION = "v0.1.1"  # Fallback version
 
-# Target base path
+Write-Host "[*] Checking for latest release on GitHub..." -ForegroundColor Yellow
+
+$VERSION = $null
+
+# 方法1: 尝试通过 API 获取
+try {
+    $latestRelease = Invoke-RestMethod -Uri $REPO_API_URL -ErrorAction Stop
+    $VERSION = $latestRelease.tag_name
+    Write-Host "Latest version found via API: $VERSION" -ForegroundColor Green
+} catch {
+    # 方法2: 尝试通过网页重定向获取版本号
+    Write-Host "API failed, trying alternative method..." -ForegroundColor Yellow
+    try {
+        $response = Invoke-WebRequest -Uri $REPO_RELEASES_URL -MaximumRedirection 0 -ErrorAction SilentlyContinue
+    } catch {
+        # 捕获重定向
+        if ($_.Exception.Response.Headers.Location) {
+            $redirectUrl = $_.Exception.Response.Headers.Location.AbsoluteUri
+            if ($redirectUrl -match '/releases/tag/([^/]+)$') {
+                $VERSION = $matches[1]
+                Write-Host "Latest version found via redirect: $VERSION" -ForegroundColor Green
+            }
+        }
+    }
+}
+
+# 如果都失败，使用默认版本
+if (-not $VERSION) {
+    Write-Host "Could not detect latest version. Using default: $DEFAULT_VERSION" -ForegroundColor Yellow
+    $VERSION = $DEFAULT_VERSION
+}
+
+# ============================================
+# Construct download URL
+# ============================================
+
 $DESKTOP_PATH = "C:\Users\Aurora\Desktop"
 $TEMP_DOWNLOAD = "$env:TEMP\MaaTKFM2-temp.zip"
-
-# Number of folders to create
 $FOLDER_COUNT = 4
+
+# 使用具体版本号构建下载 URL
+$DOWNLOAD_URL = "https://github.com/21dczhang/MAATKFM2/releases/download/$VERSION/MaaTKFM2-win-x86_64-$VERSION.zip"
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "MAATKFM2 Batch Download and Extract Tool" -ForegroundColor Cyan
-Write-Host "Version: $VERSION" -ForegroundColor Cyan
+Write-Host "Target Version: $VERSION" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -30,12 +63,35 @@ if (-not (Test-Path $DESKTOP_PATH)) {
 
 # Download file
 Write-Host "[1/3] Downloading MaaTKFM2-win-x86_64-$VERSION.zip ..." -ForegroundColor Yellow
+Write-Host "  URL: $DOWNLOAD_URL" -ForegroundColor Gray
+
+$downloadSuccess = $false
+
 try {
-    $webClient = New-Object System.Net.WebClient
-    $webClient.DownloadFile($DOWNLOAD_URL, $TEMP_DOWNLOAD)
+    # 使用更现代的下载方式，带进度条
+    Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $TEMP_DOWNLOAD -ErrorAction Stop
     Write-Host "Download completed." -ForegroundColor Green
+    $downloadSuccess = $true
 } catch {
     Write-Host "Download failed: $_" -ForegroundColor Red
+    
+    # 如果不是默认版本，尝试使用默认版本
+    if ($VERSION -ne $DEFAULT_VERSION) {
+        Write-Host "Retrying with default version: $DEFAULT_VERSION ..." -ForegroundColor Yellow
+        $DOWNLOAD_URL = "https://github.com/21dczhang/MAATKFM2/releases/download/$DEFAULT_VERSION/MaaTKFM2-win-x86_64-$DEFAULT_VERSION.zip"
+        
+        try {
+            Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $TEMP_DOWNLOAD -ErrorAction Stop
+            Write-Host "Download completed using default version." -ForegroundColor Green
+            $downloadSuccess = $true
+        } catch {
+            Write-Host "Retry also failed: $_" -ForegroundColor Red
+        }
+    }
+}
+
+if (-not $downloadSuccess) {
+    Write-Host "Unable to download file. Please check your network connection or GitHub access." -ForegroundColor Red
     exit 1
 }
 
