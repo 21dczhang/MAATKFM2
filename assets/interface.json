@@ -657,7 +657,7 @@
                     "pipeline_override": {
                         "LimitedTime_Event_Select_Level_And_Start": {
                             "next": [
-                                "LimitedTime_Event_8W_SSR"
+                                "LimitedTime_Event_8W_SSR_Start"
                             ]
                         },
                     }
