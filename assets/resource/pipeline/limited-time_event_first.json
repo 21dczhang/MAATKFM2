@@ -215,21 +215,25 @@
         "focus": "已经进入限时活动 选择活动 界面"
     },
     "LimitedTime_Event_First_GotoLimitedTime-Start": {
-        "recognition": "DirectHit",
+        "recognition": "OCR",
         "next": [
             "[JumpBack]LimitedTime_Event_First_LinkError",
             "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
             "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_GotoLimitedTime-Start",
             "[JumpBack]LimitedTime_Event_First_Select_Level_And_Start",
-            "LimitedTime_Event_First_Comeback_home"
+            "LimitedTime_Event_First_Comeback_home",
+        ],
+        "roi": [
+            64,
+            179,
+            618,
+            573
         ],
         "action": "Click",
-        "target": [
-            309,
-            459,
-            81,
-            52
-        ],
+        "expected": [
+            "娘"
+        ], //后续出新活动在这里改活动名字即可
         "post_delay": 1500
     },
     "LimitedTime_Event_First_Select_Level_And_Start": {

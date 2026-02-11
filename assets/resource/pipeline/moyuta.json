@@ -1,0 +1,15 @@
+{
+    //半自动化，手动点摸鱼塔并开始，会一直打下一关
+    "MoYuTa_Start": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始",
+            "下关"
+        ],
+        "next": [
+            "MoYuTa_Start"
+        ],
+        "timeout": 50000
+    }
+}

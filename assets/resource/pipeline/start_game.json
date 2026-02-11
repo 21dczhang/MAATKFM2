@@ -56,7 +56,7 @@
             "(?i)ka"
         ],
         "focus": "加载页面标识:TenkafuMA",
-        "pre_wait_freezes": 3000,
+        "pre_wait_freezes": 500,
         "timeout": 50000
     },
     "StartGame_Skip_Notice": {
@@ -124,6 +124,7 @@
             "[JumpBack]StartGame_LinkError_ServerError",
             "[JumpBack]StartGame_HomePage_Conneting",
             "StartGame_HomePage2",
+            "StartGame_TouchStart",
             "[JumpBack]StartGame_callBackup_button",
         ],
         "roi": [

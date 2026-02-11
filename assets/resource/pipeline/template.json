@@ -191,7 +191,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "执行完毕，返回主界面 - 输入返回键"
     },
     "Template_HomePage_Without_Next": {
         "recognition": "OCR",

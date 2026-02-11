@@ -157,6 +157,12 @@
             ]
         },
         {
+            "name": "活动 - 领取分数奖励",
+            "entry": "LimitedTime_Award_Start",
+            "default_check": true,
+            "description": "自动领取分数奖励，目前只支持剧情类，材料兑换类需手动兑换",
+        },
+        {
             "name": "日常任务 - 领取日常任务奖励",
             "entry": "DailyTask_Start",
             "default_check": true,
@@ -164,7 +170,7 @@
         },
         {
             "name": "测试任务",
-            "entry": "LimitedTime_Event_First_Click_Skip"
+            "entry": "MoYuTa_Start"
         }
     ],
     "option": {

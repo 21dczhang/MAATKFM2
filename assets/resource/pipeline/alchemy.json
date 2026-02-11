@@ -150,6 +150,7 @@
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_GotoAlchemy2",
             "Alchemy_GotoAlchemy1"
         ],
         "roi": [

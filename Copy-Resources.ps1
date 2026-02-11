@@ -162,23 +162,23 @@ foreach ($base in $targetBases) {
     Write-Host "      interface.json copied successfully." -ForegroundColor Green
 
     # Create desktop shortcut
-    Write-Host "  [7/7] Creating desktop shortcut ($shortcutName.lnk)..." -ForegroundColor Cyan
-    if (Test-Path $exePath) {
-        try {
-            $shortcutPath = "$desktopPath\$shortcutName.lnk"
-            $WScriptShell = New-Object -ComObject WScript.Shell
-            $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
-            $shortcut.TargetPath = $exePath
-            $shortcut.WorkingDirectory = $base
-            $shortcut.Description = "Shortcut to MFAAvalonia.exe in $folderName"
-            $shortcut.Save()
-            Write-Host "      Shortcut created: $shortcutPath" -ForegroundColor Green
-        } catch {
-            Write-Host "      Warning: Failed to create shortcut: $_" -ForegroundColor Red
-        }
-    } else {
-        Write-Host "      Warning: Cannot create shortcut - MFAAvalonia.exe not found." -ForegroundColor Red
-    }
+    # Write-Host "  [7/7] Creating desktop shortcut ($shortcutName.lnk)..." -ForegroundColor Cyan
+    # if (Test-Path $exePath) {
+    #     try {
+    #         $shortcutPath = "$desktopPath\$shortcutName.lnk"
+    #         $WScriptShell = New-Object -ComObject WScript.Shell
+    #         $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
+    #         $shortcut.TargetPath = $exePath
+    #         $shortcut.WorkingDirectory = $base
+    #         $shortcut.Description = "Shortcut to MFAAvalonia.exe in $folderName"
+    #         $shortcut.Save()
+    #         Write-Host "      Shortcut created: $shortcutPath" -ForegroundColor Green
+    #     } catch {
+    #         Write-Host "      Warning: Failed to create shortcut: $_" -ForegroundColor Red
+    #     }
+    # } else {
+    #     Write-Host "      Warning: Cannot create shortcut - MFAAvalonia.exe not found." -ForegroundColor Red
+    # }
 
     Write-Host ""
     Write-Host "  Target $base completed!" -ForegroundColor Green

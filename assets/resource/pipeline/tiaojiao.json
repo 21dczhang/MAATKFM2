@@ -161,6 +161,7 @@
         "focus": "已回到主界面"
     },
     "TiaoJiao_GotoTiaoJiao1": {
+        "recognition": "OCR",
         "action": "Click",
         "next": [
             "[JumpBack]TiaoJiao_LinkError",
@@ -169,11 +170,14 @@
             "TiaoJiao_GotoTiaoJiao_Start"
             //"TiaoJiao_GotoTiaoJiao2",这里是任务起点，在这里添加自己的任务
         ],
-        "target": [
-            563,
-            998,
-            157,
-            137
+        "roi": [
+            600,
+            1034,
+            87,
+            49
+        ],
+        "expected": [
+            "教"
         ],
         "post_delay": 1500,
         "focus": "点击 调教界面"
@@ -394,7 +398,7 @@
         "focus": "点击调教"
     },
     "TiaoJiao_Comeback_home": {
-        "action": "ClickKey",
+        "action": "DoNothing",
         "next": [
             "[JumpBack]TiaoJiao_LinkError",
             "[JumpBack]TiaoJiao_LinkError_ServerError",
@@ -402,9 +406,7 @@
             "TiaoJiao_HomePage_Without_Next",
             "[JumpBack]TiaoJiao_callBackup_button"
         ],
-        "key": [
-            4
-        ],
+        "post_delay": 500,
         "focus": "领取完毕，返回主界面 - 输入返回键"
     },
     "TiaoJiao_HomePage_Without_Next": {
