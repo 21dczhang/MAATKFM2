@@ -214,6 +214,7 @@
             "[JumpBack]LimitedTime_Event_LinkError",
             "[JumpBack]LimitedTime_Event_LinkError_ServerError",
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
+            "LimitedTime_Event_GotoLimitedTime-Start",
             "[JumpBack]LimitedTime_Event_Select_Level_And_Start",
             "LimitedTime_Event_Comeback_home"
         ],
