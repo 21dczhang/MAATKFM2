@@ -143,6 +143,12 @@
             ],
         },
         {
+            "name": "协会共斗",
+            "entry": "XieHuiGongDou_Start",
+            "default_check": true,
+            "description": "协会共斗，需要设置一个队伍，叫 主力队，并且设置好主力队的出手顺序",
+        },
+        {
             "name": "限时活动 - 首次通关",
             "entry": "LimitedTime_Event_First_Start",
             "default_check": true,
