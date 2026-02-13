@@ -252,10 +252,10 @@
             "45"
         ],
         "roi": [
-            11,
-            238,
-            690,
-            1053
+            99,
+            315,
+            543,
+            791
         ],
         "post_delay": 1500,
         "focus": "8w分换SSR类 活动，属于剧情类，直接选择60体力本",
@@ -276,18 +276,20 @@
         "focus": "检测到兑换，还处于活动选择关卡界面，重新选择",
     },
     "LimitedTime_Event_8W_SSR_Select_Level": {
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "next": [],
         "action": "Click",
-        "expected": [
-            "60",
-            "45"
+        "template": [
+            "45体力.png"
         ],
         "roi": [
             11,
             171,
             678,
             1100
+        ],
+        "threshold": [
+            0.9
         ],
         "post_delay": 1500,
     },
