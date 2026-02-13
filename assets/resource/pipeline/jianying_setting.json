@@ -1,0 +1,311 @@
+{
+    "JianYing_Setting_Start": {
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_Skip_Notice",
+            "[JumpBack]JianYing_Setting_TouchStart",
+            "JianYing_Setting_HomePage",
+            "[JumpBack]JianYing_Setting_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始设置剪影模式",
+        "focus": "开始设置剪影模式",
+    },
+    "JianYing_Setting_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "JianYing_Setting_LoadingPage",
+            "JianYing_Setting_Logo",
+            "JianYing_Setting_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "JianYing_Setting_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_Skip_Notice",
+            "JianYing_Setting_TouchStart",
+            "JianYing_Setting_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "JianYing_Setting_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "JianYing_Setting_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "JianYing_Setting_HomePage",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_Skip_Notice",
+            "JianYing_Setting_TouchStart",
+            "[JumpBack]JianYing_Setting_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "JianYing_Setting_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing"
+    },
+    "JianYing_Setting_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "JianYing_Setting_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_HomePage_Conneting",
+            "JianYing_Setting_HomePage2",
+            "[JumpBack]JianYing_Setting_Logo",
+            "[JumpBack]JianYing_Setting_LoadingPage",
+            "[JumpBack]JianYing_Setting_callBackup_button",
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "JianYing_Setting_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "JianYing_Setting_GotoJianYing_Setting1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "JianYing_Setting_GotoJianYing_Setting1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "JianYing_Setting_GotoJianYing_Setting2", //这里是任务起点，在这里添加自己的任务
+        ],
+        "expected": [
+            "菜单",
+            "设置"
+        ],
+        "roi": [
+            69,
+            1164,
+            579,
+            81
+        ],
+        "recognition": "OCR",
+        "post_delay": 1500,
+        "focus": "点击 菜单界面"
+    },
+    "JianYing_Setting_GotoJianYing_Setting2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_Setting_Turn_ON",
+            "JianYing_Setting_Comeback_home"
+        ],
+        "expected": [
+            "设置",
+        ],
+        "roi": [
+            514,
+            651,
+            162,
+            612
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+        "focus": "点击 设置界面"
+    },
+    "JianYing_Setting_Setting_Turn_ON": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+        ],
+        "roi": [
+            88,
+            584,
+            541,
+            267
+        ],
+        "expected": [
+            "F"
+        ],
+        "timeout": 5000,
+        "focus": "发现不符合预期设置,点击OFF"
+    },
+    "JianYing_Setting_Comeback_home": {
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError",
+            "[JumpBack]JianYing_Setting_LinkError_ServerError",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "JianYing_Setting_HomePage_Without_Next",
+            "[JumpBack]JianYing_Setting_callBackup_button"
+        ],
+        "focus": "执行完毕，返回主界面 - 输入返回键"
+    },
+    "JianYing_Setting_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "JianYing_Setting_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "主界面：网络波动中"
+    },
+    "JianYing_Setting_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "JianYing_Setting_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "JianYing_Setting_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "JianYing_Setting_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "JianYing_Setting_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]JianYing_Setting_LinkError2",
+            "JianYing_Setting_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}
