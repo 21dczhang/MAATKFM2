@@ -370,6 +370,7 @@
             "[JumpBack]XieHuiGongDou_LinkError_ServerError",
             "[JumpBack]XieHuiGongDou_TouchStart_Connecting",
             "[JumpBack]XieHuiGongDou_In_Battle",
+            "XieHuiGongDou_NoEnought_AP",
             "XieHuiGongDou_Fight_Start"
         ],
         "action": "Click",
@@ -384,6 +385,21 @@
             293
         ],
         "timeout": 8000
+    },
+    "XieHuiGongDou_NoEnought_AP": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_LinkError",
+            "[JumpBack]XieHuiGongDou_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_TouchStart_Connecting",
+            "XieHuiGongDou_NoEnought_AP"
+        ],
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "timeout": 3000,
+        "focus": "没有次数，结束任务"
     },
     "XieHuiGongDou_In_Battle": {
         "recognition": "OCR",
