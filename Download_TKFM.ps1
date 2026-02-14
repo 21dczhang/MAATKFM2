@@ -4,7 +4,7 @@
 
 $REPO_API_URL = "https://api.github.com/repos/21dczhang/MAATKFM2/releases/latest"
 $REPO_RELEASES_URL = "https://github.com/21dczhang/MAATKFM2/releases/latest"
-$DEFAULT_VERSION = "v0.1.5"  # Fallback version
+$DEFAULT_VERSION = "v0.1.6"  # Fallback version
 
 Write-Host "[*] Checking for latest release on GitHub..." -ForegroundColor Yellow
 

@@ -237,7 +237,8 @@
         "post_delay": 3000
     },
     "LimitedTime_Event_8W_SSR_Start": {
-        "recognition": "OCR",
+        //"recognition": "OCR",
+        "recognition": "TemplateMatch",
         "next": [
             "[JumpBack]LimitedTime_Event_LinkError",
             "[JumpBack]LimitedTime_Event_LinkError_ServerError",
@@ -247,15 +248,22 @@
             "[JumpBack]LimitedTime_Event_Select_Role_Click_right",
         ],
         "action": "Click",
-        "expected": [
-            "60",
-            "45"
+        // "expected": [
+        //     "60",
+        //     "45"
+        // ],
+        // "roi": [
+        //     99,
+        //     315,
+        //     543,
+        //     791
+        // ],
+        "template": [
+            "45体力.png",
+            "45体力2.png"
         ],
-        "roi": [
-            99,
-            315,
-            543,
-            791
+        "threshold": [
+            0.8
         ],
         "post_delay": 1500,
         "focus": "8w分换SSR类 活动，属于剧情类，直接选择60体力本",
@@ -268,7 +276,6 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "LimitedTime_Event_8W_SSR_Select_Level"
         ],
-        "action": "Click",
         "expected": [
             "兑换"
         ],
@@ -280,16 +287,11 @@
         "next": [],
         "action": "Click",
         "template": [
-            "45体力.png"
-        ],
-        "roi": [
-            11,
-            171,
-            678,
-            1100
+            "45体力.png",
+            "45体力2.png"
         ],
         "threshold": [
-            0.9
+            0.8
         ],
         "post_delay": 1500,
     },

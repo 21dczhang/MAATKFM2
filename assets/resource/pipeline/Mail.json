@@ -1,0 +1,288 @@
+{
+    "Mail_Start": {
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "[JumpBack]Mail_Skip_Notice",
+            "[JumpBack]Mail_TouchStart",
+            "Mail_HomePage",
+            "[JumpBack]Mail_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始领取邮件奖励",
+        "focus": "开始领取邮件奖励",
+    },
+    "Mail_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_LoadingPage",
+            "Mail_Logo",
+            "Mail_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "Mail_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "[JumpBack]Mail_Skip_Notice",
+            "Mail_TouchStart",
+            "Mail_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "Mail_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "Mail_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "Mail_HomePage",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "[JumpBack]Mail_Skip_Notice",
+            "Mail_TouchStart",
+            "[JumpBack]Mail_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "Mail_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing"
+    },
+    "Mail_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "Mail_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_HomePage_Conneting",
+            "Mail_HomePage2",
+            "[JumpBack]Mail_Logo",
+            "[JumpBack]Mail_LoadingPage",
+            "[JumpBack]Mail_callBackup_button",
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "Mail_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_GotoMail1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "Mail_GotoMail1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_ClaimMail",
+            "Mail_GotoMail1"
+            //"Mail_GotoMail2",这里是任务起点，在这里添加自己的任务
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "Mail.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "post_delay": 1500,
+        "focus": "点击 邮件图标"
+    },
+    "Mail_ClaimMail": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_ClaimMail",
+            "Mail_Comeback_home"
+        ],
+        "expected": [
+            "键",
+            "确定",
+            "确认",
+        ],
+        "action": "Click",
+        "max_hit": 4
+    },
+    "Mail_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]Mail_LinkError",
+            "[JumpBack]Mail_LinkError_ServerError",
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_HomePage_Without_Next",
+            "[JumpBack]Mail_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "执行完毕，返回主界面 - 输入返回键"
+    },
+    "Mail_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "Mail_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "主界面：网络波动中"
+    },
+    "Mail_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_TouchStart_Connecting",
+            "Mail_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "Mail_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "Mail_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "Mail_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]Mail_LinkError2",
+            "Mail_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}
