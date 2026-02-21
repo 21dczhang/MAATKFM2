@@ -278,6 +278,7 @@
         "focus": "选择属性,可在interface选,默认火属性"
     },
     "TiaoJiao_GotoTiaoJiao_Select_Rarity": {
+        "enabled": false, //测试使用，暂时关闭
         "recognition": "OCR",
         "next": [],
         "expected": [
@@ -308,12 +309,18 @@
             "TiaoJiao_GotoTiaoJiao_Start_TiaoJiao_No_New_Room",
             "TiaoJiao_GotoTiaoJiao_Start_TiaoJiao_Select_Room"
         ],
-        "target": [
-            393,
-            818,
-            168,
-            170
+        // "target": [
+        //     393,
+        //     818,
+        //     168,
+        //     170
+        // ],
+        "recognition": "OCR",
+        "expected": [
+            "%"
         ],
+        "order_by": "Horizontal",
+        "index": 0,
         "focus": "选择第三个角色"
     },
     "TiaoJiao_GotoTiaoJiao_Start_TiaoJiao_No_New_Room": {
