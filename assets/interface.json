@@ -149,6 +149,12 @@
             "description": "协会共斗，需要设置一个队伍，叫 主力队，并且设置好主力队的出手顺序",
         },
         {
+            "name": "协会共逗奖励领取",
+            "entry": "XieHuiGongDou_Award_Start",
+            "default_check": true,
+            "description": "日常任务 - 领取奖励（日常、每周、每月、个人、活动、协会",
+        },
+        {
             "name": "限时活动 - 首次通关",
             "entry": "LimitedTime_Event_First_Start",
             "default_check": true,
