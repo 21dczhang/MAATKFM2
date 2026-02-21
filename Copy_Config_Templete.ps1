@@ -18,6 +18,7 @@ $FOLDER_VERSION_MAP = @{
 $SPECIAL_EMULATOR_FIELD = "Instance.default.EmulatorConfig"
 $SPECIAL_SUCCESS_FIELD = "ExternalNotificationCustomSuccessText"
 $SPECIAL_FAILURE_FIELD = "ExternalNotificationCustomFailureText"
+$TASKITEMS_FIELD = "Instance.default.TaskItems"
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "JSON Configuration Sync Tool" -ForegroundColor Cyan
@@ -34,6 +35,76 @@ function Get-FolderNumber {
         return $matches[1]
     }
     return $null
+}
+
+# Function to sync index values in option arrays
+function Sync-OptionIndexes {
+    param (
+        [array]$TemplateOptions,
+        [array]$TargetOptions
+    )
+    
+    if ($null -eq $TemplateOptions -or $null -eq $TargetOptions) {
+        return
+    }
+    
+    for ($i = 0; $i -lt $TemplateOptions.Count; $i++) {
+        if ($i -lt $TargetOptions.Count) {
+            $templateOpt = $TemplateOptions[$i]
+            $targetOpt = $TargetOptions[$i]
+            
+            # Sync index if names match
+            if ($templateOpt.name -eq $targetOpt.name) {
+                if ($templateOpt.index -ne $targetOpt.index) {
+                    $oldIndex = $targetOpt.index
+                    $targetOpt.index = $templateOpt.index
+                    Write-Host "      [INDEX] '$($targetOpt.name)': $oldIndex → $($templateOpt.index)" -ForegroundColor Cyan
+                }
+                
+                # Recursively handle sub_options if they exist
+                if ($null -ne $templateOpt.sub_options -and $null -ne $targetOpt.sub_options) {
+                    Sync-OptionIndexes -TemplateOptions $templateOpt.sub_options -TargetOptions $targetOpt.sub_options
+                }
+            }
+        }
+    }
+}
+
+# Function to sync TaskItems indexes from template to target
+function Sync-TaskItemsIndexes {
+    param (
+        [array]$TemplateTaskItems,
+        [array]$TargetTaskItems
+    )
+    
+    if ($null -eq $TemplateTaskItems -or $null -eq $TargetTaskItems) {
+        return
+    }
+    
+    $syncCount = 0
+    
+    foreach ($templateTask in $TemplateTaskItems) {
+        # Find matching task in target by name and entry
+        $matchingTask = $TargetTaskItems | Where-Object {
+            $_.name -eq $templateTask.name -and $_.entry -eq $templateTask.entry
+        }
+        
+        if ($null -ne $matchingTask) {
+            # Check if task has options array
+            if ($null -ne $templateTask.option -and $null -ne $matchingTask.option) {
+                Write-Host "    [TASK] Syncing indexes for: $($templateTask.name)" -ForegroundColor Yellow
+                
+                # Sync option indexes
+                Sync-OptionIndexes -TemplateOptions $templateTask.option -TargetOptions $matchingTask.option
+                
+                $syncCount++
+            }
+        }
+    }
+    
+    if ($syncCount -gt 0) {
+        Write-Host "    [TASKITEMS] Synced $syncCount task(s) with option indexes" -ForegroundColor Green
+    }
 }
 
 # Function to recursively merge JSON objects
@@ -79,6 +150,7 @@ function Merge-JsonObjects {
 function Transform-SpecialFields {
     param (
         [PSCustomObject]$JsonObject,
+        [PSCustomObject]$TemplateObject,
         [string]$FolderName
     )
     
@@ -130,6 +202,20 @@ function Transform-SpecialFields {
             Write-Host "    [SPECIAL] Updated '$SPECIAL_FAILURE_FIELD': '$failureValue' → '$newValue'" -ForegroundColor Magenta
         }
     }
+    
+    # 4. Handle TaskItems index synchronization
+    if ($propertyNames -contains $TASKITEMS_FIELD) {
+        $templatePropertyNames = $TemplateObject.PSObject.Properties.Name
+        
+        if ($templatePropertyNames -contains $TASKITEMS_FIELD) {
+            $targetTaskItems = $JsonObject.$TASKITEMS_FIELD
+            $templateTaskItems = $TemplateObject.$TASKITEMS_FIELD
+            
+            if ($null -ne $targetTaskItems -and $null -ne $templateTaskItems) {
+                Sync-TaskItemsIndexes -TemplateTaskItems $templateTaskItems -TargetTaskItems $targetTaskItems
+            }
+        }
+    }
 }
 
 # Function to process a single JSON file
@@ -165,7 +251,7 @@ function Sync-JsonFile {
         }
         
         # Apply special field transformations AFTER merging
-        Transform-SpecialFields -JsonObject $mergedContent -FolderName $FolderName
+        Transform-SpecialFields -JsonObject $mergedContent -TemplateObject $templateContent -FolderName $FolderName
         
         # Write back to target (preserve UTF-8 encoding, format nicely)
         $jsonString = $mergedContent | ConvertTo-Json -Depth 100

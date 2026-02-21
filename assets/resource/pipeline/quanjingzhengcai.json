@@ -1,0 +1,620 @@
+{
+    "QuanJingZhengCai_Start": {
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "[JumpBack]QuanJingZhengCai_Skip_Notice",
+            "[JumpBack]QuanJingZhengCai_TouchStart",
+            "QuanJingZhengCai_HomePage",
+            "[JumpBack]QuanJingZhengCai_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始全境征才",
+        "focus": "开始全境征才",
+    },
+    "QuanJingZhengCai_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_LoadingPage",
+            "QuanJingZhengCai_Logo",
+            "QuanJingZhengCai_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "QuanJingZhengCai_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "[JumpBack]QuanJingZhengCai_Skip_Notice",
+            "QuanJingZhengCai_TouchStart",
+            "QuanJingZhengCai_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "QuanJingZhengCai_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "QuanJingZhengCai_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "QuanJingZhengCai_HomePage",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "[JumpBack]QuanJingZhengCai_Skip_Notice",
+            "QuanJingZhengCai_TouchStart",
+            "[JumpBack]QuanJingZhengCai_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "QuanJingZhengCai_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing"
+    },
+    "QuanJingZhengCai_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "QuanJingZhengCai_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_HomePage_Conneting",
+            "QuanJingZhengCai_HomePage2",
+            "[JumpBack]QuanJingZhengCai_Logo",
+            "[JumpBack]QuanJingZhengCai_LoadingPage",
+            "[JumpBack]QuanJingZhengCai_callBackup_button",
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "QuanJingZhengCai_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "召唤图标.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai2"
+        ],
+        "post_delay": 1500,
+        "focus": "点击 召唤界面"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "全境征才.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start"
+        ],
+        "focus": "点击全境征才",
+        "post_delay": 500
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start": {
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot2",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot3",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot4",
+            "QuanJingZhengCai_Comeback_home"
+        ]
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1": {
+        "max_hit": 1,
+        "roi": [
+            273,
+            209,
+            175,
+            148
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "全境征才-张贴榜单.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+        ],
+        "timeout": 5000,
+        "post_delay": 500
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing": {
+        "recognition": "OCR",
+        "expected": [
+            "领",
+            "英",
+        ],
+        "action": "Click",
+        "roi": [
+            83,
+            439,
+            549,
+            175
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Is_Max_Time",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Select_Time"
+        ],
+        "pre_delay": 1000,
+        "focus": "发现 领袖/菁英词条"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Is_Max_Time": {
+        "recognition": "OCR",
+        "expected": [
+            "9"
+        ],
+        "roi": [
+            157,
+            269,
+            67,
+            59
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Click_Zhaomu"
+        ],
+        "focus": "时长已经选择为9小时"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Click_Zhaomu": {
+        "recognition": "OCR",
+        "expected": [
+            "开始"
+        ],
+        "action": "Click",
+        "roi": [
+            397,
+            1024,
+            190,
+            46
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao"
+        ],
+        "focus": "点击招募"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao": {
+        "recognition": "OCR",
+        "expected": [
+            "紧"
+        ],
+        "roi": [
+            77,
+            165,
+            572,
+            842
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm"
+        ],
+        "post_delay": 300,
+        "focus": "使用紧急征召",
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定",
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu"
+        ],
+        "timeout": 3000
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu": {
+        "recognition": "OCR",
+        "expected": [
+            "录取"
+        ],
+        "roi": [
+            263,
+            1021,
+            186,
+            49
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result"
+        ],
+        "focus": "点击一键录取"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result": {
+        "recognition": "OCR",
+        "expected": [
+            "(?i)IP",
+            "关闭"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result"
+        ],
+        "timeout": 3000
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Select_Time": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "向下.png"
+        ],
+        "roi": [
+            112,
+            212,
+            155,
+            169
+        ],
+        "action": "Click",
+        "focus": "选择时间为9小时"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse": {
+        "recognition": "OCR",
+        "expected": [
+            "领",
+            "英"
+        ],
+        "roi": [
+            83,
+            439,
+            549,
+            175
+        ],
+        "inverse": true,
+        "max_hit": 2,
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check_Inverse",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Is_ZhengCai_HomePage"
+        ],
+        "timeout": 4000,
+        "focus": "没有 领袖/菁英词条，刷新",
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Is_ZhengCai_HomePage": {
+        "recognition": "OCR",
+        "expected": [
+            "榜单"
+        ],
+        "action": "DoNothing"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check": {
+        "recognition": "OCR",
+        "expected": [
+            "2",
+            "1"
+        ],
+        "roi": [
+            373,
+            623,
+            202,
+            39
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh"
+        ],
+        "focus": "检查刷新次数...有剩余刷新次数"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check_Inverse": {
+        "recognition": "OCR",
+        "expected": [
+            "0"
+        ],
+        "roi": [
+            373,
+            623,
+            202,
+            39
+        ],
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
+        ],
+        "focus": "检查刷新次数...无刷新次数"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "取消"
+        ],
+        "next": [
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
+        ],
+        "timeout": 3000,
+        "focus": "返回全境征才主界面"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "刷新图标.png"
+        ],
+        "action": "Click"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot2": {
+        "max_hit": 1,
+        "roi": [
+            296,
+            422,
+            136,
+            135
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "全境征才-张贴榜单.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+        ],
+        "timeout": 5000,
+        "post_delay": 500
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot3": {
+        "max_hit": 1,
+        "roi  ": [
+            302,
+            638,
+            114,
+            122
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "全境征才-张贴榜单.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+        ],
+        "timeout": 5000,
+        "post_delay": 500
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot4": {
+        "max_hit": 1,
+        "roi": [
+            311,
+            855,
+            105,
+            123
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "全境征才-张贴榜单.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+        ],
+        "timeout": 5000,
+        "post_delay": 500
+    },
+    "QuanJingZhengCai_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_HomePage_Without_Next",
+            "[JumpBack]QuanJingZhengCai_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "执行完毕，返回主界面 - 输入返回键"
+    },
+    "QuanJingZhengCai_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "QuanJingZhengCai_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "主界面：网络波动中"
+    },
+    "QuanJingZhengCai_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "QuanJingZhengCai_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "QuanJingZhengCai_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "QuanJingZhengCai_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError2",
+            "QuanJingZhengCai_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

@@ -1,0 +1,556 @@
+{
+    "XieHuiGongDou_Award_Start": {
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "[JumpBack]XieHuiGongDou_Award_Skip_Notice",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart",
+            "XieHuiGongDou_Award_HomePage",
+            "[JumpBack]XieHuiGongDou_Award_callBackup_button",
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始协会共斗",
+        "focus": "开始协会共斗",
+    },
+    "XieHuiGongDou_Award_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_LoadingPage",
+            "XieHuiGongDou_Award_Logo",
+            "XieHuiGongDou_Award_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "LOGO:EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "XieHuiGongDou_Award_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "[JumpBack]XieHuiGongDou_Award_Skip_Notice",
+            "XieHuiGongDou_Award_TouchStart",
+            "XieHuiGongDou_Award_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "加载页面标识:TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "XieHuiGongDou_Award_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ]
+    },
+    "XieHuiGongDou_Award_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "XieHuiGongDou_Award_HomePage",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "[JumpBack]XieHuiGongDou_Award_Skip_Notice",
+            "XieHuiGongDou_Award_TouchStart",
+            "[JumpBack]XieHuiGongDou_Award_callBackup_button",
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "开始游戏标识:TAP TO Start",
+    },
+    "XieHuiGongDou_Award_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing"
+    },
+    "XieHuiGongDou_Award_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        // "pre_wait_freezes": 500,
+        // "post_wait_freezes": 500,
+        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "XieHuiGongDou_Award_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_HomePage_Conneting",
+            "XieHuiGongDou_Award_HomePage2",
+            "[JumpBack]XieHuiGongDou_Award_Logo",
+            "[JumpBack]XieHuiGongDou_Award_LoadingPage",
+            "[JumpBack]XieHuiGongDou_Award_callBackup_button",
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+    },
+    "XieHuiGongDou_Award_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "已回到主界面"
+    },
+    "XieHuiGongDou_Award_GotoXieHuiGongDou_Award1": {
+        "action": "Click",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award2",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award1"
+            //"XieHuiGongDou_Award_GotoXieHuiGongDou_Award2",这里是任务起点，在这里添加自己的任务
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "出征"
+        ],
+        "post_delay": 1500,
+        "focus": "点击 出征界面"
+    },
+    "XieHuiGongDou_Award_GotoXieHuiGongDou_Award2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award_HomePage"
+            //"XieHuiGongDou_Award_GotoXieHuiGongDou_Award2",这里是任务起点，在这里添加自己的任务
+        ],
+        "expected": [
+            "限时"
+        ],
+        "roi": [
+            30,
+            61,
+            646,
+            157
+        ],
+        "focus": "点击限时活动"
+    },
+    "XieHuiGongDou_Award_GotoXieHuiGongDou_Award_HomePage": {
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award_HomePage_Start"
+        ],
+        "focus": "已经进入限时活动 选择活动 界面"
+    },
+    "XieHuiGongDou_Award_GotoXieHuiGongDou_Award_HomePage_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_GotoXieHuiGongDou_Award_HomePage_Start",
+            "[JumpBack]XieHuiGongDou_Award_Award1",
+            "[JumpBack]XieHuiGongDou_Award_Award2",
+            "XieHuiGongDou_Award_Comeback_home"
+        ],
+        "roi": [
+            64,
+            179,
+            618,
+            573
+        ],
+        "action": "Click",
+        "expected": [
+            "斗"
+        ], //后续出新活动在这里改活动名字即可
+        "post_delay": 1500,
+        "timeout": 5000
+    },
+    "XieHuiGongDou_Award_Award1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "协会共斗奖励1.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Award1_QueDing",
+        ],
+        "timeout": 8000,
+        "post_wait_freezes": 2000
+    },
+    "XieHuiGongDou_Award_Award1_QueDing": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "next": [
+            "XieHuiGongDou_Award_Award1_QueDing"
+        ],
+        "timeout": 3000
+    },
+    "XieHuiGongDou_Award_Award2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "协会共斗奖励2.png"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "timeout": 8000,
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Award2_YiJianLingQu",
+        ],
+        "post_delay": 500
+    },
+    "XieHuiGongDou_Award_Award2_YiJianLingQu": {
+        "recognition": "OCR",
+        "expected": [
+            "键"
+        ],
+        "action": "Click",
+        "next": [
+            "XieHuiGongDou_Award_Award2_YiJianLingQu_QueDing"
+        ],
+        "post_delay": 500
+    },
+    "XieHuiGongDou_Award_Award2_YiJianLingQu_QueDing": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+    },
+    "XieHuiGongDou_Award_Solt1_Status": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Select_Role",
+            "[JumpBack]XieHuiGongDou_Award_Select_Role_Click_right",
+        ],
+        "expected": [
+            "EAR"
+        ],
+        "roi": [
+            109,
+            254,
+            502,
+            231
+        ],
+        "inverse": true,
+        "target": [
+            308,
+            332,
+            87,
+            60
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "timeout": 3000,
+        "focus": "检查位置1 是否被完成"
+    },
+    "XieHuiGongDou_Award_Solt2_Status": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Select_Role",
+            "[JumpBack]XieHuiGongDou_Award_Select_Role_Click_right",
+        ],
+        "roi": [
+            109,
+            504,
+            512,
+            221
+        ],
+        "expected": [
+            "EAR"
+        ],
+        "inverse": true,
+        "target": [
+            283,
+            572,
+            135,
+            69
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "timeout": 3000,
+        "focus": "检查位置2 是否被完成"
+    },
+    "XieHuiGongDou_Award_Solt3_Status": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Select_Role",
+            "[JumpBack]XieHuiGongDou_Award_Select_Role_Click_right",
+        ],
+        "roi": [
+            105,
+            751,
+            516,
+            227
+        ],
+        "expected": [
+            "EAR"
+        ],
+        "inverse": true,
+        "target": [
+            292,
+            829,
+            144,
+            67
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "timeout": 3000,
+        "focus": "检查位置3 是否被完成"
+    },
+    "XieHuiGongDou_Award_Select_Role": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_Fight_Start"
+        ],
+        "expected": [
+            "主力"
+        ],
+        "roi": [
+            622,
+            654,
+            93,
+            56
+        ],
+        "focus": "当前为主力队，开始战斗..."
+    },
+    "XieHuiGongDou_Award_Select_Role_Click_right": {
+        "action": "Click",
+        "target": [
+            634,
+            878,
+            6,
+            5
+        ],
+        "focus": "队伍名称非主力队，选择下一个..."
+    },
+    "XieHuiGongDou_Award_Fight_Start": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "[JumpBack]XieHuiGongDou_Award_In_Battle",
+            "XieHuiGongDou_Award_NoEnought_AP",
+            "XieHuiGongDou_Award_Fight_Start"
+        ],
+        "action": "Click",
+        "expected": [
+            "开始",
+            "挑战"
+        ],
+        "roi": [
+            12,
+            965,
+            694,
+            293
+        ],
+        "timeout": 8000
+    },
+    "XieHuiGongDou_Award_NoEnought_AP": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_NoEnought_AP"
+        ],
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "timeout": 3000,
+        "focus": "没有次数，结束任务"
+    },
+    "XieHuiGongDou_Award_In_Battle": {
+        "recognition": "OCR",
+        "expected": [
+            "A"
+        ],
+        "roi": [
+            12,
+            48,
+            149,
+            85
+        ],
+        "focus": "战斗中..."
+    },
+    "XieHuiGongDou_Award_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError",
+            "[JumpBack]XieHuiGongDou_Award_LinkError_ServerError",
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_HomePage_Without_Next",
+            "[JumpBack]XieHuiGongDou_Award_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "执行完毕，返回主界面 - 输入返回键"
+    },
+    "XieHuiGongDou_Award_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+    },
+    "XieHuiGongDou_Award_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "主界面：网络波动中"
+    },
+    "XieHuiGongDou_Award_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_TouchStart_Connecting",
+            "XieHuiGongDou_Award_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "网络连线不稳定",
+    },
+    "XieHuiGongDou_Award_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "XieHuiGongDou_Award_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "服务器没有回应，联机错误",
+    },
+    "XieHuiGongDou_Award_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XieHuiGongDou_Award_LinkError2",
+            "XieHuiGongDou_Award_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "尝试重新连接...",
+    }
+}

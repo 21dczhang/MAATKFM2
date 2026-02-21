@@ -238,6 +238,7 @@
             "[JumpBack]LimitedTime_Award_LinkError",
             "[JumpBack]LimitedTime_Award_LinkError_ServerError",
             "[JumpBack]LimitedTime_Award_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Award_Skip_SSR",
             "LimitedTime_Award_Goto_DuiHuan"
         ],
         "roi": [
@@ -249,7 +250,16 @@
         "expected": [
             "换"
         ],
+        "max_hit": 5,
         "timeout": 5000
+    },
+    "LimitedTime_Award_Skip_SSR": {
+        "recognition": "OCR",
+        "expected": [
+            "(?i)IP",
+            "关闭"
+        ],
+        "action": "Click"
     },
     "LimitedTime_Award_Comeback_home": {
         "action": "ClickKey",

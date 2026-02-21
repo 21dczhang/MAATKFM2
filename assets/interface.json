@@ -197,8 +197,14 @@
             "description": "日常任务 - 领取奖励（日常、每周、每月、个人、活动、协会",
         },
         {
+            "name": "全境征才",
+            "entry": "QuanJingZhengCai_Start",
+            "default_check": true,
+            "description": "全境征才 - 只会选领袖、菁英，不会选其他选项。先偷懒",
+        },
+        {
             "name": "测试任务",
-            "entry": "LimitedTime_Event_8W_SSR_Start"
+            "entry": "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing"
         }
     ],
     "option": {
