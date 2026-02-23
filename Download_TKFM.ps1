@@ -44,7 +44,7 @@ if (-not $VERSION) {
 
 $DESKTOP_PATH = "C:\Users\Aurora\Desktop"
 $TEMP_DOWNLOAD = "$env:TEMP\MaaTKFM2-temp.zip"
-$FOLDER_COUNT = 4
+$FOLDER_COUNT = 5
 
 # 使用具体版本号构建下载 URL
 $DOWNLOAD_URL = "https://github.com/21dczhang/MAATKFM2/releases/download/$VERSION/MaaTKFM2-win-x86_64-$VERSION.zip"

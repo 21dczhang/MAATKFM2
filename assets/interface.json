@@ -64,8 +64,8 @@
         {
             "name": "剪影模式",
             "entry": "JianYing_Setting_Start",
-            "default_check": true,
-            "description": "启动游戏ing"
+            "default_check": false,
+            "description": "剪影模式防社死"
         },
         {
             "name": "领取好友体力",

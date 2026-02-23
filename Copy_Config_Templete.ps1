@@ -4,7 +4,7 @@
 
 $DESKTOP_PATH = "C:\Users\Aurora\Desktop"
 $TEMPLATE_FOLDER = Join-Path $DESKTOP_PATH "MaaTKFM_Templete"
-$TARGET_FOLDERS = @("MaaTKFM201", "MaaTKFM202", "MaaTKFM203", "MaaTKFM204")
+$TARGET_FOLDERS = @("MaaTKFM201", "MaaTKFM202", "MaaTKFM203", "MaaTKFM204", "MaaTKFM205")
 
 # Special field mapping: folder name -> version offset
 $FOLDER_VERSION_MAP = @{
@@ -12,6 +12,7 @@ $FOLDER_VERSION_MAP = @{
     "MaaTKFM202" = 3
     "MaaTKFM203" = 4
     "MaaTKFM204" = 5
+    "MaaTKFM205" = 6
 }
 
 # Special fields configuration (these are literal property names, not paths)
