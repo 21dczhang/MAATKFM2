@@ -176,7 +176,7 @@
         },
         {
             "name": "战斗2",
-            "entry": "LimitedTime_Event_Start",
+            "entry": "LimitedTime_Senond_Event_Start",
             "default_check": false,
             "description": "战斗2, 选项需要与战斗 相同，目的是防止限时活动识别有误没有打，再增加一个任务",
             "option": [
@@ -216,7 +216,7 @@
         },
         {
             "name": "测试任务",
-            "entry": "LimitedTime_Event_8W_SSR_Start"
+            "entry": "LimitedTime_Senond_Event_GotoLimitedTime_Senond_Event1_Check_AP"
         }
     ],
     "option": {
