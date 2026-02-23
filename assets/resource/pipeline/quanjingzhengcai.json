@@ -404,6 +404,29 @@
         ],
         "action": "DoNothing"
     },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2": {
+        "recognition": "OCR",
+        "expected": [
+            "领",
+            "英"
+        ],
+        "roi": [
+            83,
+            439,
+            549,
+            175
+        ],
+        "inverse": true,
+        "next": [
+            "[JumpBack]QuanJingZhengCai_LinkError",
+            "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Is_ZhengCai_HomePage",
+            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
+        ],
+        "timeout": 4000,
+        "focus": "没有 领袖/菁英词条，刷新",
+    },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check": {
         "recognition": "OCR",
         "expected": [
@@ -449,6 +472,12 @@
         "expected": [
             "取消"
         ],
+        "roi": [
+            132,
+            1020,
+            461,
+            53
+        ],
         "next": [
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
         ],
@@ -480,7 +509,7 @@
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
-            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
         "post_delay": 500
@@ -503,7 +532,7 @@
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
-            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
         "post_delay": 500
@@ -526,7 +555,7 @@
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing",
-            "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
         "post_delay": 500

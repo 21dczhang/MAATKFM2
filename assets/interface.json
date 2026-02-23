@@ -210,7 +210,7 @@
         },
         {
             "name": "测试任务",
-            "entry": "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing"
+            "entry": "LimitedTime_Event_8W_SSR_Start"
         }
     ],
     "option": {
