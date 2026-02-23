@@ -203,6 +203,12 @@
             "description": "日常任务 - 领取奖励（日常、每周、每月、个人、活动、协会",
         },
         {
+            "name": "虚宝码兑换",
+            "entry": "XuBaoMa_Start",
+            "default_check": true,
+            "description": "虚宝码兑换，需持续更新",
+        },
+        {
             "name": "全境征才",
             "entry": "QuanJingZhengCai_Start",
             "default_check": true,

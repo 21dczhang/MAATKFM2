@@ -1,0 +1,487 @@
+{
+    "XuBaoMa_Start": {
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "[JumpBack]XuBaoMa_Skip_Notice",
+            "[JumpBack]XuBaoMa_TouchStart",
+            "XuBaoMa_HomePage",
+            "[JumpBack]XuBaoMa_callBackup_button"
+        ],
+        "pre_wait_freezes": 500,
+        "doc": "开始兑换虚宝码",
+        "focus": "【起点】开始兑换虚宝码流程"
+    },
+    "XuBaoMa_Logo": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_LoadingPage",
+            "XuBaoMa_Logo",
+            "XuBaoMa_TouchStart"
+        ],
+        "roi": [
+            168,
+            566,
+            373,
+            86
+        ],
+        "expected": [
+            "(?i)labs"
+        ],
+        "focus": "【识别】LOGO: EROLABS",
+        "post_delay": 6000,
+        "timeout": 20000
+    },
+    "XuBaoMa_LoadingPage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "[JumpBack]XuBaoMa_Skip_Notice",
+            "XuBaoMa_TouchStart",
+            "XuBaoMa_LoadingPage"
+        ],
+        "roi": [
+            156,
+            1074,
+            200,
+            38
+        ],
+        "expected": [
+            "(?i)ka"
+        ],
+        "focus": "【识别】加载页面标识: TenkafuMA",
+        "pre_wait_freezes": 3000,
+        "timeout": 50000
+    },
+    "XuBaoMa_Skip_Notice": {
+        "recognition": "OCR",
+        "expected": "公",
+        "roi": [
+            276,
+            167,
+            171,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            344,
+            1141,
+            29,
+            26
+        ],
+        "focus": "【操作】跳过公告弹窗"
+    },
+    "XuBaoMa_TouchStart": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "XuBaoMa_HomePage",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "[JumpBack]XuBaoMa_Skip_Notice",
+            "XuBaoMa_TouchStart",
+            "[JumpBack]XuBaoMa_callBackup_button"
+        ],
+        "roi": [
+            201,
+            1128,
+            314,
+            42
+        ],
+        "expected": "(?i)St",
+        "action": "Click",
+        "timeout": 30000,
+        "focus": "【操作】点击 'TAP TO START' 开始游戏"
+    },
+    "XuBaoMa_TouchStart_Connecting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "action": "DoNothing",
+        "focus": "【等待】正在连接中（显示 'N...'）"
+    },
+    "XuBaoMa_callBackup_button": {
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting"
+        ],
+        "timeout": 1000,
+        "action": "ClickKey",
+        "key": 4,
+        "focus": "【操作】触发返回键：跳过签到、礼包及各种弹窗"
+    },
+    "XuBaoMa_HomePage": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_HomePage_Conneting",
+            "XuBaoMa_HomePage2",
+            "[JumpBack]XuBaoMa_Logo",
+            "[JumpBack]XuBaoMa_LoadingPage",
+            "[JumpBack]XuBaoMa_callBackup_button"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "【识别】检测到主界面 '出征' 按钮（首次确认）"
+    },
+    "XuBaoMa_HomePage2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_GotoXuBaoMa1"
+        ],
+        "roi": [
+            445,
+            867,
+            250,
+            249
+        ],
+        "expected": "出征",
+        "focus": "【识别】已回到主界面，准备进入虚宝码菜单"
+    },
+    "XuBaoMa_GotoXuBaoMa1": {
+        "recognition": "OCR",
+        "expected": [
+            "菜单"
+        ],
+        "roi": [
+            76,
+            1167,
+            575,
+            71
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_GotoXuBaoMa2"
+        ],
+        "post_delay": 1500,
+        "focus": "【操作】点击 '菜单' 按钮"
+    },
+    "XuBaoMa_GotoXuBaoMa2": {
+        "recognition": "OCR",
+        "expected": [
+            "设置"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_GotoXuBaoMa3"
+        ],
+        "focus": "【操作】点击 '设置' 选项"
+    },
+    "XuBaoMa_GotoXuBaoMa3": {
+        "recognition": "OCR",
+        "expected": [
+            "其他"
+        ],
+        "action": "Click",
+        "roi": [
+            132,
+            107,
+            482,
+            57
+        ],
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start",
+            "XuBaoMa_GotoXuBaoMa3"
+        ],
+        "focus": "【操作】点击 '其他' 分类"
+    },
+    "XuBaoMa_XuBaoMa_Start": {
+        "next": [
+            "[JumpBack]XuBaoMa_XuBaoMa_Start_Click_XuBaoMa",
+            "XuBaoMa_Comeback_home"
+        ],
+        "focus": "【分支】准备点击 '虚宝码' 入口"
+    },
+    "XuBaoMa_XuBaoMa_Start_Click_XuBaoMa": {
+        "recognition": "OCR",
+        "expected": [
+            "虚宝码"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Click_XuBaoMa_2"
+        ],
+        "max_hit": 6, //这里要和虚宝码数量对应
+        "focus": "【操作】点击 '虚宝码' 按钮"
+    },
+    "XuBaoMa_XuBaoMa_Start_Click_XuBaoMa_2": {
+        "recognition": "OCR",
+        "expected": [
+            "请输入"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa1",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa2",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa3",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa4",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa5",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa6"
+            //后续在这里新增，以及要新增一个XuBaoMa_XuBaoMa_Start_Input_XuBaoMaX节点
+            // XuBaoMa_XuBaoMa_Start_Click_XuBaoMa 的 max_hit 值要和虚宝码数量对应
+        ],
+        "post_delay": 1000,
+        "timeout": 3000,
+        "focus": "【操作】点击输入框，准备输入虚宝码"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa1": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "BA45U4WUDZ32T8N",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #1: BA45U4WUDZ32T8N"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa2": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "FMVACATION",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #2: FMVACATION"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa3": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "TKFMNEWBIE66",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #3: TKFMNEWBIE66"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa4": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "TKFMNEWBIE77",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #4: TKFMNEWBIE77"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa5": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "TKFMNEWBIE88",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #5: TKFMNEWBIE88"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa6": {
+        "recognition": "DirectHit",
+        "action": "InputText",
+        "input_text": "TKFMNEWBIE99",
+        "next": [
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm"
+        ],
+        "max_hit": 1,
+        "post_delay": 1000,
+        "focus": "【输入】虚宝码 #6: TKFMNEWBIE99"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Valid_Code",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Invalid_Code"
+        ],
+        "focus": "【操作】点击 '确定' 提交虚宝码"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Valid_Code": {
+        "recognition": "OCR",
+        "expected": [
+            "兑换成功"
+        ],
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Valid_Code_Click_OK"
+        ],
+        "focus": "【识别】兑换成功提示"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Valid_Code_Click_OK": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "确定1.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "focus": "【操作】点击 '确定' 关闭成功提示"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Invalid_Code": {
+        "recognition": "OCR",
+        "expected": [
+            "兑换失败"
+        ],
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Invalid_Code_Click_OK"
+        ],
+        "focus": "【识别】兑换失败提示"
+    },
+    "XuBaoMa_XuBaoMa_Start_Input_XuBaoMa_Click_Confirm_Invalid_Code_Click_OK": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "确定1.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_XuBaoMa_Start_Click_XuBaoMa_2"
+        ],
+        "focus": "【操作】点击 '确定' 关闭失败提示，继续尝试下一个码"
+    },
+    "XuBaoMa_Comeback_home": {
+        "action": "ClickKey",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError",
+            "[JumpBack]XuBaoMa_LinkError_ServerError",
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_HomePage_Without_Next",
+            "[JumpBack]XuBaoMa_callBackup_button"
+        ],
+        "key": [
+            4
+        ],
+        "focus": "【操作】任务完成，按返回键退出虚宝码界面"
+    },
+    "XuBaoMa_HomePage_Without_Next": {
+        "recognition": "OCR",
+        "roi": [
+            389,
+            837,
+            303,
+            295
+        ],
+        "expected": "出征",
+        "post_delay": 1000,
+        "focus": "【识别】已成功返回主界面，任务结束"
+    },
+    "XuBaoMa_HomePage_Conneting": {
+        "recognition": "OCR",
+        "roi": [
+            210,
+            1205,
+            300,
+            34
+        ],
+        "expected": "(?i)N",
+        "threshold": 0.5,
+        "focus": "【等待】主界面网络波动中（显示 'N...'）"
+    },
+    "XuBaoMa_LinkError": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_TouchStart_Connecting",
+            "XuBaoMa_LinkError2"
+        ],
+        "roi": [
+            124,
+            594,
+            343,
+            65
+        ],
+        "expected": "不稳定",
+        "focus": "【错误】网络连线不稳定"
+    },
+    "XuBaoMa_LinkError_ServerError": {
+        "recognition": "OCR",
+        "next": [
+            "XuBaoMa_LinkError2"
+        ],
+        "roi": [
+            121,
+            602,
+            323,
+            43
+        ],
+        "expected": "联机",
+        "focus": "【错误】服务器无响应，联机错误"
+    },
+    "XuBaoMa_LinkError2": {
+        "recognition": "OCR",
+        "next": [
+            "[JumpBack]XuBaoMa_LinkError2",
+            "XuBaoMa_Start"
+        ],
+        "roi": [
+            264,
+            698,
+            191,
+            47
+        ],
+        "expected": [
+            "重新连线",
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "【操作】点击 '重新连线' 或 '确定' 尝试恢复连接"
+    }
+}
