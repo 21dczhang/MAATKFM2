@@ -19,12 +19,14 @@
 #   C:\Users\Aurora\Desktop\tfkm202.lnk -> MaaTKFM202\MFAAvalonia.exe
 #   C:\Users\Aurora\Desktop\tfkm203.lnk -> MaaTKFM203\MFAAvalonia.exe
 #   C:\Users\Aurora\Desktop\tfkm204.lnk -> MaaTKFM204\MFAAvalonia.exe
+#   C:\Users\Aurora\Desktop\tfkm205.lnk -> MaaTKFM205\MFAAvalonia.exe
 #
 # TARGET DIRECTORIES:
 #   - C:\Users\Aurora\Desktop\MaaTKFM201
 #   - C:\Users\Aurora\Desktop\MaaTKFM202
 #   - C:\Users\Aurora\Desktop\MaaTKFM203
 #   - C:\Users\Aurora\Desktop\MaaTKFM204
+#   - C:\Users\Aurora\Desktop\MaaTKFM205
 #
 # PROCESS FOR interface.json:
 #   1. Delete existing interface.json if present
@@ -48,7 +50,8 @@ $targetBases = @(
     "C:\Users\Aurora\Desktop\MaaTKFM201",
     "C:\Users\Aurora\Desktop\MaaTKFM202",
     "C:\Users\Aurora\Desktop\MaaTKFM203",
-    "C:\Users\Aurora\Desktop\MaaTKFM204"
+    "C:\Users\Aurora\Desktop\MaaTKFM204",
+    "C:\Users\Aurora\Desktop\MaaTKFM205"
 )
 
 # Desktop path for shortcuts
