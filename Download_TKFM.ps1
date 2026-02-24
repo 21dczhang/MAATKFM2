@@ -66,10 +66,10 @@ Write-Host "[1/3] Downloading MaaTKFM2-win-x86_64-$VERSION.zip ..." -ForegroundC
 Write-Host "  URL: $DOWNLOAD_URL" -ForegroundColor Gray
 
 $downloadSuccess = $false
+$ProgressPreference = 'SilentlyContinue'
 
 try {
-    # 使用更现代的下载方式，带进度条
-    Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $TEMP_DOWNLOAD -ErrorAction Stop
+    (New-Object System.Net.WebClient).DownloadFile($DOWNLOAD_URL, $TEMP_DOWNLOAD)
     Write-Host "Download completed." -ForegroundColor Green
     $downloadSuccess = $true
 } catch {
@@ -81,7 +81,7 @@ try {
         $DOWNLOAD_URL = "https://github.com/21dczhang/MAATKFM2/releases/download/$DEFAULT_VERSION/MaaTKFM2-win-x86_64-$DEFAULT_VERSION.zip"
         
         try {
-            Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $TEMP_DOWNLOAD -ErrorAction Stop
+            (New-Object System.Net.WebClient).DownloadFile($DOWNLOAD_URL, $TEMP_DOWNLOAD)
             Write-Host "Download completed using default version." -ForegroundColor Green
             $downloadSuccess = $true
         } catch {
