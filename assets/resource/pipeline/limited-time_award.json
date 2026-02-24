@@ -7,11 +7,11 @@
             "[JumpBack]LimitedTime_Award_Skip_Notice",
             "[JumpBack]LimitedTime_Award_TouchStart",
             "LimitedTime_Award_HomePage",
-            "[JumpBack]LimitedTime_Award_callBackup_button",
+            "[JumpBack]LimitedTime_Award_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取限时活动奖励",
-        "focus": "开始领取限时活动奖励",
+        "focus": "[动作]初始化限时活动奖励领取任务"
     },
     "LimitedTime_Award_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS Logo 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，尝试点击关闭"
     },
     "LimitedTime_Award_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]LimitedTime_Award_TouchStart_Connecting",
             "[JumpBack]LimitedTime_Award_Skip_Notice",
             "LimitedTime_Award_TouchStart",
-            "[JumpBack]LimitedTime_Award_callBackup_button",
+            "[JumpBack]LimitedTime_Award_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击屏幕进入游戏 (TAP TO START)"
     },
     "LimitedTime_Award_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]登录连接中，等待进入"
     },
     "LimitedTime_Award_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]LimitedTime_Award_LinkError",
             "[JumpBack]LimitedTime_Award_LinkError_ServerError",
-            "[JumpBack]LimitedTime_Award_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Award_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键：尝试跳过弹窗或签到界面"
     },
     "LimitedTime_Award_HomePage": {
         "recognition": "OCR",
@@ -133,7 +135,7 @@
             "LimitedTime_Award_HomePage2",
             "[JumpBack]LimitedTime_Award_Logo",
             "[JumpBack]LimitedTime_Award_LoadingPage",
-            "[JumpBack]LimitedTime_Award_callBackup_button",
+            "[JumpBack]LimitedTime_Award_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到出征按钮，正在二次确认主界面"
     },
     "LimitedTime_Award_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]确认已回到主界面"
     },
     "LimitedTime_Award_GotoLimitedTime_Award1": {
         "action": "Click",
@@ -177,7 +179,7 @@
             "出征"
         ],
         "post_delay": 1500,
-        "focus": "点击 出征界面"
+        "focus": "[动作]点击“出征”按钮进入活动选择页"
     },
     "LimitedTime_Award_GotoLimitedTime_Award2": {
         "recognition": "OCR",
@@ -197,7 +199,7 @@
             646,
             157
         ],
-        "focus": "点击限时活动"
+        "focus": "[动作]点击“限时”标签页"
     },
     "LimitedTime_Award_GotoLimitedTime-Home_Page": {
         "next": [
@@ -206,7 +208,7 @@
             "[JumpBack]LimitedTime_Award_TouchStart_Connecting",
             "LimitedTime_Award_GotoLimitedTime-Start"
         ],
-        "focus": "已经进入限时活动 选择活动 界面"
+        "focus": "[状态]已进入限时活动列表界面"
     },
     "LimitedTime_Award_GotoLimitedTime-Start": {
         "recognition": "OCR",
@@ -229,7 +231,8 @@
             "娘"
         ], //后续出新活动在这里改活动名字即可
         "max_hit": 3,
-        "post_delay": 1500
+        "post_delay": 1500,
+        "focus": "[动作]点击进入指定的限时活动"
     },
     "LimitedTime_Award_Goto_DuiHuan": {
         "recognition": "OCR",
@@ -251,7 +254,8 @@
             "换"
         ],
         "max_hit": 5,
-        "timeout": 5000
+        "timeout": 5000,
+        "focus": "[动作]点击进入活动兑换界面"
     },
     "LimitedTime_Award_Skip_SSR": {
         "recognition": "OCR",
@@ -260,7 +264,8 @@
             "关闭"
         ],
         "max_hit": 4,
-        "action": "Click"
+        "action": "Click",
+        "focus": "[动作]检测到获得奖励弹窗，点击关闭"
     },
     "LimitedTime_Award_Comeback_home": {
         "action": "ClickKey",
@@ -274,7 +279,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]奖励领取执行完毕，发送返回键返回主界面"
     },
     "LimitedTime_Award_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -286,7 +291,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束领取任务"
     },
     "LimitedTime_Award_HomePage_Conneting": {
         "recognition": "OCR",
@@ -298,7 +303,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动中，等待响应"
     },
     "LimitedTime_Award_LinkError": {
         "recognition": "OCR",
@@ -313,7 +318,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "LimitedTime_Award_LinkError_ServerError": {
         "recognition": "OCR",
@@ -327,7 +332,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "LimitedTime_Award_LinkError2": {
         "recognition": "OCR",
@@ -346,6 +351,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接按钮"
     }
 }

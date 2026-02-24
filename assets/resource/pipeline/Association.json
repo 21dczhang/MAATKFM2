@@ -7,11 +7,11 @@
             "[JumpBack]Association_Logo",
             "[JumpBack]Association_TouchStart",
             "Association_HomePage",
-            "[JumpBack]Association_callBackup_button",
+            "[JumpBack]Association_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取协会奖励",
-        "focus": "开始领取协会奖励",
+        "focus": "[状态]启动协会奖励领取流程"
     },
     "Association_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS 启动标识",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]处于加载页面，等待进入标题界面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击以跳过"
     },
     "Association_TouchStart": {
         "recognition": "OCR",
@@ -84,7 +85,7 @@
             "Association_HomePage",
             "[JumpBack]Association_TouchStart_Connecting",
             "Association_TouchStart",
-            "[JumpBack]Association_callBackup_button",
+            "[JumpBack]Association_callBackup_button"
         ],
         "roi": [
             201,
@@ -95,7 +96,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏主页"
     },
     "Association_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -106,21 +107,20 @@
             34
         ],
         "expected": "(?i)N",
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]标题界面连接中，请稍候"
     },
     "Association_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]Association_LinkError",
             "[JumpBack]Association_LinkError_ServerError",
-            "[JumpBack]Association_TouchStart_Connecting",
+            "[JumpBack]Association_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        // "pre_wait_freezes": 500,
-        // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过签到、礼包或各类弹窗"
     },
     "Association_HomePage": {
         "recognition": "OCR",
@@ -131,7 +131,7 @@
             "Association_HomePage2",
             "[JumpBack]Association_Logo",
             "[JumpBack]Association_LoadingPage",
-            "[JumpBack]Association_callBackup_button",
+            "[JumpBack]Association_callBackup_button"
         ],
         "roi": [
             306,
@@ -141,7 +141,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "[状态]检测到协会按钮，正在进行环境二次确认"
     },
     "Association_HomePage2": {
         "recognition": "OCR",
@@ -158,7 +158,7 @@
             63
         ],
         "expected": "协会",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "Association_GotoAssociation1": {
         "action": "Click",
@@ -166,7 +166,7 @@
             "[JumpBack]Association_LinkError",
             "[JumpBack]Association_LinkError_ServerError",
             "[JumpBack]Association_TouchStart_Connecting",
-            "Association_GotoAssociation2",
+            "Association_GotoAssociation2"
         ],
         "target": [
             15,
@@ -175,7 +175,7 @@
             27
         ],
         "post_delay": 1500,
-        "focus": "点击 协会界面"
+        "focus": "[动作]点击左侧导航栏以展开功能菜单"
     },
     "Association_GotoAssociation2": {
         "recognition": "OCR",
@@ -196,8 +196,8 @@
         "expected": [
             "协会"
         ],
-        "focus": "进入协会界面",
-        "timeout": 5000,
+        "focus": "[动作]点击功能按钮，尝试进入协会界面",
+        "timeout": 5000
     },
     "Association_Is_Association": {
         "recognition": "OCR",
@@ -210,7 +210,7 @@
         "expected": [
             "共"
         ],
-        "focus": "确认已加入公会，领取奖励"
+        "focus": "[状态]确认已加入协会，准备领取每日奖励"
     },
     "Association_Not_Association": {
         "recognition": "OCR",
@@ -224,7 +224,7 @@
             "共"
         ],
         "enabled": false,
-        "focus": "没有加入公会，结束"
+        "focus": "[状态]未检测到公会信息，跳过领取流程"
     },
     "Association_Is_Association_Receive_Award": {
         "action": "Click",
@@ -242,7 +242,8 @@
             49
         ],
         "post_delay": 1500,
-        "max_hit": 5
+        "max_hit": 5,
+        "focus": "[动作]执行奖励领取点击操作"
     },
     "Association_Comeback_home": {
         "action": "ClickKey",
@@ -256,7 +257,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]任务领取完毕，发送返回键指令以回到主界面"
     },
     "Association_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -268,7 +269,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束任务"
     },
     "Association_HomePage_Conneting": {
         "recognition": "OCR",
@@ -280,7 +281,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待连接"
     },
     "Association_LinkError": {
         "recognition": "OCR",
@@ -295,7 +296,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "Association_LinkError_ServerError": {
         "recognition": "OCR",
@@ -309,7 +310,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "Association_LinkError2": {
         "recognition": "OCR",
@@ -327,6 +328,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试修复连接"
     }
 }

@@ -7,11 +7,11 @@
             "[JumpBack]Mail_Skip_Notice",
             "[JumpBack]Mail_TouchStart",
             "Mail_HomePage",
-            "[JumpBack]Mail_callBackup_button",
+            "[JumpBack]Mail_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取邮件奖励",
-        "focus": "开始领取邮件奖励",
+        "focus": "[状态]开始执行领取邮件奖励任务"
     },
     "Mail_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS LOGO 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)...",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告界面，点击关闭跳过"
     },
     "Mail_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]Mail_TouchStart_Connecting",
             "[JumpBack]Mail_Skip_Notice",
             "Mail_TouchStart",
-            "[JumpBack]Mail_callBackup_button",
+            "[JumpBack]Mail_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]检测到标题界面，点击 TAP TO START"
     },
     "Mail_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]连接服务器中，保持等待"
     },
     "Mail_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]Mail_LinkError",
             "[JumpBack]Mail_LinkError_ServerError",
-            "[JumpBack]Mail_TouchStart_Connecting",
+            "[JumpBack]Mail_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过弹窗或返回上一级"
     },
     "Mail_HomePage": {
         "recognition": "OCR",
@@ -133,7 +135,7 @@
             "Mail_HomePage2",
             "[JumpBack]Mail_Logo",
             "[JumpBack]Mail_LoadingPage",
-            "[JumpBack]Mail_callBackup_button",
+            "[JumpBack]Mail_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]首次检测到主界面（出征按钮），等待二次确认"
     },
     "Mail_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]主界面确认成功，准备前往邮件系统"
     },
     "Mail_GotoMail1": {
         "action": "Click",
@@ -180,7 +182,7 @@
             0.9
         ],
         "post_delay": 1500,
-        "focus": "点击 邮件图标"
+        "focus": "[动作]点击邮件图标进入收件箱"
     },
     "Mail_ClaimMail": {
         "recognition": "OCR",
@@ -194,10 +196,11 @@
         "expected": [
             "键",
             "确定",
-            "确认",
+            "确认"
         ],
         "action": "Click",
-        "max_hit": 4
+        "max_hit": 4,
+        "focus": "[动作]点击一键领取或确认领取奖励"
     },
     "Mail_Comeback_home": {
         "action": "ClickKey",
@@ -211,7 +214,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]领取完毕，发送返回键准备回到主界面"
     },
     "Mail_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -223,7 +226,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已成功回到主界面，结束邮件任务"
     },
     "Mail_HomePage_Conneting": {
         "recognition": "OCR",
@@ -235,7 +238,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动（Connecting），等待恢复"
     },
     "Mail_LinkError": {
         "recognition": "OCR",
@@ -250,7 +253,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]检测到网络连线不稳定弹窗"
     },
     "Mail_LinkError_ServerError": {
         "recognition": "OCR",
@@ -264,7 +267,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器联机错误（无回应）"
     },
     "Mail_LinkError2": {
         "recognition": "OCR",
@@ -283,6 +286,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确认/重新连接以恢复游戏"
     }
 }

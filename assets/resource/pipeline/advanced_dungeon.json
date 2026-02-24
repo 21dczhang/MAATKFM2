@@ -8,11 +8,11 @@
             "[JumpBack]AdvancedDungeon_Logo",
             "[JumpBack]AdvancedDungeon_TouchStart",
             "AdvancedDungeon_HomePage",
-            "[JumpBack]AdvancedDungeon_callBackup_button",
+            "[JumpBack]AdvancedDungeon_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动刷高级副本",
-        "focus": "开始自动刷高级副本",
+        "focus": "[状态]开始自动刷高级副本流程"
     },
     "AdvancedDungeon_Logo": {
         "recognition": "OCR",
@@ -33,7 +33,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS 启动标识",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -56,7 +56,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]处于加载页面，等待进入标题界面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -75,7 +75,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击指定区域以跳过"
     },
     "AdvancedDungeon_TouchStart": {
         "recognition": "OCR",
@@ -86,7 +87,7 @@
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "[JumpBack]AdvancedDungeon_Skip_Notice",
             "AdvancedDungeon_TouchStart",
-            "[JumpBack]AdvancedDungeon_callBackup_button",
+            "[JumpBack]AdvancedDungeon_callBackup_button"
         ],
         "roi": [
             201,
@@ -97,7 +98,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏主页"
     },
     "AdvancedDungeon_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -109,21 +110,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]标题界面连接中，请稍候"
     },
     "AdvancedDungeon_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]AdvancedDungeon_LinkError",
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
-            "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
+            "[JumpBack]AdvancedDungeon_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令以跳过签到或弹窗"
     },
     "AdvancedDungeon_HomePage": {
         "recognition": "OCR",
@@ -134,7 +136,7 @@
             "AdvancedDungeon_HomePage2",
             "[JumpBack]AdvancedDungeon_Logo",
             "[JumpBack]AdvancedDungeon_LoadingPage",
-            "[JumpBack]AdvancedDungeon_callBackup_button",
+            "[JumpBack]AdvancedDungeon_callBackup_button"
         ],
         "roi": [
             445,
@@ -144,7 +146,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到出征按钮，正在进行二次环境确认"
     },
     "AdvancedDungeon_HomePage2": {
         "recognition": "OCR",
@@ -161,7 +163,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "AdvancedDungeon_GotoAdvancedDungeon1": {
         "action": "Click",
@@ -169,7 +171,7 @@
             "[JumpBack]AdvancedDungeon_LinkError",
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
-            "AdvancedDungeon_GotoAdvancedDungeon2",
+            "AdvancedDungeon_GotoAdvancedDungeon2"
         ],
         "target": [
             528,
@@ -178,7 +180,7 @@
             58
         ],
         "post_delay": 1500,
-        "focus": "点击 征战界面"
+        "focus": "[动作]点击出征按钮进入征战界面"
     },
     "AdvancedDungeon_GotoAdvancedDungeon2": {
         "recognition": "OCR",
@@ -198,7 +200,7 @@
         "expected": [
             "前"
         ],
-        "focus": "点击目前活动"
+        "focus": "[动作]点击前往当前活动界面"
     },
     "AdvancedDungeon_GotoAdvancedDungeon_MeiRiZhengWu": {
         "recognition": "OCR",
@@ -218,7 +220,7 @@
             "务"
         ],
         "action": "Click",
-        "focus": "点击每日政务"
+        "focus": "[动作]点击进入每日政务副本列表"
     },
     "AdvancedDungeon_GotoAdvancedDungeon_Start": {
         "next": [
@@ -228,8 +230,9 @@
             "[JumpBack]AdvancedDungeon_YinBi",
             "[JumpBack]AdvancedDungeon_JingYanYaoShui",
             "[JumpBack]AdvancedDungeon_YingXiang",
-            "AdvancedDungeon_Comeback_home",
-        ]
+            "AdvancedDungeon_Comeback_home"
+        ],
+        "focus": "[状态]已进入每日政务，开始检索目标副本"
     },
     "AdvancedDungeon_YinBi": {
         "recognition": "OCR",
@@ -248,7 +251,7 @@
         ],
         "expected": "银币",
         "max_hit": 1,
-        "focus": "打银币副本"
+        "focus": "[动作]点击进入银币副本"
     },
     "AdvancedDungeon_YinBi_Select_LV": {
         "recognition": "OCR",
@@ -269,7 +272,7 @@
             545,
             136
         ],
-        "focus": "选择最高级银币副本 - 60级，如果没到需要先手动打到60级"
+        "focus": "[动作]选择最高级银币副本(60级)"
     },
     "AdvancedDungeon_YinBi_SaoDang": {
         "recognition": "OCR",
@@ -283,7 +286,7 @@
         ],
         "action": "Click",
         "expected": [
-            "军团",
+            "军团"
         ],
         "roi": [
             12,
@@ -291,6 +294,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击扫荡按钮"
     },
     "AdvancedDungeon_YinBi_IsMax": {
         "recognition": "OCR",
@@ -306,6 +310,7 @@
             129,
             247
         ],
+        "focus": "[状态]已确认扫荡次数设置为最大值"
     },
     "AdvancedDungeon_YinBi_SaoDang_Start": {
         "recognition": "OCR",
@@ -318,7 +323,8 @@
         "action": "Click",
         "expected": [
             "开始"
-        ]
+        ],
+        "focus": "[动作]点击开始执行批量扫荡"
     },
     "AdvancedDungeon_YinBi_SaoDang_Complete": {
         "recognition": "OCR",
@@ -327,9 +333,10 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
-        "expected": "完成"
+        "expected": "完成",
+        "focus": "[状态]扫荡完成，准备返回副本界面"
     },
     "AdvancedDungeon_YinBi_Select_Max_Num": {
         "recognition": "TemplateMatch",
@@ -338,7 +345,8 @@
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
-        "max_hit": 3
+        "max_hit": 3,
+        "focus": "[动作]点击 MAX 以选择最大次数"
     },
     "AdvancedDungeon_YinBi_Select_Role_Start": {
         "next": [
@@ -348,6 +356,7 @@
             "AdvancedDungeon_YinBi_Select_Role",
             "[JumpBack]AdvancedDungeon_YinBi_Select_Role_Click_right"
         ],
+        "focus": "[状态]正在检索扫荡编队"
     },
     "AdvancedDungeon_YinBi_Select_Role": {
         "recognition": "OCR",
@@ -366,7 +375,7 @@
             105,
             53
         ],
-        "focus": "当前为扫荡队，开始战斗..."
+        "focus": "[状态]已匹配到扫荡队，准备战斗"
     },
     "AdvancedDungeon_YinBi_Select_Role_Click_right": {
         "action": "Click",
@@ -376,7 +385,7 @@
             14,
             19
         ],
-        "focus": "队伍名称非扫荡队，选择下一个..."
+        "focus": "[动作]非扫荡编队，点击向右切换"
     },
     "AdvancedDungeon_YinBi_Start": {
         "recognition": "OCR",
@@ -399,6 +408,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击开始按钮启动战斗"
     },
     "AdvancedDungeon_In_Battle": {
         "recognition": "OCR",
@@ -411,7 +421,7 @@
             149,
             85
         ],
-        "focus": "战斗中..."
+        "focus": "[状态]战斗进行中"
     },
     "AdvancedDungeon_YinBi_NoEnoutht_JingShangZhengMing": {
         "recognition": "OCR",
@@ -420,18 +430,20 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
         "expected": [
             "确定"
         ],
+        "focus": "[状态]经商证明不足，准备退出该副本"
     },
     "AdvancedDungeon_Goto_AdvancedDungeon_Home": {
         "action": "ClickKey",
         "key": [
             4
         ],
-        "post_delay": 1000
+        "post_delay": 1000,
+        "focus": "[动作]发送返回指令以回到每日政务主界面"
     },
     "AdvancedDungeon_Is_AdvancedDungeon_Home": {
         "recognition": "OCR",
@@ -439,7 +451,7 @@
         "expected": [
             "经营"
         ],
-        "focus": "已返回到每日政务界面"
+        "focus": "[状态]已成功回到每日政务列表"
     },
     "AdvancedDungeon_JingYanYaoShui": {
         "recognition": "OCR",
@@ -458,7 +470,7 @@
         ],
         "expected": "演习",
         "max_hit": 1,
-        "focus": "打经验药水副本"
+        "focus": "[动作]点击进入经验药水副本"
     },
     "AdvancedDungeon_JingYanYaoShui_Select_LV": {
         "recognition": "OCR",
@@ -479,7 +491,7 @@
             545,
             136
         ],
-        "focus": "选择最高级经验药水副本 - 60级，如果没到需要先手动打到60级"
+        "focus": "[动作]选择最高级经验药水副本(60级)"
     },
     "AdvancedDungeon_JingYanYaoShui_SaoDang": {
         "recognition": "OCR",
@@ -493,7 +505,7 @@
         ],
         "action": "Click",
         "expected": [
-            "军团",
+            "军团"
         ],
         "roi": [
             12,
@@ -501,6 +513,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击经验副本扫荡按钮"
     },
     "AdvancedDungeon_JingYanYaoShui_IsMax": {
         "recognition": "OCR",
@@ -516,6 +529,7 @@
             129,
             247
         ],
+        "focus": "[状态]已确认扫荡次数设置为最大值"
     },
     "AdvancedDungeon_JingYanYaoShui_SaoDang_Start": {
         "recognition": "OCR",
@@ -528,7 +542,8 @@
         "action": "Click",
         "expected": [
             "开始"
-        ]
+        ],
+        "focus": "[动作]点击开始经验副本批量扫荡"
     },
     "AdvancedDungeon_JingYanYaoShui_SaoDang_Complete": {
         "recognition": "OCR",
@@ -537,9 +552,10 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
-        "expected": "完成"
+        "expected": "完成",
+        "focus": "[状态]经验副本扫荡完成"
     },
     "AdvancedDungeon_JingYanYaoShui_Select_Max_Num": {
         "recognition": "TemplateMatch",
@@ -548,7 +564,8 @@
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
-        "max_hit": 3
+        "max_hit": 3,
+        "focus": "[动作]点击 MAX 设置最大扫荡次数"
     },
     "AdvancedDungeon_JingYanYaoShui_Select_Role_Start": {
         "next": [
@@ -558,6 +575,7 @@
             "AdvancedDungeon_JingYanYaoShui_Select_Role",
             "[JumpBack]AdvancedDungeon_JingYanYaoShui_Select_Role_Click_right"
         ],
+        "focus": "[状态]正在检索扫荡编队"
     },
     "AdvancedDungeon_JingYanYaoShui_Select_Role": {
         "recognition": "OCR",
@@ -576,7 +594,7 @@
             105,
             53
         ],
-        "focus": "当前为扫荡队，开始战斗..."
+        "focus": "[状态]编队确认成功，准备进入挑战"
     },
     "AdvancedDungeon_JingYanYaoShui_Select_Role_Click_right": {
         "action": "Click",
@@ -586,7 +604,7 @@
             14,
             19
         ],
-        "focus": "队伍名称非扫荡队，选择下一个..."
+        "focus": "[动作]非指定编队，点击切换至下一个"
     },
     "AdvancedDungeon_JingYanYaoShui_Start": {
         "recognition": "OCR",
@@ -609,6 +627,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击开始挑战经验副本"
     },
     "AdvancedDungeon_JingYanYaoShui_NoEnoutht_ZhanZhengYanXi": {
         "recognition": "OCR",
@@ -617,11 +636,12 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
         "expected": [
             "确定"
         ],
+        "focus": "[状态]战争演习点数不足，准备退出副本"
     },
     "AdvancedDungeon_YingXiang": {
         "recognition": "OCR",
@@ -640,7 +660,7 @@
         ],
         "expected": "搜集",
         "max_hit": 1,
-        "focus": "打影像副本"
+        "focus": "[动作]点击进入影像副本"
     },
     "AdvancedDungeon_YingXiang_Select_LV": {
         "recognition": "OCR",
@@ -661,7 +681,7 @@
             501,
             115
         ],
-        "focus": "选择最高级影像副本 - 40级，如果没到需要先手动打到60级"
+        "focus": "[动作]选择最高级影像副本(40级)"
     },
     "AdvancedDungeon_YingXiang_SaoDang": {
         "recognition": "OCR",
@@ -675,7 +695,7 @@
         ],
         "action": "Click",
         "expected": [
-            "军团",
+            "军团"
         ],
         "roi": [
             12,
@@ -683,6 +703,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击影像副本扫荡按钮"
     },
     "AdvancedDungeon_YingXiang_IsMax": {
         "recognition": "OCR",
@@ -698,6 +719,7 @@
             129,
             247
         ],
+        "focus": "[状态]已确认扫荡次数设置为最大值"
     },
     "AdvancedDungeon_YingXiang_SaoDang_Start": {
         "recognition": "OCR",
@@ -710,7 +732,8 @@
         "action": "Click",
         "expected": [
             "开始"
-        ]
+        ],
+        "focus": "[动作]点击确认开始影像批量扫荡"
     },
     "AdvancedDungeon_YingXiang_SaoDang_Complete": {
         "recognition": "OCR",
@@ -719,9 +742,10 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
-        "expected": "完成"
+        "expected": "完成",
+        "focus": "[状态]影像副本扫荡完成"
     },
     "AdvancedDungeon_YingXiang_Select_Max_Num": {
         "recognition": "TemplateMatch",
@@ -730,7 +754,8 @@
             "AdvancedDungeonMax.png"
         ],
         "action": "Click",
-        "max_hit": 3
+        "max_hit": 3,
+        "focus": "[动作]点击 MAX 以设定最大扫荡次数"
     },
     "AdvancedDungeon_YingXiang_Select_Role_Start": {
         "next": [
@@ -740,6 +765,7 @@
             "AdvancedDungeon_YingXiang_Select_Role",
             "[JumpBack]AdvancedDungeon_YingXiang_Select_Role_Click_right"
         ],
+        "focus": "[状态]正在检索挑战编队"
     },
     "AdvancedDungeon_YingXiang_Select_Role": {
         "recognition": "OCR",
@@ -758,7 +784,7 @@
             105,
             53
         ],
-        "focus": "当前为扫荡队，开始战斗..."
+        "focus": "[状态]编队选择完成，准备战斗"
     },
     "AdvancedDungeon_YingXiang_Select_Role_Click_right": {
         "action": "Click",
@@ -768,7 +794,7 @@
             14,
             19
         ],
-        "focus": "队伍名称非扫荡队，选择下一个..."
+        "focus": "[动作]非扫荡编队，点击向右寻找目标编队"
     },
     "AdvancedDungeon_YingXiang_Start": {
         "recognition": "OCR",
@@ -791,6 +817,7 @@
             694,
             293
         ],
+        "focus": "[动作]点击开始挑战影像副本"
     },
     "AdvancedDungeon_YingXiang_NoEnoutht_JiMiYingXiang": {
         "recognition": "OCR",
@@ -799,11 +826,12 @@
             "[JumpBack]AdvancedDungeon_LinkError_ServerError",
             "[JumpBack]AdvancedDungeon_TouchStart_Connecting",
             "AdvancedDungeon_Is_AdvancedDungeon_Home",
-            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home",
+            "[JumpBack]AdvancedDungeon_Goto_AdvancedDungeon_Home"
         ],
         "expected": [
             "确定"
         ],
+        "focus": "[状态]机密影像点数不足，准备退出副本"
     },
     "AdvancedDungeon_Comeback_home": {
         "action": "ClickKey",
@@ -817,7 +845,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]全部副本执行完毕，发送返回键指令以回到主界面"
     },
     "AdvancedDungeon_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -829,7 +857,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到主界面标识：任务完成，停止运行"
     },
     "AdvancedDungeon_HomePage_Conneting": {
         "recognition": "OCR",
@@ -841,7 +869,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待数据同步"
     },
     "AdvancedDungeon_LinkError": {
         "recognition": "OCR",
@@ -856,7 +884,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]检测到网络连线不稳定弹窗"
     },
     "AdvancedDungeon_LinkError_ServerError": {
         "recognition": "OCR",
@@ -870,7 +898,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]检测到服务器联机错误响应"
     },
     "AdvancedDungeon_LinkError2": {
         "recognition": "OCR",
@@ -889,6 +917,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试重联服务器"
     }
 }

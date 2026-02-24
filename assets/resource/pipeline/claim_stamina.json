@@ -9,7 +9,7 @@
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取好友体力",
-        "focus": "开始领取好友体力",
+        "focus": "[状态]启动好友体力领取流程"
     },
     "ClaimStamina_Logo": {
         "recognition": "OCR",
@@ -30,7 +30,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS 启动标识",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -53,7 +53,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]处于加载页面，等待进入标题界面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -72,7 +72,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击以跳过"
     },
     "ClaimStamina_TouchStart": {
         "recognition": "OCR",
@@ -82,7 +83,7 @@
             "ClaimStamina_HomePage",
             "[JumpBack]ClaimStamina_TouchStart_Connecting",
             "ClaimStamina_TouchStart",
-            "[JumpBack]ClaimStamina_callBackup_button",
+            "[JumpBack]ClaimStamina_callBackup_button"
         ],
         "roi": [
             201,
@@ -93,7 +94,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏主页"
     },
     "ClaimStamina_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -104,14 +105,13 @@
             34
         ],
         "expected": "(?i)N",
+        "focus": "[状态]标题界面连接中，请稍候"
     },
     "ClaimStamina_callBackup_button": {
         "recognition": "DirectHit",
         "action": "ClickKey",
         "key": 4,
-        // "pre_wait_freezes": 500,
-        // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过签到、礼包或各类弹窗"
     },
     "ClaimStamina_HomePage": {
         "recognition": "OCR",
@@ -122,7 +122,7 @@
             "ClaimStamina_HomePage2",
             "[JumpBack]ClaimStamina_Logo",
             "[JumpBack]ClaimStamina_LoadingPage",
-            "[JumpBack]ClaimStamina_callBackup_button",
+            "[JumpBack]ClaimStamina_callBackup_button"
         ],
         "roi": [
             445,
@@ -132,7 +132,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "[状态]检测到出征按钮，正在进行环境二次确认"
     },
     "ClaimStamina_HomePage2": {
         "recognition": "OCR",
@@ -149,7 +149,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "ClaimStamina_GotoFriend1": {
         "action": "Click",
@@ -157,7 +157,7 @@
             "[JumpBack]ClaimStamina_LinkError",
             "[JumpBack]ClaimStamina_LinkError_ServerError",
             "[JumpBack]ClaimStamina_TouchStart_Connecting",
-            "ClaimStamina_GotoFriend2",
+            "ClaimStamina_GotoFriend2"
         ],
         "target": [
             29,
@@ -166,7 +166,7 @@
             65
         ],
         "post_delay": 1500,
-        "focus": "点击 等级界面"
+        "focus": "[动作]点击个人等级区域，进入设置/个人界面"
     },
     "ClaimStamina_GotoFriend2": {
         "action": "Click",
@@ -182,7 +182,7 @@
             114,
             31
         ],
-        "focus": "点击 好友清单"
+        "focus": "[动作]点击好友清单页签"
     },
     "ClaimStamina_Claim": {
         "action": "Click",
@@ -199,7 +199,7 @@
             36
         ],
         "post_wait_freezes": 1500,
-        "focus": "点击 一键领取"
+        "focus": "[动作]点击一键领取好友体力"
     },
     "ClaimStamina_Comeback_home": {
         "action": "ClickKey",
@@ -213,7 +213,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]领取完毕，发送返回键指令以回到主界面"
     },
     "ClaimStamina_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -225,7 +225,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到协会按钮：已回到主界面，结束任务"
     },
     "ClaimStamina_HomePage_Conneting": {
         "recognition": "OCR",
@@ -237,7 +237,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待连接"
     },
     "ClaimStamina_LinkError": {
         "recognition": "OCR",
@@ -252,7 +252,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "ClaimStamina_LinkError_ServerError": {
         "recognition": "OCR",
@@ -266,7 +266,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "ClaimStamina_LinkError2": {
         "recognition": "OCR",
@@ -284,6 +284,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试修复连接"
     }
 }

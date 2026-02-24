@@ -11,7 +11,8 @@
         ],
         "pre_wait_freezes": 500,
         "package": "com.pinkcore.tkfm.erolabs",
-        "doc": "启动游戏"
+        "doc": "启动游戏",
+        "focus": "[动作]启动游戏应用"
     },
     "StartGame_Logo": {
         "recognition": "OCR",
@@ -32,7 +33,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS LOGO 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +56,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)...",
         "pre_wait_freezes": 500,
         "timeout": 50000
     },
@@ -75,7 +76,8 @@
             29,
             26
         ],
-        "post_delay": 1000
+        "post_delay": 1000,
+        "focus": "[动作]检测到公告，点击关闭按钮跳过"
     },
     "StartGame_TouchStart": {
         "recognition": "OCR",
@@ -86,7 +88,7 @@
             "[JumpBack]StartGame_TouchStart_Connecting",
             "[JumpBack]StartGame_Skip_Notice",
             "StartGame_TouchStart",
-            "[JumpBack]StartGame_callBackup_button",
+            "[JumpBack]StartGame_callBackup_button"
         ],
         "roi": [
             201,
@@ -97,7 +99,7 @@
         "expected": "(?i)S",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]检测到标题界面，点击 TAP TO START 进入游戏"
     },
     "StartGame_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,6 +110,7 @@
             34
         ],
         "expected": "(?i)N",
+        "focus": "[状态]连接中，等待进入游戏"
     },
     "StartGame_callBackup_button": {
         "recognition": "DirectHit",
@@ -115,7 +118,7 @@
         "key": 4,
         "pre_wait_freezes": 500,
         "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键：跳过签到、礼包及各种弹窗"
     },
     "StartGame_HomePage": {
         "recognition": "OCR",
@@ -125,7 +128,7 @@
             "[JumpBack]StartGame_HomePage_Conneting",
             "StartGame_HomePage2",
             "StartGame_TouchStart",
-            "[JumpBack]StartGame_callBackup_button",
+            "[JumpBack]StartGame_callBackup_button"
         ],
         "roi": [
             306,
@@ -135,7 +138,7 @@
         ],
         "expected": "协会",
         "post_delay": 10000,
-        "focus": "检测到 正下方 - 协会，等待10s再次检查"
+        "focus": "[状态]检测到协会按钮，等待10s进行主界面二次确认"
     },
     "StartGame_HomePage2": {
         "recognition": "OCR",
@@ -146,6 +149,7 @@
             63
         ],
         "expected": "协会",
+        "focus": "[状态]已成功进入游戏主界面"
     },
     "StartGame_HomePage_Conneting": {
         "recognition": "OCR",
@@ -157,7 +161,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待数据加载"
     },
     "StartGame_LinkError": {
         "recognition": "OCR",
@@ -171,7 +175,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "StartGame_LinkError_ServerError": {
         "recognition": "OCR",
@@ -185,7 +189,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器联机错误"
     },
     "StartGame_LinkError2": {
         "recognition": "OCR",
@@ -204,6 +208,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接按钮以恢复连接"
     }
 }

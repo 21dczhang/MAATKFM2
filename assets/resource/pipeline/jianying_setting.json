@@ -7,11 +7,11 @@
             "[JumpBack]JianYing_Setting_Skip_Notice",
             "[JumpBack]JianYing_Setting_TouchStart",
             "JianYing_Setting_HomePage",
-            "[JumpBack]JianYing_Setting_callBackup_button",
+            "[JumpBack]JianYing_Setting_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始设置剪影模式",
-        "focus": "开始设置剪影模式",
+        "focus": "[动作]开始初始化剪影模式设置"
     },
     "JianYing_Setting_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS Logo 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]正在加载游戏页面 (TenkafuMA)",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击关闭/不再显示"
     },
     "JianYing_Setting_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]JianYing_Setting_TouchStart_Connecting",
             "[JumpBack]JianYing_Setting_Skip_Notice",
             "JianYing_Setting_TouchStart",
-            "[JumpBack]JianYing_Setting_callBackup_button",
+            "[JumpBack]JianYing_Setting_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击屏幕进入游戏 (TAP TO START)"
     },
     "JianYing_Setting_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]登录中/连接中，请稍候"
     },
     "JianYing_Setting_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]JianYing_Setting_LinkError",
             "[JumpBack]JianYing_Setting_LinkError_ServerError",
-            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键：尝试跳过弹窗、签到或礼包界面"
     },
     "JianYing_Setting_HomePage": {
         "recognition": "OCR",
@@ -133,7 +135,7 @@
             "JianYing_Setting_HomePage2",
             "[JumpBack]JianYing_Setting_Logo",
             "[JumpBack]JianYing_Setting_LoadingPage",
-            "[JumpBack]JianYing_Setting_callBackup_button",
+            "[JumpBack]JianYing_Setting_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到主界面出征按钮，等待系统稳定"
     },
     "JianYing_Setting_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]确认已回到主界面，准备进入菜单"
     },
     "JianYing_Setting_GotoJianYing_Setting1": {
         "action": "Click",
@@ -168,7 +170,7 @@
             "[JumpBack]JianYing_Setting_LinkError",
             "[JumpBack]JianYing_Setting_LinkError_ServerError",
             "[JumpBack]JianYing_Setting_TouchStart_Connecting",
-            "JianYing_Setting_GotoJianYing_Setting2", //这里是任务起点，在这里添加自己的任务
+            "JianYing_Setting_GotoJianYing_Setting2" //这里是任务起点，在这里添加自己的任务
         ],
         "expected": [
             "菜单",
@@ -182,7 +184,7 @@
         ],
         "recognition": "OCR",
         "post_delay": 1500,
-        "focus": "点击 菜单界面"
+        "focus": "[动作]点击菜单/设置按钮"
     },
     "JianYing_Setting_GotoJianYing_Setting2": {
         "recognition": "OCR",
@@ -194,7 +196,7 @@
             "JianYing_Setting_Comeback_home"
         ],
         "expected": [
-            "设置",
+            "设置"
         ],
         "roi": [
             514,
@@ -204,7 +206,7 @@
         ],
         "action": "Click",
         "post_delay": 1500,
-        "focus": "点击 设置界面"
+        "focus": "[动作]点击进入设置详细界面"
     },
     "JianYing_Setting_Setting_Turn_ON": {
         "recognition": "OCR",
@@ -212,7 +214,7 @@
         "next": [
             "[JumpBack]JianYing_Setting_LinkError",
             "[JumpBack]JianYing_Setting_LinkError_ServerError",
-            "[JumpBack]JianYing_Setting_TouchStart_Connecting",
+            "[JumpBack]JianYing_Setting_TouchStart_Connecting"
         ],
         "roi": [
             88,
@@ -224,7 +226,7 @@
             "F"
         ],
         "timeout": 5000,
-        "focus": "发现不符合预期设置,点击OFF"
+        "focus": "[动作]检测到剪影模式为OFF，正在点击开启"
     },
     "JianYing_Setting_Comeback_home": {
         "next": [
@@ -234,7 +236,7 @@
             "JianYing_Setting_HomePage_Without_Next",
             "[JumpBack]JianYing_Setting_callBackup_button"
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]设置执行完毕，正在返回主界面"
     },
     "JianYing_Setting_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -246,7 +248,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已成功回到主界面，结束任务"
     },
     "JianYing_Setting_HomePage_Conneting": {
         "recognition": "OCR",
@@ -258,7 +260,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动中，等待数据同步"
     },
     "JianYing_Setting_LinkError": {
         "recognition": "OCR",
@@ -273,7 +275,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定，准备重连"
     },
     "JianYing_Setting_LinkError_ServerError": {
         "recognition": "OCR",
@@ -287,7 +289,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无响应，发生联机错误"
     },
     "JianYing_Setting_LinkError2": {
         "recognition": "OCR",
@@ -306,6 +308,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接以恢复游戏"
     }
 }

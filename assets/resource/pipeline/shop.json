@@ -8,11 +8,11 @@
             "[JumpBack]Shop_Logo",
             "[JumpBack]Shop_TouchStart",
             "Shop_HomePage",
-            "[JumpBack]Shop_callBackup_button",
+            "[JumpBack]Shop_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动购买商店物品",
-        "focus": "开始自动购买商店物品",
+        "focus": "[状态]准备开始自动购买商店物品任务"
     },
     "Shop_Logo": {
         "recognition": "OCR",
@@ -33,7 +33,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测 EROLABS LOGO 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -56,7 +56,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)...",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -75,7 +75,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击关闭按钮"
     },
     "Shop_TouchStart": {
         "recognition": "OCR",
@@ -86,7 +87,7 @@
             "[JumpBack]Shop_TouchStart_Connecting",
             "[JumpBack]Shop_Skip_Notice",
             "Shop_TouchStart",
-            "[JumpBack]Shop_callBackup_button",
+            "[JumpBack]Shop_callBackup_button"
         ],
         "roi": [
             201,
@@ -97,7 +98,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏"
     },
     "Shop_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -109,21 +110,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]登录界面网络连接中"
     },
     "Shop_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
-            "[JumpBack]Shop_TouchStart_Connecting",
+            "[JumpBack]Shop_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键以跳过弹窗或签到界面"
     },
     "Shop_HomePage": {
         "recognition": "OCR",
@@ -134,7 +136,7 @@
             "Shop_HomePage2",
             "[JumpBack]Shop_Logo",
             "[JumpBack]Shop_LoadingPage",
-            "[JumpBack]Shop_callBackup_button",
+            "[JumpBack]Shop_callBackup_button"
         ],
         "roi": [
             389,
@@ -144,7 +146,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]已到达主界面，等待1秒验证稳定性"
     },
     "Shop_HomePage2": {
         "recognition": "OCR",
@@ -161,7 +163,7 @@
             295
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]主界面验证成功，准备前往商店"
     },
     "Shop_GotoShop1": {
         "recognition": "OCR",
@@ -169,7 +171,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_GotoShop2",
+            "Shop_GotoShop2"
         ],
         "action": "Click",
         "expected": [
@@ -182,7 +184,7 @@
             69
         ],
         "post_delay": 1500,
-        "focus": "点击 商店界面"
+        "focus": "[动作]点击底部商城按钮"
     },
     "Shop_GotoShop2": {
         "recognition": "OCR",
@@ -190,13 +192,13 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Shop_Start",
+            "Shop_Shop_Start"
         ],
         "expected": [
             "特殊"
         ],
         "post_delay": 1500,
-        "focus": "已经进入商店界面"
+        "focus": "[状态]确认已进入商店界面"
     },
     "Shop_Buy_And_Confirm": {
         "recognition": "OCR",
@@ -217,7 +219,7 @@
         ],
         "timeout": 2000,
         "post_wait_freezes": 1000,
-        "focus": "点击购买以及确定"
+        "focus": "[动作]点击购买/确认/确定对话框"
     },
     "Shop_Shop_Start": {
         "next": [
@@ -227,17 +229,17 @@
             "[JumpBack]Shop_ShopStart_JiaoYiSuo",
             "[JumpBack]Shop_ShopStart_XieHui",
             "[JumpBack]Shop_ShopStart_ShenMi",
-            "Shop_Comeback_home",
+            "Shop_Comeback_home"
         ],
         "post_wait_freezes": 1500,
-        "focus": "准备 开始购买商店物品",
+        "focus": "[状态]开始遍历商店子页进行购买",
         "action": "Click",
         "target": [
             410,
             123,
             49,
             26
-        ],
+        ]
     },
     "Shop_ShopStart_JiaoYiSuo": {
         "next": [
@@ -251,7 +253,8 @@
             "JiYiSuo_Goto_XieHui"
         ],
         "max_hit": 1,
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[状态]正在检索交易所可购买物品"
     },
     "JiaoYiSuo_ZhaoMuMingLing": {
         "recognition": "OCR",
@@ -259,7 +262,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "roi": [
@@ -274,7 +277,7 @@
         "action": "Click",
         "timeout": 1000,
         "post_wait_freezes": 500,
-        "focus": "购买 交易所:招募命令"
+        "focus": "[动作]购买 交易所: 招募命令"
     },
     "JiaoYiSuo_TiliYaoShui": {
         "recognition": "OCR",
@@ -282,7 +285,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "expected": [
@@ -291,7 +294,7 @@
         "action": "Click",
         "timeout": 1000,
         "post_wait_freezes": 500,
-        "focus": "购买 交易所: 体力药水"
+        "focus": "[动作]购买 交易所: 体力药水"
     },
     "JiaoYiSuo_JinJiLuYong": {
         "recognition": "OCR",
@@ -299,7 +302,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "expected": [
@@ -308,7 +311,7 @@
         "action": "Click",
         "timeout": 1000,
         "post_wait_freezes": 500,
-        "focus": "购买 交易所: 紧急录用证"
+        "focus": "[动作]购买 交易所: 紧急录用证"
     },
     "JiYiSuo_Goto_XieHui": {
         "recognition": "OCR",
@@ -324,7 +327,8 @@
             177,
             533,
             64
-        ]
+        ],
+        "focus": "[动作]切换至协会商店标签页"
     },
     "Shop_ShopStart_XieHui": {
         "next": [
@@ -336,10 +340,11 @@
             "[JumpBack]XieHui_JiLu",
             "[JumpBack]XieHui_YinBi",
             //后续有什么要购买的，加这里，参考JiaoYiSuo_ZhaoMuMingLing
-            "JiYiSuo_Goto_ShenMi", //这个后续用来跳转神秘商店，目前不打算做神秘商店的，因为神秘商店一个月手动一次购买就行了
+            "JiYiSuo_Goto_ShenMi" //这个后续用来跳转神秘商店，目前不打算做神秘商店的，因为神秘商店一个月手动一次购买就行了
         ],
         "max_hit": 1,
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[状态]正在检索协会商店可购买物品"
     },
     "XieHui_YinBi": {
         "recognition": "OCR",
@@ -347,7 +352,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "roi": [
@@ -362,7 +367,7 @@
         "action": "Click",
         "post_wait_freezes": 500,
         "timeout": 1000,
-        "focus": "购买 协会:折扣银币"
+        "focus": "[动作]购买 协会: 折扣银币"
     },
     "XieHui_ZhaoHuanQiYue": {
         "recognition": "OCR",
@@ -370,7 +375,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "expected": [
@@ -378,7 +383,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
-        "focus": "购买 协会:召唤契约"
+        "focus": "[动作]购买 协会: 召唤契约"
     },
     "XieHui_MoJingShi": {
         "recognition": "OCR",
@@ -386,7 +391,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "expected": [
@@ -394,7 +399,7 @@
         ],
         "action": "Click",
         "timeout": 1000,
-        "focus": "购买 协会:魔晶石"
+        "focus": "[动作]购买 协会: 魔晶石"
     },
     "XieHui_JiLu": {
         "recognition": "OCR",
@@ -402,7 +407,7 @@
             "[JumpBack]Shop_LinkError",
             "[JumpBack]Shop_LinkError_ServerError",
             "[JumpBack]Shop_TouchStart_Connecting",
-            "Shop_Buy_And_Confirm",
+            "Shop_Buy_And_Confirm"
         ],
         "max_hit": 1,
         "expected": [
@@ -411,11 +416,14 @@
         "action": "Click",
         "timeout": 1000,
         "post_wait_freezes": 500,
-        "focus": "购买 协会:阿克色纪录"
+        "focus": "[动作]购买 协会: 阿克色纪录"
     },
-    "JiYiSuo_Goto_ShenMi": {},
+    "JiYiSuo_Goto_ShenMi": {
+        "focus": "[动作]准备跳转至神秘商店"
+    },
     "Shop_ShopStart_ShenMi": {
-        "enabled": false
+        "enabled": false,
+        "focus": "[状态]神秘商店模块当前已禁用"
     },
     "Shop_Comeback_home": {
         "action": "ClickKey",
@@ -429,7 +437,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]商店购买完毕，发送返回键以回到主界面"
     },
     "Shop_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -441,7 +449,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束商店购买任务"
     },
     "Shop_HomePage_Conneting": {
         "recognition": "OCR",
@@ -453,7 +461,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面检测到网络波动，等待中"
     },
     "Shop_LinkError": {
         "recognition": "OCR",
@@ -468,7 +476,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "Shop_LinkError_ServerError": {
         "recognition": "OCR",
@@ -482,7 +490,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器联机错误（无回应）"
     },
     "Shop_LinkError2": {
         "recognition": "OCR",
@@ -501,6 +509,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以恢复运行"
     }
 }

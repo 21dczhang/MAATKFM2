@@ -7,11 +7,11 @@
             "[JumpBack]LimitedTime_Senond_Event_Skip_Notice",
             "[JumpBack]LimitedTime_Senond_Event_TouchStart",
             "LimitedTime_Senond_Event_HomePage",
-            "[JumpBack]LimitedTime_Senond_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Senond_Event_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动战斗 - 消耗体力",
-        "focus": "开始自动战斗 - 消耗体力",
+        "focus": "[动作]初始化自动战斗流程：准备检测界面"
     },
     "LimitedTime_Senond_Event_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS LOGO，游戏启动中",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]正在加载资源页面 (TenkafuMA)",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告页面，点击关闭/跳过"
     },
     "LimitedTime_Senond_Event_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             "[JumpBack]LimitedTime_Senond_Event_Skip_Notice",
             "LimitedTime_Senond_Event_TouchStart",
-            "[JumpBack]LimitedTime_Senond_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Senond_Event_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]检测到开始界面，点击屏幕进入游戏"
     },
     "LimitedTime_Senond_Event_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,32 +109,33 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]点击后正在连接服务器..."
     },
     "LimitedTime_Senond_Event_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]LimitedTime_Senond_Event_LinkError",
             "[JumpBack]LimitedTime_Senond_Event_LinkError_ServerError",
-            "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发安卓返回键：尝试跳过签到、礼包等干扰弹窗"
     },
     "LimitedTime_Senond_Event_HomePage": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]LimitedTime_Senond_Event_LinkError",
             "[JumpBack]LimitedTime_Senond_Event_LinkError_ServerError",
-            "[JumpBack]LimitedTime_Senond_Event_HomePage_Conneting",
+            "LimitedTime_Senond_Event_HomePage_Conneting",
             "LimitedTime_Senond_Event_HomePage2",
             "[JumpBack]LimitedTime_Senond_Event_Logo",
             "[JumpBack]LimitedTime_Senond_Event_LoadingPage",
-            "[JumpBack]LimitedTime_Senond_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Senond_Event_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到主界面出征按钮，等待1秒以确保页面稳定"
     },
     "LimitedTime_Senond_Event_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面，准备进入活动流程"
     },
     "LimitedTime_Senond_Event_GotoLimitedTime_Senond_Event1_Check_AP": {
         "next": [
@@ -172,7 +174,7 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "(?:(?:[5-9]\\d|\\d{3,})|4[6-9])/150", //大于45
+            "(?:(?:[5-9]\\d|\\d{3,})|4[6-9])/150" //大于45
             //"(?:1[0-4]\\d|150|[7-9]\\d|6[1-9])/150" //大于60
         ],
         "roi": [
@@ -181,7 +183,7 @@
             66,
             26
         ],
-        "focus": "检查体力"
+        "focus": "[状态]正在检查体力是否充足"
     },
     "LimitedTime_Senond_Event_GotoLimitedTime_Senond_Event1": {
         "action": "Click",
@@ -198,7 +200,7 @@
             "出征"
         ],
         "post_delay": 1500,
-        "focus": "点击 出征界面"
+        "focus": "[动作]点击主界面出征按钮"
     },
     "LimitedTime_Senond_Event_GotoLimitedTime_Senond_Event2": {
         "recognition": "OCR",
@@ -218,7 +220,7 @@
             646,
             157
         ],
-        "focus": "点击限时活动"
+        "focus": "[动作]点击选择限时活动标签"
     },
     "LimitedTime_Senond_Event_GotoLimitedTime-Home_Page": {
         "next": [
@@ -227,7 +229,7 @@
             "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             "LimitedTime_Senond_Event_GotoLimitedTime-Start"
         ],
-        "focus": "已经进入限时活动 选择活动 界面"
+        "focus": "[状态]已进入限时活动选择列表"
     },
     "LimitedTime_Senond_Event_GotoLimitedTime-Start": {
         "recognition": "OCR",
@@ -249,12 +251,13 @@
         "expected": [
             "娘"
         ], //后续出新活动在这里改活动名字即可
-        "post_delay": 1500
+        "post_delay": 1500,
+        "focus": "[动作]点击特定活动入口进入关卡选择"
     },
     "LimitedTime_Senond_Event_Select_Level_And_Start": {
         "max_hit": 1,
         "next": [], //在interface设置什么类型的副本
-        "focus": "根据活动类型 选择 最高体力 副本",
+        "focus": "[策略]根据配置选择当前活动的最高体力副本",
         "post_delay": 3000
     },
     "LimitedTime_Senond_Event_8W_SSR_Start": {
@@ -266,7 +269,7 @@
             "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             "[JumpBack]LimitedTime_Senond_Event_8W_SSR_Select_Level_Page",
             "LimitedTime_Senond_Event_Select_Role",
-            "[JumpBack]LimitedTime_Senond_Event_Select_Role_Click_right",
+            "[JumpBack]LimitedTime_Senond_Event_Select_Role_Click_right"
         ],
         "action": "Click",
         // "expected": [
@@ -287,7 +290,7 @@
             0.8
         ],
         "post_delay": 1500,
-        "focus": "8w分换SSR类 活动，属于剧情类，直接选择60体力本",
+        "focus": "[动作]检测到体力标识：选择剧情类45/60体力关卡"
     },
     "LimitedTime_Senond_Event_8W_SSR_Select_Level_Page": {
         "recognition": "OCR",
@@ -301,7 +304,7 @@
             "兑换"
         ],
         "post_delay": 1500,
-        "focus": "检测到兑换，还处于活动选择关卡界面，重新选择",
+        "focus": "[状态]检测到兑换标识：仍处于关卡列表，准备重新选择"
     },
     "LimitedTime_Senond_Event_8W_SSR_Select_Level": {
         "recognition": "TemplateMatch",
@@ -315,6 +318,7 @@
             0.8
         ],
         "post_delay": 1500,
+        "focus": "[动作]再次尝试通过模板匹配选择关卡"
     },
     "LimitedTime_Senond_Event_Select_Role_Click_right": {
         "action": "Click",
@@ -324,7 +328,7 @@
             6,
             5
         ],
-        "focus": "队伍名称非活动队，选择下一个..."
+        "focus": "[动作]当前队伍非活动队，点击切换至下一队"
     },
     "LimitedTime_Senond_Event_Select_Role": {
         "recognition": "OCR",
@@ -344,7 +348,7 @@
             93,
             56
         ],
-        "focus": "当前为活动队，开始战斗..."
+        "focus": "[状态]已检测到活动队，准备发起战斗"
     },
     "LimitedTime_Senond_Event_Fight_Start": {
         "recognition": "OCR",
@@ -367,7 +371,8 @@
             694,
             293
         ],
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[动作]点击开始/挑战按钮进入副本"
     },
     "LimitedTime_Senond_Event_In_Battle": {
         "recognition": "OCR",
@@ -380,10 +385,10 @@
             149,
             85
         ],
-        "focus": "战斗中..."
+        "focus": "[状态]正在战斗中..."
     },
     "LimitedTime_Senond_Event_HuanSuCai": {
-        "focus": "兑换材料类 活动，需要手动滑动选择45体力本"
+        "focus": "[状态]当前为兑换材料类活动，需手动滑动以定位副本"
     },
     "LimitedTime_Senond_Event_Fight_SaoDang_Start": { //扫荡模式先做了半成品，但是interface接口还没做。留待后续看要不要做
         "recognition": "OCR",
@@ -397,7 +402,7 @@
         ],
         "action": "Click",
         "expected": [
-            "军团",
+            "军团"
         ],
         "roi": [
             202,
@@ -405,10 +410,15 @@
             452,
             182
         ],
-        "enabled": false
+        "enabled": false,
+        "focus": "[动作]尝试开启扫荡模式（功能暂未完全开放）"
     },
-    "LimitedTime_Senond_Event_SaoDang_Select_Max_Num": {},
-    "LimitedTime_Senond_Event_SaoDang_IsMax": {},
+    "LimitedTime_Senond_Event_SaoDang_Select_Max_Num": {
+        "focus": "[动作]扫荡设置：选择最大次数"
+    },
+    "LimitedTime_Senond_Event_SaoDang_IsMax": {
+        "focus": "[状态]确认扫荡次数已达上限"
+    },
     "LimitedTime_Senond_Event_NoEnoutht_AP": {
         "recognition": "OCR",
         "next": [],
@@ -423,7 +433,7 @@
             42
         ],
         "max_hit": 1,
-        "focus": "体力不足， 根据 策略 选择是否要使用体力药水 或者魔晶石"
+        "focus": "[异常]体力不足：触发补给决策逻辑"
     },
     "LimitedTime_Senond_Event_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi": {
         "next": [
@@ -432,7 +442,7 @@
             // "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             // "LimitedTime_Senond_Event_Comeback_home"
         ],
-        "focus": "不使用体力药水和魔晶石, 结束任务"
+        "focus": "[策略]配置为不使用药水或魔晶石，准备终止任务"
     },
     "LimitedTime_Senond_Event_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui": {
         "next": [
@@ -441,7 +451,7 @@
             "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             "LimitedTime_Senond_Event_Select_And_Use_Less_3Days_TiLiYaoShui"
         ],
-        "focus": "使用 剩余有效期小于等于3天的 体力药水"
+        "focus": "[策略]优先使用有效期≤3天的体力药水"
     },
     "LimitedTime_Senond_Event_Select_And_Use_Less_3Days_TiLiYaoShui": {
         "next": [
@@ -451,7 +461,8 @@
             "[JumpBack]LimitedTime_Senond_Event_Select_3Days_TiLiYaoShui",
             "LimitedTime_Senond_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "timeout": 5000
+        "timeout": 5000,
+        "focus": "[动作]打开仓库寻找短期药水"
     },
     "LimitedTime_Senond_Event_Use_Or_Buy_TiLiYaoShui_Complete": {
         "action": "ClickKey",
@@ -465,7 +476,7 @@
             "LimitedTime_Senond_Event_Fight_Start",
             "LimitedTime_Senond_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "focus": "体力药水 使用/购买 完毕，返回战斗界面"
+        "focus": "[动作]体力补给完成，发送返回键指令以尝试重试战斗"
     },
     "LimitedTime_Senond_Event_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight": {
         "recognition": "OCR",
@@ -488,7 +499,8 @@
             694,
             293
         ],
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[动作]补给后再次点击开始战斗"
     },
     "LimitedTime_Senond_Event_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_NotEnought_AP": {
         "recognition": "OCR",
@@ -499,7 +511,7 @@
             "回复",
             "魔晶石"
         ],
-        "focus": "体力不足， 并且已经使用过 有效期少于3天的体力药水，结束任务"
+        "focus": "[异常]短期药水已耗尽且体力仍不足，结束任务"
     },
     "LimitedTime_Senond_Event_Select_3Days_TiLiYaoShui": {
         "recognition": "OCR",
@@ -524,7 +536,8 @@
             -55,
             0,
             0
-        ]
+        ],
+        "focus": "[动作]点击选定有效期为1-3天的体力药水"
     },
     "LimitedTime_Senond_Event_Use_Less_3Days_TiLiYaoShui": {
         "recognition": "OCR",
@@ -534,6 +547,7 @@
             "确定"
         ],
         "post_delay": 500,
+        "focus": "[动作]点击确定使用短期体力药水"
     },
     "LimitedTime_Senond_Event_NoEnoutht_AP_Use_All_TiLiYaoShui": {
         "next": [
@@ -542,7 +556,7 @@
             "[JumpBack]LimitedTime_Senond_Event_TouchStart_Connecting",
             "LimitedTime_Senond_Event_Select_And_Use_All_TiLiYaoShui"
         ],
-        "focus": "使用所有体力药水"
+        "focus": "[策略]配置为使用所有可用体力药水"
     },
     "LimitedTime_Senond_Event_Select_And_Use_All_TiLiYaoShui": {
         "next": [
@@ -552,7 +566,8 @@
             "[JumpBack]LimitedTime_Senond_Event_Select_All_TiLiYaoShui",
             "LimitedTime_Senond_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "timeout": 5000
+        "timeout": 5000,
+        "focus": "[动作]打开仓库寻找任意有效期药水"
     },
     "LimitedTime_Senond_Event_Select_All_TiLiYaoShui": {
         "recognition": "OCR",
@@ -577,7 +592,8 @@
             -55,
             0,
             0
-        ]
+        ],
+        "focus": "[动作]点击选定任意可用体力药水"
     },
     "LimitedTime_Senond_Event_Use_All_TiLiYaoShui": {
         "recognition": "OCR",
@@ -587,6 +603,7 @@
             "确定"
         ],
         "post_delay": 500,
+        "focus": "[动作]点击确定以使用药水"
     },
     "LimitedTime_Senond_Event_NoEnoutht_AP_Use_MoJingshi": {
         "next": [
@@ -596,7 +613,7 @@
             "[JumpBack]LimitedTime_Senond_Event_Goto_Buy_AP1",
             "LimitedTime_Senond_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "focus": "使用魔晶石购买体力"
+        "focus": "[策略]配置为使用魔晶石兑换体力"
     },
     "LimitedTime_Senond_Event_Goto_Buy_AP1": {
         "recognition": "OCR",
@@ -617,7 +634,7 @@
         ],
         "action": "Click",
         "max_hit": 1,
-        "focus": "点击魔晶购买体力界面"
+        "focus": "[动作]点击进入魔晶兑换体力界面"
     },
     "LimitedTime_Senond_Event_Buy_AP": {
         "recognition": "OCR",
@@ -639,7 +656,7 @@
         ],
         "timeout": 2500,
         "action": "Click",
-        "focus": "购买体力"
+        "focus": "[动作]点击确定确认购买体力"
     },
     "LimitedTime_Senond_Event_Comeback_home": {
         "action": "ClickKey",
@@ -653,7 +670,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]流程执行完毕，发送返回键指令以回到主界面"
     },
     "LimitedTime_Senond_Event_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -665,7 +682,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到主界面出征标识：已成功归位，结束当前任务"
     },
     "LimitedTime_Senond_Event_HomePage_Conneting": {
         "recognition": "OCR",
@@ -677,7 +694,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面检测到网络连接提示，等待波动结束"
     },
     "LimitedTime_Senond_Event_LinkError": {
         "recognition": "OCR",
@@ -692,7 +709,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连接不稳定"
     },
     "LimitedTime_Senond_Event_LinkError_ServerError": {
         "recognition": "OCR",
@@ -706,7 +723,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器未响应：发生联机错误"
     },
     "LimitedTime_Senond_Event_LinkError2": {
         "recognition": "OCR",
@@ -725,6 +742,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试恢复网络"
     }
 }

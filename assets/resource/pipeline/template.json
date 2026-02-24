@@ -11,7 +11,7 @@
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动炼金",
-        "focus": "开始自动炼金",
+        "focus": "[状态]准备执行自动炼金任务",
     },
     "Template_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS LOGO 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)...",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击关闭按钮"
     },
     "Template_TouchStart": {
         "recognition": "OCR",
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏",
     },
     "Template_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,7 +109,8 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]登录界面网络连接中"
     },
     "Template_callBackup_button": {
         "recognition": "DirectHit",
@@ -122,7 +124,7 @@
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键指令：尝试跳过干扰弹窗"
     },
     "Template_HomePage": {
         "recognition": "OCR",
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到主界面出征标识，等待验证",
     },
     "Template_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]确认已回到主界面"
     },
     "Template_GotoTemplate1": {
         "action": "Click",
@@ -177,7 +179,7 @@
             27
         ],
         "post_delay": 1500,
-        "focus": "点击 炼金界面"
+        "focus": "[动作]点击进入炼金系统界面"
     },
     "Template_Comeback_home": {
         "action": "ClickKey",
@@ -191,7 +193,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]任务执行完毕，发送返回键以回到主界面"
     },
     "Template_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -203,7 +205,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，任务流结束"
     },
     "Template_HomePage_Conneting": {
         "recognition": "OCR",
@@ -215,7 +217,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待重新连接"
     },
     "Template_LinkError": {
         "recognition": "OCR",
@@ -230,7 +232,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "Template_LinkError_ServerError": {
         "recognition": "OCR",
@@ -244,7 +246,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "Template_LinkError2": {
         "recognition": "OCR",
@@ -263,6 +265,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接按钮",
     }
 }

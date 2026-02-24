@@ -7,11 +7,11 @@
             "[JumpBack]QuanJingZhengCai_Skip_Notice",
             "[JumpBack]QuanJingZhengCai_TouchStart",
             "QuanJingZhengCai_HomePage",
-            "[JumpBack]QuanJingZhengCai_callBackup_button",
+            "[JumpBack]QuanJingZhengCai_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始全境征才",
-        "focus": "开始全境征才",
+        "focus": "[状态]开始执行全境征才任务"
     },
     "QuanJingZhengCai_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS LOGO 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]游戏加载中 (TenkafuMA)...",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告界面，点击关闭跳过"
     },
     "QuanJingZhengCai_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "[JumpBack]QuanJingZhengCai_Skip_Notice",
             "QuanJingZhengCai_TouchStart",
-            "[JumpBack]QuanJingZhengCai_callBackup_button",
+            "[JumpBack]QuanJingZhengCai_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]检测到标题界面，点击 TAP TO START"
     },
     "QuanJingZhengCai_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,22 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]连接服务器中，保持等待"
     },
     "QuanJingZhengCai_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]QuanJingZhengCai_LinkError",
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
-            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
+            "[JumpBack]QuanJingZhengCai_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过弹窗或返回上一级"
     },
     "QuanJingZhengCai_HomePage": {
         "recognition": "OCR",
@@ -133,7 +135,7 @@
             "QuanJingZhengCai_HomePage2",
             "[JumpBack]QuanJingZhengCai_Logo",
             "[JumpBack]QuanJingZhengCai_LoadingPage",
-            "[JumpBack]QuanJingZhengCai_callBackup_button",
+            "[JumpBack]QuanJingZhengCai_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +145,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]首次检测到主界面（出征按钮），等待二次确认"
     },
     "QuanJingZhengCai_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +162,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]主界面确认成功，准备前往召唤界面"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai1": {
         "recognition": "TemplateMatch",
@@ -175,7 +177,7 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai2"
         ],
         "post_delay": 1500,
-        "focus": "点击 召唤界面"
+        "focus": "[动作]点击召唤图标"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai2": {
         "recognition": "TemplateMatch",
@@ -188,7 +190,7 @@
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start"
         ],
-        "focus": "点击全境征才",
+        "focus": "[动作]点击全境征才入口按钮",
         "post_delay": 500
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start": {
@@ -201,7 +203,8 @@
             "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot3",
             "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot4",
             "QuanJingZhengCai_Comeback_home"
-        ]
+        ],
+        "focus": "[状态]进入全境征才管理界面，开始轮询槽位"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1": {
         "max_hit": 1,
@@ -224,13 +227,14 @@
             "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse"
         ],
         "timeout": 5000,
-        "post_delay": 500
+        "post_delay": 500,
+        "focus": "[动作]点击槽位1：张贴榜单"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing": {
         "recognition": "OCR",
         "expected": [
             "领",
-            "英",
+            "英"
         ],
         "action": "Click",
         "roi": [
@@ -247,7 +251,7 @@
             "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Select_Time"
         ],
         "pre_delay": 1000,
-        "focus": "发现 领袖/菁英词条"
+        "focus": "[动作]发现高级词条：选中 领袖/菁英 标签"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Is_Max_Time": {
         "recognition": "OCR",
@@ -266,7 +270,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Click_Zhaomu"
         ],
-        "focus": "时长已经选择为9小时"
+        "focus": "[状态]验证时长已切换至9小时"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Click_Zhaomu": {
         "recognition": "OCR",
@@ -286,7 +290,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao"
         ],
-        "focus": "点击招募"
+        "focus": "[动作]点击开始招募按钮"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao": {
         "recognition": "OCR",
@@ -307,13 +311,13 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm"
         ],
         "post_delay": 300,
-        "focus": "使用紧急征召",
+        "focus": "[动作]检测到招募状态，准备使用紧急征召"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "确定",
+            "确定"
         ],
         "next": [
             "[JumpBack]QuanJingZhengCai_LinkError",
@@ -321,7 +325,8 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu"
         ],
-        "timeout": 3000
+        "timeout": 3000,
+        "focus": "[动作]确认使用紧急征召"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu": {
         "recognition": "OCR",
@@ -341,7 +346,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result"
         ],
-        "focus": "点击一键录取"
+        "focus": "[动作]点击一键录取获取角色"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result": {
         "recognition": "OCR",
@@ -356,7 +361,8 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_YiJianLuQu_Skip_Result"
         ],
-        "timeout": 3000
+        "timeout": 3000,
+        "focus": "[动作]检测到获得界面，点击关闭跳过"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Select_Time": {
         "recognition": "TemplateMatch",
@@ -370,7 +376,7 @@
             169
         ],
         "action": "Click",
-        "focus": "选择时间为9小时"
+        "focus": "[动作]时长不为9小时，点击下箭头调整时间"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse": {
         "recognition": "OCR",
@@ -395,14 +401,15 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Is_ZhengCai_HomePage"
         ],
         "timeout": 4000,
-        "focus": "没有 领袖/菁英词条，刷新",
+        "focus": "[状态]未发现领袖/菁英词条，准备进行刷新操作"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Is_ZhengCai_HomePage": {
         "recognition": "OCR",
         "expected": [
             "榜单"
         ],
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]当前处于全境征才列表界面"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2": {
         "recognition": "OCR",
@@ -425,7 +432,7 @@
             "[JumpBack]QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
         ],
         "timeout": 4000,
-        "focus": "没有 领袖/菁英词条，刷新",
+        "focus": "[状态]未检测到高级词条，准备放弃或返回"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check": {
         "recognition": "OCR",
@@ -445,7 +452,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh"
         ],
-        "focus": "检查刷新次数...有剩余刷新次数"
+        "focus": "[状态]检查刷新次数：有剩余次数，准备执行刷新"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh_Times_Check_Inverse": {
         "recognition": "OCR",
@@ -464,7 +471,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
         ],
-        "focus": "检查刷新次数...无刷新次数"
+        "focus": "[状态]检查刷新次数：次数耗尽，准备取消并返回"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage": {
         "recognition": "OCR",
@@ -482,14 +489,15 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_ComeBack_ZhengCai_HomePage"
         ],
         "timeout": 3000,
-        "focus": "返回全境征才主界面"
+        "focus": "[动作]点击取消以返回全境征才列表"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Refresh": {
         "recognition": "TemplateMatch",
         "template": [
             "刷新图标.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "focus": "[动作]点击刷新图标刷新词条"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot2": {
         "max_hit": 1,
@@ -512,11 +520,12 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
-        "post_delay": 500
+        "post_delay": 500,
+        "focus": "[动作]点击槽位2：张贴榜单"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot3": {
         "max_hit": 1,
-        "roi  ": [
+        "roi": [
             302,
             638,
             114,
@@ -535,7 +544,8 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
-        "post_delay": 500
+        "post_delay": 500,
+        "focus": "[动作]点击槽位3：张贴榜单"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot4": {
         "max_hit": 1,
@@ -558,7 +568,8 @@
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_Inverse2"
         ],
         "timeout": 5000,
-        "post_delay": 500
+        "post_delay": 500,
+        "focus": "[动作]点击槽位4：张贴榜单"
     },
     "QuanJingZhengCai_Comeback_home": {
         "action": "ClickKey",
@@ -572,7 +583,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]执行完毕，发送返回键指令以回到主界面"
     },
     "QuanJingZhengCai_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -584,7 +595,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束任务"
     },
     "QuanJingZhengCai_HomePage_Conneting": {
         "recognition": "OCR",
@@ -596,7 +607,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动（Connecting），等待恢复"
     },
     "QuanJingZhengCai_LinkError": {
         "recognition": "OCR",
@@ -611,7 +622,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "QuanJingZhengCai_LinkError_ServerError": {
         "recognition": "OCR",
@@ -625,7 +636,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "QuanJingZhengCai_LinkError2": {
         "recognition": "OCR",
@@ -644,6 +655,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接按钮"
     }
 }

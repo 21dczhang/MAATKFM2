@@ -7,11 +7,11 @@
             "[JumpBack]Dispatch_Skip_Notice",
             "[JumpBack]Dispatch_TouchStart",
             "Dispatch_HomePage",
-            "[JumpBack]Dispatch_callBackup_button",
+            "[JumpBack]Dispatch_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动派遣",
-        "focus": "开始自动派遣",
+        "focus": "[动作]启动自动派遣流程"
     },
     "Dispatch_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测 EROLABS Logo 界面",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]检测到 TenkafuMA 加载页面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]点击跳过公告/通知"
     },
     "Dispatch_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "[JumpBack]Dispatch_Skip_Notice",
             "Dispatch_TouchStart",
-            "[JumpBack]Dispatch_callBackup_button",
+            "[JumpBack]Dispatch_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏"
     },
     "Dispatch_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -107,6 +108,7 @@
             34
         ],
         "expected": "(?i)N",
+        "focus": "[状态]登录界面连接中..."
     },
     "Dispatch_callBackup_button": {
         "recognition": "DirectHit",
@@ -115,7 +117,7 @@
         // "pre_wait_freezes": 500,
         // "post_wait_freezes": 500,
         "timeout": 1000,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键：尝试跳过弹窗或签到"
     },
     "Dispatch_HomePage": {
         "recognition": "OCR",
@@ -126,7 +128,7 @@
             "Dispatch_HomePage2",
             "[JumpBack]Dispatch_Logo",
             "[JumpBack]Dispatch_LoadingPage",
-            "[JumpBack]Dispatch_callBackup_button",
+            "[JumpBack]Dispatch_callBackup_button"
         ],
         "roi": [
             445,
@@ -136,7 +138,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]初次检测到主界面出征按钮"
     },
     "Dispatch_HomePage2": {
         "recognition": "OCR",
@@ -153,7 +155,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]确认已回到主界面"
     },
     "Dispatch_GotoDispatch1": {
         "action": "Click",
@@ -161,7 +163,7 @@
             "[JumpBack]Dispatch_LinkError",
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
-            "Dispatch_GotoDispatch2",
+            "Dispatch_GotoDispatch2"
         ],
         "target": [
             15,
@@ -171,7 +173,7 @@
         ],
         "post_delay": 1500,
         "timeout": 6000,
-        "focus": "点击 派遣界面"
+        "focus": "[动作]点击侧边栏进入派遣界面"
     },
     "Dispatch_GotoDispatch2": {
         "recognition": "OCR",
@@ -188,7 +190,7 @@
         ],
         "action": "Click",
         "post_delay": 2000,
-        "focus": "进入 派遣界面"
+        "focus": "[状态]成功进入派遣主控界面"
     },
     "Dispatch_Collect_Complete": {
         "recognition": "OCR",
@@ -209,7 +211,7 @@
         "expected": "完成",
         "action": "Click",
         "post_delay": 1500,
-        "focus": "收集 派遣完成 队伍"
+        "focus": "[动作]检测到已完成派遣，点击收集奖励"
     },
     "Dispatch_Collect_Complete_Comeback": {
         "recognition": "OCR",
@@ -224,7 +226,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 1500,
-        "focus": "关闭 收获界面"
+        "focus": "[动作]点击关闭收获结算界面"
     },
     "Dispatch_DispatchStart": {
         "next": [
@@ -234,10 +236,10 @@
             "[JumpBack]Dispatch_DispatchStart_Home1",
             "[JumpBack]Dispatch_DispatchStart_Home2",
             "[JumpBack]Dispatch_DispatchStart_Home3",
-            "Dispatch_Comeback_home",
+            "Dispatch_Comeback_home"
         ],
         "post_wait_freezes": 500,
-        "focus": "准备 派遣"
+        "focus": "[状态]开始遍历房间进行新派遣任务"
     },
     "Dispatch_DispatchStart_Home1": {
         "recognition": "OCR",
@@ -256,11 +258,12 @@
         ],
         "max_hit": 1,
         "action": "Click",
-        "expected": "闲置"
+        "expected": "闲置",
+        "focus": "[动作]点击派遣房间1（闲置状态）"
     },
     "Dispatch_Dispatch_Home1": {
         "next": [],
-        "focus": "开始派遣 房间1",
+        "focus": "[状态]正在处理房间1的派遣配置"
     },
     "Dispatch_DispatchStart_Home2": {
         "recognition": "OCR",
@@ -279,11 +282,12 @@
         ],
         "max_hit": 1,
         "action": "Click",
-        "expected": "闲置"
+        "expected": "闲置",
+        "focus": "[动作]点击派遣房间2（闲置状态）"
     },
     "Dispatch_Dispatch_Home2": {
         "next": [],
-        "focus": "开始派遣 房间2",
+        "focus": "[状态]正在处理房间2的派遣配置"
     },
     "Dispatch_DispatchStart_Home3": {
         "recognition": "OCR",
@@ -302,11 +306,12 @@
         ],
         "max_hit": 1,
         "action": "Click",
-        "expected": "闲置"
+        "expected": "闲置",
+        "focus": "[动作]点击派遣房间3（闲置状态）"
     },
     "Dispatch_Dispatch_Home3": {
         "next": [],
-        "focus": "开始派遣 房间3",
+        "focus": "[状态]正在处理房间3的派遣配置"
     },
     "Dispatch_Dispatch_MoWangQinShi": {
         "next": [
@@ -317,7 +322,7 @@
             "Dispatch_Dispatch_Find_MoWangQinShi",
             "Dispatch_Dispatch_Depart"
         ],
-        "focus": "开始选择 - 魔王寝室， 滑动滑动条,使其在最上面",
+        "focus": "[动作]准备选择魔王寝室，校准列表位置"
     },
     "Dispatch_Dispatch_Find_MoWangQinShi": {
         "recognition": "OCR",
@@ -326,10 +331,10 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_LV_MoWangQinShi",
-            "Dispatch_Dispatch_Select_Role",
+            "Dispatch_Dispatch_Select_Role"
         ],
         "expected": "魔王寝室",
-        "focus": "已找到 魔王寝室，选择等级"
+        "focus": "[状态]已识别到魔王寝室选项"
     },
     "Dispatch_Dispatch_MoWangQinShi_Slide_Once": {
         "action": "Click",
@@ -339,7 +344,8 @@
             4,
             7
         ],
-        "max_hit": 1
+        "max_hit": 1,
+        "focus": "[动作]滑动派遣区域列表（定位魔王寝室）"
     },
     "Dispatch_Dispatch_Select_LV_MoWangQinShi": {
         "recognition": "OCR",
@@ -365,7 +371,7 @@
             120
         ],
         "timeout": 1500,
-        "focus": "选择等级"
+        "focus": "[动作]为魔王寝室选择派遣等级"
     },
     "Dispatch_Dispatch_Select_LV_DiLao": {
         "recognition": "OCR",
@@ -391,7 +397,7 @@
             120
         ],
         "timeout": 1500,
-        "focus": "选择等级"
+        "focus": "[动作]为地牢选择派遣等级"
     },
     "Dispatch_Dispatch_Select_LV_XunLianSuo": {
         "recognition": "OCR",
@@ -417,7 +423,7 @@
             120
         ],
         "timeout": 1500,
-        "focus": "选择等级"
+        "focus": "[动作]为训练所选择派遣等级"
     },
     "Dispatch_Dispatch_Select_LV_BaoZangKu": {
         "recognition": "OCR",
@@ -443,7 +449,7 @@
             120
         ],
         "timeout": 1500,
-        "focus": "选择等级"
+        "focus": "[动作]为宝藏库选择派遣等级"
     },
     "Dispatch_Dispatch_Select_LV_FengYinMiShi": {
         "recognition": "OCR",
@@ -469,7 +475,7 @@
             120
         ],
         "timeout": 1500,
-        "focus": "选择等级"
+        "focus": "[动作]为封印密室选择派遣等级"
     },
     "Dispatch_Dispatch_Select_Role": {
         "recognition": "OCR",
@@ -498,7 +504,7 @@
             56,
             114
         ],
-        "focus": "选择派遣角色"
+        "focus": "[动作]点击进入派遣角色选择界面"
     },
     "Dispatch_Dispatch_Select_Role_TiaojianTuijian": {
         "recognition": "OCR",
@@ -508,14 +514,14 @@
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_Role_RenyuanBuchong",
             "[JumpBack]Dispatch_Dispatch_Select_Role_WuheshiRenxuan",
-            "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen",
+            "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen"
         ],
         "expected": [
             "条件推荐"
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
-        "focus": "点击条件推荐"
+        "focus": "[动作]点击条件推荐以快速上阵角色"
     },
     "Dispatch_Dispatch_Select_Role_TiaojianTuijian_ManRen": {
         "recognition": "ColorMatch",
@@ -524,7 +530,7 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Depart",
-            "[JumpBack]Dispatch_Dispatch_Select_Role_Back",
+            "[JumpBack]Dispatch_Dispatch_Select_Role_Back"
         ],
         "roi": [
             531,
@@ -543,7 +549,7 @@
             145
         ],
         "pre_wait_freezes": 1000,
-        "focus": "条件推荐的时候，已经满人，不需要再点击角色补充"
+        "focus": "[状态]检测到队伍已满人，无需继续填充人员"
     },
     "Dispatch_Dispatch_Select_Role_RenyuanBuchong": {
         "recognition": "OCR",
@@ -552,14 +558,14 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Depart",
-            "[JumpBack]Dispatch_Dispatch_Select_Role_Back",
+            "[JumpBack]Dispatch_Dispatch_Select_Role_Back"
         ],
         "expected": [
             "人员补充"
         ],
         "action": "Click",
         "timeout": 3000,
-        "focus": "点击人员补充"
+        "focus": "[动作]点击人员补充以填满剩余空位"
     },
     "Dispatch_Dispatch_Select_Role_WuheshiRenxuan": {
         "recognition": "OCR",
@@ -569,14 +575,14 @@
         ],
         "action": "Click",
         "post_delay": 2000,
-        "focus": "没有合适人选"
+        "focus": "[状态]无合适派遣人选，点击确定关闭提示"
     },
     "Dispatch_Dispatch_Select_Role_Back": {
         "recognition": "TemplateMatch",
         "next": [
             "[JumpBack]Dispatch_LinkError",
             "[JumpBack]Dispatch_LinkError_ServerError",
-            "[JumpBack]Dispatch_TouchStart_Connecting",
+            "[JumpBack]Dispatch_TouchStart_Connecting"
         ],
         "roi": [
             2,
@@ -589,14 +595,14 @@
         ],
         "action": "Click",
         "timeout": 3000,
-        "focus": "派遣角色选择完成，返回"
+        "focus": "[动作]角色选择完成，点击返回派遣设置页"
     },
     "Dispatch_Dispatch_Depart": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]Dispatch_LinkError",
             "[JumpBack]Dispatch_LinkError_ServerError",
-            "[JumpBack]Dispatch_TouchStart_Connecting",
+            "[JumpBack]Dispatch_TouchStart_Connecting"
         ],
         "action": "Click",
         "roi": [
@@ -608,7 +614,8 @@
         "expected": [
             "出发"
         ],
-        "timeout": 3000
+        "timeout": 3000,
+        "focus": "[动作]点击出发，正式执行派遣任务"
     },
     "Dispatch_Dispatch_DiLao": {
         "next": [
@@ -619,7 +626,7 @@
             "Dispatch_Dispatch_Find_DiLao",
             "Dispatch_Dispatch_Depart"
         ],
-        "focus": "开始选择 - 地牢， 滑动滑动条,使其在最上面",
+        "focus": "[动作]准备选择地牢，校准列表位置"
     },
     "Dispatch_Dispatch_Find_DiLao": {
         "recognition": "OCR",
@@ -628,10 +635,10 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_LV_DiLao",
-            "Dispatch_Dispatch_Select_Role",
+            "Dispatch_Dispatch_Select_Role"
         ],
         "expected": "地牢",
-        "focus": "已找到 地牢，选择等级"
+        "focus": "[状态]已识别到地牢选项"
     },
     "Dispatch_Dispatch_DiLao_Slide_Once": {
         "action": "Click",
@@ -641,7 +648,8 @@
             4,
             7
         ],
-        "max_hit": 1
+        "max_hit": 1,
+        "focus": "[动作]滑动派遣区域列表（定位地牢）"
     },
     "Dispatch_Dispatch_XunLianSuo": {
         "next": [
@@ -652,7 +660,7 @@
             "Dispatch_Dispatch_Find_XunLianSuo",
             "Dispatch_Dispatch_Depart"
         ],
-        "focus": "开始选择 - 训练所， 滑动滑动条,使其在最上面",
+        "focus": "[动作]准备选择训练所，校准列表位置"
     },
     "Dispatch_Dispatch_Find_XunLianSuo": {
         "recognition": "OCR",
@@ -661,10 +669,10 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_LV_XunLianSuo",
-            "Dispatch_Dispatch_Select_Role",
+            "Dispatch_Dispatch_Select_Role"
         ],
         "expected": "训练所",
-        "focus": "已找到 训练所，选择等级"
+        "focus": "[状态]已识别到训练所选项"
     },
     "Dispatch_Dispatch_XunLianSuo_Slide_Once": {
         "action": "Click",
@@ -674,7 +682,8 @@
             3,
             3
         ],
-        "max_hit": 1
+        "max_hit": 1,
+        "focus": "[动作]滑动派遣区域列表（定位训练所）"
     },
     "Dispatch_Dispatch_BaoZangKu": {
         "next": [
@@ -685,7 +694,7 @@
             "Dispatch_Dispatch_Find_BaoZangKu",
             "Dispatch_Dispatch_Depart"
         ],
-        "focus": "开始选择 - 宝藏库， 滑动滑动条,使其在最上面",
+        "focus": "[动作]准备选择宝藏库，校准列表位置"
     },
     "Dispatch_Dispatch_Find_BaoZangKu": {
         "recognition": "OCR",
@@ -694,10 +703,10 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_LV_BaoZangKu",
-            "Dispatch_Dispatch_Select_Role",
+            "Dispatch_Dispatch_Select_Role"
         ],
         "expected": "宝藏库",
-        "focus": "已找到 宝藏库，选择等级"
+        "focus": "[状态]已识别到宝藏库选项"
     },
     "Dispatch_Dispatch_BaoZangKu_Slide_Once": {
         "action": "Click",
@@ -707,7 +716,8 @@
             2,
             2
         ],
-        "max_hit": 1
+        "max_hit": 1,
+        "focus": "[动作]滑动派遣区域列表（定位宝藏库）"
     },
     "Dispatch_Dispatch_FengYinMiShi": {
         "next": [
@@ -718,7 +728,7 @@
             "Dispatch_Dispatch_Find_FengYinMiShi",
             "Dispatch_Dispatch_Depart"
         ],
-        "focus": "开始选择 - 封印密室， 滑动滑动条,使其在最上面",
+        "focus": "[动作]准备选择封印密室，校准列表位置"
     },
     "Dispatch_Dispatch_Find_FengYinMiShi": {
         "recognition": "OCR",
@@ -727,10 +737,10 @@
             "[JumpBack]Dispatch_LinkError_ServerError",
             "[JumpBack]Dispatch_TouchStart_Connecting",
             "Dispatch_Dispatch_Select_LV_FengYinMiShi",
-            "Dispatch_Dispatch_Select_Role",
+            "Dispatch_Dispatch_Select_Role"
         ],
         "expected": "封印密室",
-        "focus": "已找到 封印密室，选择等级"
+        "focus": "[状态]已识别到封印密室选项"
     },
     "Dispatch_Dispatch_FengYinMiShi_Slide_Once": {
         "action": "Click",
@@ -740,7 +750,8 @@
             2,
             2
         ],
-        "max_hit": 1
+        "max_hit": 1,
+        "focus": "[动作]滑动派遣区域列表（定位封印密室）"
     },
     "Dispatch_Comeback_home": {
         "action": "ClickKey",
@@ -754,7 +765,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]派遣流程完毕，发送返回键指令以回到主界面"
     },
     "Dispatch_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -766,7 +777,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到协会按钮：确认回到主界面，结束派遣任务"
     },
     "Dispatch_HomePage_Conneting": {
         "recognition": "OCR",
@@ -778,7 +789,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动中，等待恢复"
     },
     "Dispatch_LinkError": {
         "recognition": "OCR",
@@ -793,7 +804,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]检测到网络连线不稳定提示"
     },
     "Dispatch_LinkError_ServerError": {
         "recognition": "OCR",
@@ -807,7 +818,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "Dispatch_LinkError2": {
         "recognition": "OCR",
@@ -826,6 +837,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试恢复网络"
     }
 }

@@ -7,11 +7,11 @@
             "[JumpBack]Alchemy_Skip_Notice",
             "[JumpBack]Alchemy_TouchStart",
             "Alchemy_HomePage",
-            "[JumpBack]Alchemy_callBackup_button",
+            "[JumpBack]Alchemy_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动炼金",
-        "focus": "开始自动炼金",
+        "focus": "[状态]启动自动炼金流程"
     },
     "Alchemy_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS 启动标识",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]处于加载页面，等待进入标题界面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击以跳过"
     },
     "Alchemy_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]Alchemy_TouchStart_Connecting",
             "[JumpBack]Alchemy_Skip_Notice",
             "Alchemy_TouchStart",
-            "[JumpBack]Alchemy_callBackup_button",
+            "[JumpBack]Alchemy_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏主页"
     },
     "Alchemy_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -107,21 +108,20 @@
             34
         ],
         "expected": "(?i)N",
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]标题界面连接中，请稍候"
     },
     "Alchemy_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
-            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        // "pre_wait_freezes": 500,
-        // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过签到、礼包或各类弹窗"
     },
     "Alchemy_HomePage": {
         "recognition": "OCR",
@@ -132,7 +132,7 @@
             "Alchemy_HomePage2",
             "[JumpBack]Alchemy_Logo",
             "[JumpBack]Alchemy_LoadingPage",
-            "[JumpBack]Alchemy_callBackup_button",
+            "[JumpBack]Alchemy_callBackup_button"
         ],
         "roi": [
             306,
@@ -142,7 +142,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 协会，等待1s再次检查"
+        "focus": "[状态]检测到协会按钮，正在进行二次环境确认"
     },
     "Alchemy_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +160,7 @@
             63
         ],
         "expected": "协会",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "Alchemy_GotoAlchemy1": {
         "action": "Click",
@@ -168,7 +168,7 @@
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
-            "Alchemy_GotoAlchemy2",
+            "Alchemy_GotoAlchemy2"
         ],
         "target": [
             15,
@@ -177,7 +177,7 @@
             27
         ],
         "post_delay": 1500,
-        "focus": "点击 炼金界面"
+        "focus": "[动作]点击左侧导航栏以展开功能菜单"
     },
     "Alchemy_GotoAlchemy2": {
         "recognition": "TemplateMatch",
@@ -199,7 +199,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 2000,
-        "focus": "进入 炼金界面"
+        "focus": "[动作]点击炼金图标进入炼金界面"
     },
     "Alchemy_Collect_Complete": {
         "recognition": "OCR",
@@ -221,7 +221,7 @@
         "expected": "收取",
         "post_wait_freezes": 1000,
         "max_hit": 3,
-        "focus": "一键领取 炼金收获"
+        "focus": "[动作]检测到可收取物品，执行一键领取"
     },
     "Alchemy_Collect_Complete_Comeback": {
         "recognition": "OCR",
@@ -236,7 +236,7 @@
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
-        "focus": "关闭 收获界面"
+        "focus": "[动作]点击确定以关闭收获结算界面"
     },
     "Alchemy_AlchemyStart": {
         "next": [
@@ -247,10 +247,10 @@
             "[JumpBack]Alchemy_AlchemyStart_Home2",
             "[JumpBack]Alchemy_AlchemyStart_Home3",
             "[JumpBack]Alchemy_Collect_Order_Start",
-            "Alchemy_Comeback_home",
+            "Alchemy_Comeback_home"
         ],
         "post_wait_freezes": 1500,
-        "focus": "准备 炼金"
+        "focus": "[状态]已进入炼金车间，准备开始新的炼金任务"
     },
     "Alchemy_AlchemyStart_Home1": {
         "recognition": "OCR",
@@ -270,7 +270,7 @@
         "max_hit": 1,
         "action": "Click",
         "expected": "中",
-        "focus": "点击槽位1"
+        "focus": "[动作]点击第一个炼金槽位"
     },
     "Alchemy_Alchemy_Home1": {
         "next": [
@@ -280,7 +280,7 @@
             "Alchemy_Alchemy_Home1_Max",
             "Alchemy_Alchemy_Home1_Start"
         ],
-        "focus": "开始炼金 槽位1",
+        "focus": "[状态]准备为槽位 1 配置炼金参数",
         "timeout": 3000
     },
     "Alchemy_Alchemy_Home1_Max": {
@@ -301,14 +301,15 @@
         "expected": [
             "MAX"
         ],
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]点击 MAX 以选择最大炼金数量"
     },
     "Alchemy_Alchemy_Home1_Start": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
-            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "[JumpBack]Alchemy_TouchStart_Connecting"
         ],
         "roi": [
             102,
@@ -321,7 +322,8 @@
         "expected": [
             "炼金"
         ],
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]确认并开始槽位 1 的炼金"
     },
     "Alchemy_AlchemyStart_Home2": {
         "recognition": "OCR",
@@ -341,7 +343,7 @@
         "max_hit": 1,
         "action": "Click",
         "expected": "中",
-        "focus": "点击槽位2"
+        "focus": "[动作]点击第二个炼金槽位"
     },
     "Alchemy_Alchemy_Home2": {
         "next": [
@@ -351,7 +353,7 @@
             "Alchemy_Alchemy_Home2_Max",
             "Alchemy_Alchemy_Home2_Start"
         ],
-        "focus": "开始炼金 槽位2",
+        "focus": "[状态]准备为槽位 2 配置炼金参数",
         "timeout": 3000
     },
     "Alchemy_Alchemy_Home2_Max": {
@@ -373,7 +375,8 @@
             "MAX"
         ],
         "action": "Click",
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]点击 MAX 以选择最大炼金数量"
     },
     "Alchemy_Alchemy_Home2_Start": {
         "recognition": "OCR",
@@ -394,7 +397,8 @@
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]确认并开始槽位 2 的炼金"
     },
     "Alchemy_AlchemyStart_Home3": {
         "recognition": "OCR",
@@ -414,7 +418,7 @@
         "max_hit": 1,
         "action": "Click",
         "expected": "中",
-        "focus": "点击槽位3"
+        "focus": "[动作]点击第三个炼金槽位"
     },
     "Alchemy_Alchemy_Home3": {
         "next": [
@@ -424,7 +428,7 @@
             "Alchemy_Alchemy_Home3_Max",
             "Alchemy_Alchemy_Home3_Start"
         ],
-        "focus": "开始炼金 槽位3",
+        "focus": "[状态]准备为槽位 3 配置炼金参数",
         "timeout": 3000
     },
     "Alchemy_Alchemy_Home3_Max": {
@@ -446,7 +450,8 @@
         "expected": [
             "MAX"
         ],
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]点击 MAX 以选择最大炼金数量"
     },
     "Alchemy_Alchemy_Home3_Start": {
         "recognition": "OCR",
@@ -467,7 +472,8 @@
             "炼金"
         ],
         "post_wait_freezes": 1000,
-        "timeout": 1000
+        "timeout": 1000,
+        "focus": "[动作]确认并开始槽位 3 的炼金"
     },
     "Alchemy_Collect_Order_Start": {
         "next": [
@@ -478,7 +484,7 @@
         ],
         "max_hit": 1,
         "timeout": 5000,
-        "focus": "自动完成订单"
+        "focus": "[状态]开始检测并处理炼金贸易订单"
     },
     "Alchemy_Collect_Order": {
         "recognition": "OCR",
@@ -494,7 +500,7 @@
         "max_hit": 15,
         "post_wait_freezes": 500,
         "timeout": 5000,
-        "focus": "自动完成订单",
+        "focus": "[动作]检测到可完成订单，执行贸易操作"
     },
     "Alchemy_Comeback_home": {
         "action": "ClickKey",
@@ -508,7 +514,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]任务执行完毕，发送返回键指令以回到主界面"
     },
     "Alchemy_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -520,7 +526,7 @@
         ],
         "expected": "协会",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到主界面标识：任务完成，结束运行"
     },
     "Alchemy_HomePage_Conneting": {
         "recognition": "OCR",
@@ -532,7 +538,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待连接"
     },
     "Alchemy_LinkError": {
         "recognition": "OCR",
@@ -547,7 +553,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "Alchemy_LinkError_ServerError": {
         "recognition": "OCR",
@@ -561,7 +567,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "Alchemy_LinkError2": {
         "recognition": "OCR",
@@ -579,6 +585,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试修复连接"
     }
 }

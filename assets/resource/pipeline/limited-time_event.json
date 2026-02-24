@@ -7,11 +7,11 @@
             "[JumpBack]LimitedTime_Event_Skip_Notice",
             "[JumpBack]LimitedTime_Event_TouchStart",
             "LimitedTime_Event_HomePage",
-            "[JumpBack]LimitedTime_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Event_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始自动战斗 - 消耗体力",
-        "focus": "开始自动战斗 - 消耗体力",
+        "focus": "[任务]开始自动战斗 - 消耗体力"
     },
     "LimitedTime_Event_Logo": {
         "recognition": "OCR",
@@ -32,7 +32,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[识别]LOGO: EROLABS",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -55,7 +55,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[识别]加载页面标识: TenkafuMA",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -74,7 +74,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击关闭/跳过"
     },
     "LimitedTime_Event_TouchStart": {
         "recognition": "OCR",
@@ -85,7 +86,7 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "[JumpBack]LimitedTime_Event_Skip_Notice",
             "LimitedTime_Event_TouchStart",
-            "[JumpBack]LimitedTime_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Event_callBackup_button"
         ],
         "roi": [
             201,
@@ -96,7 +97,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击开始游戏 (TAP TO START)"
     },
     "LimitedTime_Event_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,20 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]登录中/连接中，等待响应"
     },
     "LimitedTime_Event_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]LimitedTime_Event_LinkError",
             "[JumpBack]LimitedTime_Event_LinkError_ServerError",
-            "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        // "pre_wait_freezes": 500,
-        // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]触发返回键：跳过签到、礼包及各种弹窗"
     },
     "LimitedTime_Event_HomePage": {
         "recognition": "OCR",
@@ -133,7 +133,7 @@
             "LimitedTime_Event_HomePage2",
             "[JumpBack]LimitedTime_Event_Logo",
             "[JumpBack]LimitedTime_Event_LoadingPage",
-            "[JumpBack]LimitedTime_Event_callBackup_button",
+            "[JumpBack]LimitedTime_Event_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +143,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[识别]主界面出征按钮，等待1s再次检查"
     },
     "LimitedTime_Event_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +160,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "LimitedTime_Event_GotoLimitedTime_Event1": {
         "action": "Click",
@@ -170,14 +170,13 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "LimitedTime_Event_GotoLimitedTime_Event2",
             "LimitedTime_Event_GotoLimitedTime_Event1"
-            //这里是任务起点，在这里添加自己的任务
         ],
         "recognition": "OCR",
         "expected": [
             "出征"
         ],
         "post_delay": 1500,
-        "focus": "点击 出征界面"
+        "focus": "[动作]点击出征按钮，进入功能区"
     },
     "LimitedTime_Event_GotoLimitedTime_Event2": {
         "recognition": "OCR",
@@ -197,7 +196,7 @@
             646,
             157
         ],
-        "focus": "点击限时活动"
+        "focus": "[动作]点击限时活动标签"
     },
     "LimitedTime_Event_GotoLimitedTime-Home_Page": {
         "next": [
@@ -206,7 +205,7 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "LimitedTime_Event_GotoLimitedTime-Start"
         ],
-        "focus": "已经进入限时活动 选择活动 界面"
+        "focus": "[状态]已进入限时活动选择界面"
     },
     "LimitedTime_Event_GotoLimitedTime-Start": {
         "recognition": "OCR",
@@ -228,16 +227,16 @@
         "expected": [
             "娘"
         ], //后续出新活动在这里改活动名字即可
-        "post_delay": 1500
+        "post_delay": 1500,
+        "focus": "[动作]点击匹配关键字的特定活动大图"
     },
     "LimitedTime_Event_Select_Level_And_Start": {
         "max_hit": 1,
         "next": [], //在interface设置什么类型的副本
-        "focus": "根据活动类型 选择 最高体力 副本",
+        "focus": "[策略]根据活动类型，准备选择最高体力副本",
         "post_delay": 3000
     },
     "LimitedTime_Event_8W_SSR_Start": {
-        //"recognition": "OCR",
         "recognition": "TemplateMatch",
         "next": [
             "[JumpBack]LimitedTime_Event_LinkError",
@@ -245,19 +244,9 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "[JumpBack]LimitedTime_Event_8W_SSR_Select_Level_Page",
             "LimitedTime_Event_Select_Role",
-            "[JumpBack]LimitedTime_Event_Select_Role_Click_right",
+            "[JumpBack]LimitedTime_Event_Select_Role_Click_right"
         ],
         "action": "Click",
-        // "expected": [
-        //     "60",
-        //     "45"
-        // ],
-        // "roi": [
-        //     99,
-        //     315,
-        //     543,
-        //     791
-        // ],
         "template": [
             "45体力.png",
             "45体力2.png"
@@ -266,7 +255,7 @@
             0.8
         ],
         "post_delay": 1500,
-        "focus": "8w分换SSR类 活动，属于剧情类，直接选择60体力本",
+        "focus": "[识别]8w分换SSR类活动：匹配并选择45/60体力关卡"
     },
     "LimitedTime_Event_8W_SSR_Select_Level_Page": {
         "recognition": "OCR",
@@ -280,7 +269,7 @@
             "兑换"
         ],
         "post_delay": 1500,
-        "focus": "检测到兑换，还处于活动选择关卡界面，重新选择",
+        "focus": "[检测]仍处于兑换/关卡界面，尝试重新选择关卡"
     },
     "LimitedTime_Event_8W_SSR_Select_Level": {
         "recognition": "TemplateMatch",
@@ -294,6 +283,7 @@
             0.8
         ],
         "post_delay": 1500,
+        "focus": "[动作]模板匹配：点击45体力关卡"
     },
     "LimitedTime_Event_Select_Role_Click_right": {
         "action": "Click",
@@ -303,7 +293,7 @@
             6,
             5
         ],
-        "focus": "队伍名称非活动队，选择下一个..."
+        "focus": "[动作]队伍名称不符，点击向右切换队伍"
     },
     "LimitedTime_Event_Select_Role": {
         "recognition": "OCR",
@@ -323,7 +313,7 @@
             93,
             56
         ],
-        "focus": "当前为活动队，开始战斗..."
+        "focus": "[确认]检测到活动队伍，准备开始战斗"
     },
     "LimitedTime_Event_Fight_Start": {
         "recognition": "OCR",
@@ -346,7 +336,8 @@
             694,
             293
         ],
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[动作]点击开始/挑战按钮"
     },
     "LimitedTime_Event_In_Battle": {
         "recognition": "OCR",
@@ -359,10 +350,10 @@
             149,
             85
         ],
-        "focus": "战斗中..."
+        "focus": "[状态]战斗进行中..."
     },
     "LimitedTime_Event_HuanSuCai": {
-        "focus": "兑换材料类 活动，需要手动滑动选择45体力本"
+        "focus": "[提示]兑换材料类活动，需手动滑动选择45体力本"
     },
     "LimitedTime_Event_Fight_SaoDang_Start": { //扫荡模式先做了半成品，但是interface接口还没做。留待后续看要不要做
         "recognition": "OCR",
@@ -376,7 +367,7 @@
         ],
         "action": "Click",
         "expected": [
-            "军团",
+            "军团"
         ],
         "roi": [
             202,
@@ -384,10 +375,15 @@
             452,
             182
         ],
-        "enabled": false
+        "enabled": false,
+        "focus": "[动作]尝试开始扫荡模式 (未完全实现)"
     },
-    "LimitedTime_Event_SaoDang_Select_Max_Num": {},
-    "LimitedTime_Event_SaoDang_IsMax": {},
+    "LimitedTime_Event_SaoDang_Select_Max_Num": {
+        "focus": "[动作]选择最大扫荡次数"
+    },
+    "LimitedTime_Event_SaoDang_IsMax": {
+        "focus": "[确认]次数已达最大值"
+    },
     "LimitedTime_Event_NoEnoutht_AP": {
         "recognition": "OCR",
         "next": [],
@@ -402,16 +398,11 @@
             42
         ],
         "max_hit": 1,
-        "focus": "体力不足， 根据 策略 选择是否要使用体力药水 或者魔晶石"
+        "focus": "[异常]体力不足：需根据策略决定使用药水或魔晶石"
     },
     "LimitedTime_Event_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi": {
-        "next": [
-            // "[JumpBack]LimitedTime_Event_LinkError",
-            // "[JumpBack]LimitedTime_Event_LinkError_ServerError",
-            // "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
-            // "LimitedTime_Event_Comeback_home"
-        ],
-        "focus": "不使用体力药水和魔晶石, 结束任务"
+        "next": [],
+        "focus": "[策略]不使用补给物品，任务结束"
     },
     "LimitedTime_Event_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui": {
         "next": [
@@ -420,7 +411,7 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "LimitedTime_Event_Select_And_Use_Less_3Days_TiLiYaoShui"
         ],
-        "focus": "使用 剩余有效期小于等于3天的 体力药水"
+        "focus": "[策略]优先使用有效期≤3天的体力药水"
     },
     "LimitedTime_Event_Select_And_Use_Less_3Days_TiLiYaoShui": {
         "next": [
@@ -430,7 +421,8 @@
             "[JumpBack]LimitedTime_Event_Select_3Days_TiLiYaoShui",
             "LimitedTime_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "timeout": 5000
+        "timeout": 5000,
+        "focus": "[状态]正在查找短期体力药水"
     },
     "LimitedTime_Event_Use_Or_Buy_TiLiYaoShui_Complete": {
         "action": "ClickKey",
@@ -444,7 +436,7 @@
             "LimitedTime_Event_Fight_Start",
             "LimitedTime_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "focus": "体力药水 使用/购买 完毕，返回战斗界面"
+        "focus": "[动作]补给完成，按返回键回到战斗界面"
     },
     "LimitedTime_Event_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight": {
         "recognition": "OCR",
@@ -467,18 +459,17 @@
             694,
             293
         ],
-        "timeout": 8000
+        "timeout": 8000,
+        "focus": "[动作]使用短期药水后再次尝试开始战斗"
     },
     "LimitedTime_Event_Select_And_Use_Less_3Days_TiLiYaoShui_Complete_Fight_NotEnought_AP": {
         "recognition": "OCR",
-        "next": [
-            // "LimitedTime_Event_Comeback_home"
-        ],
+        "next": [],
         "expected": [
             "回复",
             "魔晶石"
         ],
-        "focus": "体力不足， 并且已经使用过 有效期少于3天的体力药水，结束任务"
+        "focus": "[终止]短期药水已耗尽且体力仍不足，结束任务"
     },
     "LimitedTime_Event_Select_3Days_TiLiYaoShui": {
         "recognition": "OCR",
@@ -503,7 +494,8 @@
             -55,
             0,
             0
-        ]
+        ],
+        "focus": "[动作]选择有效期为1-3天的体力药水"
     },
     "LimitedTime_Event_Use_Less_3Days_TiLiYaoShui": {
         "recognition": "OCR",
@@ -513,6 +505,7 @@
             "确定"
         ],
         "post_delay": 500,
+        "focus": "[动作]点击确定，使用选中的短期药水"
     },
     "LimitedTime_Event_NoEnoutht_AP_Use_All_TiLiYaoShui": {
         "next": [
@@ -521,7 +514,7 @@
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
             "LimitedTime_Event_Select_And_Use_All_TiLiYaoShui"
         ],
-        "focus": "使用所有体力药水"
+        "focus": "[策略]准备使用所有可用体力药水"
     },
     "LimitedTime_Event_Select_And_Use_All_TiLiYaoShui": {
         "next": [
@@ -531,7 +524,8 @@
             "[JumpBack]LimitedTime_Event_Select_All_TiLiYaoShui",
             "LimitedTime_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "timeout": 5000
+        "timeout": 5000,
+        "focus": "[状态]正在查找所有可用体力药水"
     },
     "LimitedTime_Event_Select_All_TiLiYaoShui": {
         "recognition": "OCR",
@@ -556,7 +550,8 @@
             -55,
             0,
             0
-        ]
+        ],
+        "focus": "[动作]选择列表中的体力药水"
     },
     "LimitedTime_Event_Use_All_TiLiYaoShui": {
         "recognition": "OCR",
@@ -566,6 +561,7 @@
             "确定"
         ],
         "post_delay": 500,
+        "focus": "[动作]点击确定，使用药水"
     },
     "LimitedTime_Event_NoEnoutht_AP_Use_MoJingshi": {
         "next": [
@@ -575,7 +571,7 @@
             "[JumpBack]LimitedTime_Event_Goto_Buy_AP1",
             "LimitedTime_Event_Use_Or_Buy_TiLiYaoShui_Complete"
         ],
-        "focus": "使用魔晶石购买体力"
+        "focus": "[策略]药水不足，准备使用魔晶石购买体力"
     },
     "LimitedTime_Event_Goto_Buy_AP1": {
         "recognition": "OCR",
@@ -596,7 +592,7 @@
         ],
         "action": "Click",
         "max_hit": 1,
-        "focus": "点击魔晶购买体力界面"
+        "focus": "[动作]点击进入魔晶购买体力界面"
     },
     "LimitedTime_Event_Buy_AP": {
         "recognition": "OCR",
@@ -618,7 +614,7 @@
         ],
         "timeout": 2500,
         "action": "Click",
-        "focus": "购买体力"
+        "focus": "[动作]确认购买体力"
     },
     "LimitedTime_Event_Comeback_home": {
         "action": "ClickKey",
@@ -632,7 +628,7 @@
         "key": [
             4
         ],
-        "focus": "执行完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]执行完毕，发送返回键指令以回到主界面"
     },
     "LimitedTime_Event_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -644,7 +640,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束任务"
     },
     "LimitedTime_Event_HomePage_Conneting": {
         "recognition": "OCR",
@@ -656,7 +652,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待连接"
     },
     "LimitedTime_Event_LinkError": {
         "recognition": "OCR",
@@ -671,7 +667,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "LimitedTime_Event_LinkError_ServerError": {
         "recognition": "OCR",
@@ -685,7 +681,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "LimitedTime_Event_LinkError2": {
         "recognition": "OCR",
@@ -704,6 +700,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连接按钮"
     }
 }

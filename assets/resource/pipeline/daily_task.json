@@ -8,11 +8,11 @@
             "[JumpBack]DailyTask_Logo",
             "[JumpBack]DailyTask_TouchStart",
             "DailyTask_HomePage",
-            "[JumpBack]DailyTask_callBackup_button",
+            "[JumpBack]DailyTask_callBackup_button"
         ],
         "pre_wait_freezes": 500,
         "doc": "开始领取每日任务奖励",
-        "focus": "开始领取每日任务奖励",
+        "focus": "[状态]启动每日任务奖励领取流程"
     },
     "DailyTask_Logo": {
         "recognition": "OCR",
@@ -33,7 +33,7 @@
         "expected": [
             "(?i)labs"
         ],
-        "focus": "LOGO:EROLABS",
+        "focus": "[状态]检测到 EROLABS 启动标识",
         "post_delay": 6000,
         "timeout": 20000
     },
@@ -56,7 +56,7 @@
         "expected": [
             "(?i)ka"
         ],
-        "focus": "加载页面标识:TenkafuMA",
+        "focus": "[状态]处于加载页面，等待进入标题界面",
         "pre_wait_freezes": 3000,
         "timeout": 50000
     },
@@ -75,7 +75,8 @@
             1141,
             29,
             26
-        ]
+        ],
+        "focus": "[动作]检测到公告，点击以跳过"
     },
     "DailyTask_TouchStart": {
         "recognition": "OCR",
@@ -86,7 +87,7 @@
             "[JumpBack]DailyTask_TouchStart_Connecting",
             "[JumpBack]DailyTask_Skip_Notice",
             "DailyTask_TouchStart",
-            "[JumpBack]DailyTask_callBackup_button",
+            "[JumpBack]DailyTask_callBackup_button"
         ],
         "roi": [
             201,
@@ -97,7 +98,7 @@
         "expected": "(?i)St",
         "action": "Click",
         "timeout": 30000,
-        "focus": "开始游戏标识:TAP TO Start",
+        "focus": "[动作]点击 TAP TO START 进入游戏主页"
     },
     "DailyTask_TouchStart_Connecting": {
         "recognition": "OCR",
@@ -108,21 +109,20 @@
             34
         ],
         "expected": "(?i)N",
-        "action": "DoNothing"
+        "action": "DoNothing",
+        "focus": "[状态]标题界面连接中，请稍候"
     },
     "DailyTask_callBackup_button": {
         "recognition": "DirectHit",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "timeout": 1000,
         "action": "ClickKey",
         "key": 4,
-        // "pre_wait_freezes": 500,
-        // "post_wait_freezes": 500,
-        "focus": "触发返回键：跳过签到、礼包及各种弹窗"
+        "focus": "[动作]发送返回键指令：跳过签到、礼包或各类弹窗"
     },
     "DailyTask_HomePage": {
         "recognition": "OCR",
@@ -133,7 +133,7 @@
             "DailyTask_HomePage2",
             "[JumpBack]DailyTask_Logo",
             "[JumpBack]DailyTask_LoadingPage",
-            "[JumpBack]DailyTask_callBackup_button",
+            "[JumpBack]DailyTask_callBackup_button"
         ],
         "roi": [
             445,
@@ -143,7 +143,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 - 出征，等待1s再次检查"
+        "focus": "[状态]检测到出征按钮，正在进行环境二次确认"
     },
     "DailyTask_HomePage2": {
         "recognition": "OCR",
@@ -160,7 +160,7 @@
             249
         ],
         "expected": "出征",
-        "focus": "已回到主界面"
+        "focus": "[状态]已确认回到主界面"
     },
     "DailyTask_GotoDailyTask1": {
         "action": "Click",
@@ -168,8 +168,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "DailyTask_DailyTask_Start",
-            //这里是任务起点，在这里添加自己的任务
+            "DailyTask_DailyTask_Start"
         ],
         "target": [
             645,
@@ -178,7 +177,7 @@
             22
         ],
         "post_delay": 1500,
-        "focus": "点击 奖励图标"
+        "focus": "[动作]点击主界面奖励图标，进入任务面板"
     },
     "DailyTask_DailyTask_Start": {
         "next": [
@@ -193,7 +192,8 @@
             "[JumpBack]DailyTask_DailyTask_Xiehui",
             "DailyTask_Comeback_home"
         ],
-        "timeout": 1500
+        "timeout": 1500,
+        "focus": "[状态]任务面板已就绪，开始遍历领取各页签"
     },
     "DailyTask_DailyTask_Daily": {
         "recognition": "OCR",
@@ -201,14 +201,14 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_Daily_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_Daily_Claim_And_Confirm"
         ],
         "action": "Click",
         "expected": [
             "每日"
         ],
         "max_hit": 1,
-        "focus": "领取每日奖励",
+        "focus": "[动作]切换至【每日】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_Weekly": {
@@ -217,7 +217,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_Weekly_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_Weekly_Claim_And_Confirm"
         ],
         "action": "Click",
         "roi": [
@@ -230,7 +230,7 @@
             "每周"
         ],
         "max_hit": 1,
-        "focus": "领取每周奖励",
+        "focus": "[动作]切换至【每周】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_Monthly": {
@@ -239,7 +239,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_Monthly_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_Monthly_Claim_And_Confirm"
         ],
         "action": "Click",
         "roi": [
@@ -252,7 +252,7 @@
             "每月"
         ],
         "max_hit": 1,
-        "focus": "领取每月奖励",
+        "focus": "[动作]切换至【每月】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_Personal": {
@@ -261,7 +261,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_Personal_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_Personal_Claim_And_Confirm"
         ],
         "action": "Click",
         "roi": [
@@ -274,7 +274,7 @@
             "个人"
         ],
         "max_hit": 1,
-        "focus": "领取个人奖励",
+        "focus": "[动作]切换至【个人】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_HuoDong": {
@@ -283,7 +283,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_HuoDong_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_HuoDong_Claim_And_Confirm"
         ],
         "action": "Click",
         "roi": [
@@ -296,7 +296,7 @@
             "活动"
         ],
         "max_hit": 1,
-        "focus": "领取活动奖励",
+        "focus": "[动作]切换至【活动】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_Xiehui": {
@@ -305,7 +305,7 @@
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
             "[JumpBack]DailyTask_TouchStart_Connecting",
-            "[JumpBack]DailyTask_DailyTask_Xiehui_Claim_And_Confirm",
+            "[JumpBack]DailyTask_DailyTask_Xiehui_Claim_And_Confirm"
         ],
         "action": "Click",
         "roi": [
@@ -318,7 +318,7 @@
             "协会"
         ],
         "max_hit": 1,
-        "focus": "领取协会奖励",
+        "focus": "[动作]切换至【协会】任务页签",
         "timeout": 1500
     },
     "DailyTask_DailyTask_Daily_Claim_And_Confirm": {
@@ -326,102 +326,102 @@
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (每日)"
     },
     "DailyTask_DailyTask_Weekly_Claim_And_Confirm": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (每周)"
     },
     "DailyTask_DailyTask_Monthly_Claim_And_Confirm": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (每月)"
     },
     "DailyTask_DailyTask_Personal_Claim_And_Confirm": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (个人)"
     },
     "DailyTask_DailyTask_HuoDong_Claim_And_Confirm": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (活动)"
     },
     "DailyTask_DailyTask_Xiehui_Claim_And_Confirm": {
         "recognition": "OCR",
         "next": [
             "[JumpBack]DailyTask_LinkError",
             "[JumpBack]DailyTask_LinkError_ServerError",
-            "[JumpBack]DailyTask_TouchStart_Connecting",
+            "[JumpBack]DailyTask_TouchStart_Connecting"
         ],
         "expected": [
             "确定",
             "确认",
-            "键",
+            "键"
         ],
         "action": "Click",
         "max_hit": 6,
         "timeout": 600,
-        "focus": "领取奖励 & 确认"
+        "focus": "[动作]领取奖励并确认 (协会)"
     },
     "DailyTask_Comeback_home": {
         "action": "ClickKey",
@@ -435,7 +435,7 @@
         "key": [
             4
         ],
-        "focus": "领取完毕，返回主界面 - 输入返回键"
+        "focus": "[动作]所有任务页签领取完毕，发送返回键指令"
     },
     "DailyTask_HomePage_Without_Next": {
         "recognition": "OCR",
@@ -447,7 +447,7 @@
         ],
         "expected": "出征",
         "post_delay": 1000,
-        "focus": "检测到 正下方 出征 - 已回到主界面，结束任务"
+        "focus": "[状态]检测到出征按钮：已回到主界面，结束任务"
     },
     "DailyTask_HomePage_Conneting": {
         "recognition": "OCR",
@@ -459,7 +459,7 @@
         ],
         "expected": "(?i)N",
         "threshold": 0.5,
-        "focus": "主界面：网络波动中"
+        "focus": "[状态]主界面网络波动，等待连接"
     },
     "DailyTask_LinkError": {
         "recognition": "OCR",
@@ -474,7 +474,7 @@
             65
         ],
         "expected": "不稳定",
-        "focus": "网络连线不稳定",
+        "focus": "[异常]网络连线不稳定"
     },
     "DailyTask_LinkError_ServerError": {
         "recognition": "OCR",
@@ -488,7 +488,7 @@
             43
         ],
         "expected": "联机",
-        "focus": "服务器没有回应，联机错误",
+        "focus": "[异常]服务器无回应，联机错误"
     },
     "DailyTask_LinkError2": {
         "recognition": "OCR",
@@ -507,6 +507,6 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "尝试重新连接...",
+        "focus": "[动作]点击确定/重新连线以尝试修复连接"
     }
 }
