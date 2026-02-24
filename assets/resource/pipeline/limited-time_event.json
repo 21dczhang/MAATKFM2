@@ -232,9 +232,13 @@
     },
     "LimitedTime_Event_Select_Level_And_Start": {
         "max_hit": 1,
-        "next": [], //在interface设置什么类型的副本
+        "next": [
+            "[JumpBack]LimitedTime_Event_8W_SSR_Start",
+            "[JumpBack]LimitedTime_Event_HuanSuCai",
+        ], //在interface设置什么类型的副本
         "focus": "[策略]根据活动类型，准备选择最高体力副本",
-        "post_delay": 3000
+        "post_delay": 3000,
+        "timeout": 10000
     },
     "LimitedTime_Event_8W_SSR_Start": {
         "recognition": "TemplateMatch",
@@ -242,6 +246,7 @@
             "[JumpBack]LimitedTime_Event_LinkError",
             "[JumpBack]LimitedTime_Event_LinkError_ServerError",
             "[JumpBack]LimitedTime_Event_TouchStart_Connecting",
+            "LimitedTime_Event_8W_SSR_Start",
             "[JumpBack]LimitedTime_Event_8W_SSR_Select_Level_Page",
             "LimitedTime_Event_Select_Role",
             "[JumpBack]LimitedTime_Event_Select_Role_Click_right"
@@ -252,8 +257,9 @@
             "45体力2.png"
         ],
         "threshold": [
-            0.8
+            0.9
         ],
+        "max_hit": 3,
         "post_delay": 1500,
         "focus": "[识别]8w分换SSR类活动：匹配并选择45/60体力关卡"
     },
@@ -280,7 +286,7 @@
             "45体力2.png"
         ],
         "threshold": [
-            0.8
+            0.9
         ],
         "post_delay": 1500,
         "focus": "[动作]模板匹配：点击45体力关卡"
@@ -353,6 +359,7 @@
         "focus": "[状态]战斗进行中..."
     },
     "LimitedTime_Event_HuanSuCai": {
+        "max_hit": 3,
         "focus": "[提示]兑换材料类活动，需手动滑动选择45体力本"
     },
     "LimitedTime_Event_Fight_SaoDang_Start": { //扫荡模式先做了半成品，但是interface接口还没做。留待后续看要不要做
