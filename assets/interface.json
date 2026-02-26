@@ -64,7 +64,7 @@
         {
             "name": "启动游戏2",
             "entry": "StartGame_Start",
-            "default_check": true,
+            "default_check": false,
             "description": "启动游戏ing,防止第一个启动失败"
         },
         {
