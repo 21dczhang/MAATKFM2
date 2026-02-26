@@ -84,11 +84,10 @@
         "next": [
             "[JumpBack]StartGame_LinkError",
             "[JumpBack]StartGame_LinkError_ServerError",
-            "StartGame_HomePage",
+            "StartGame_TouchStart_Source_Check",
             "[JumpBack]StartGame_TouchStart_Connecting",
             "[JumpBack]StartGame_Skip_Notice",
             "StartGame_TouchStart",
-            "[JumpBack]StartGame_callBackup_button"
         ],
         "roi": [
             201,
@@ -100,6 +99,30 @@
         "action": "Click",
         "timeout": 30000,
         "focus": "[动作]检测到标题界面，点击 TAP TO START 进入游戏"
+    },
+    "StartGame_TouchStart_Source_Check": {
+        "recognition": "OCR",
+        "expected": [
+            "资源检查"
+        ],
+        "roi": [
+            10,
+            1094,
+            715,
+            198
+        ],
+        "next": [
+            "StartGame_TouchStart_Source_Check",
+            "[JumpBack]StartGame_LinkError",
+            "[JumpBack]StartGame_LinkError_ServerError",
+            "StartGame_HomePage",
+            "[JumpBack]StartGame_TouchStart_Connecting",
+            "[JumpBack]StartGame_Skip_Notice",
+            "StartGame_TouchStart",
+            "[JumpBack]StartGame_callBackup_button"
+        ],
+        "post_delay": 5000,
+        "focus": "[状态]资源检查中，等待进入游戏"
     },
     "StartGame_TouchStart_Connecting": {
         "recognition": "OCR",

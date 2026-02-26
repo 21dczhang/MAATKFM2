@@ -227,7 +227,8 @@
         ],
         "action": "Click",
         "expected": [
-            "斗"
+            "斗",
+            "天下"
         ], //后续出新活动在这里改活动名字即可
         "post_delay": 1500,
         "timeout": 5000

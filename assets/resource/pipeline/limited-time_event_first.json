@@ -223,21 +223,47 @@
             "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
             "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
             "LimitedTime_Event_First_GotoLimitedTime-Start",
+            "[JumpBack]LimitedTime_Event_First_SKIP_And_Cliam",
             "[JumpBack]LimitedTime_Event_First_Select_Level_And_Start",
             "LimitedTime_Event_First_Comeback_home"
         ],
         "roi": [
-            64,
-            179,
-            618,
-            573
+            72,
+            662,
+            573,
+            88
         ],
         "action": "Click",
         "expected": [
-            "娘"
+            //"娘",
+            "克"
         ], //后续出新活动在这里改活动名字即可
-        "post_delay": 1500,
+        "post_delay": 3000,
+        "max_hit": 2,
         "focus": "[动作]点击进入目标限时活动详情页"
+    },
+    "LimitedTime_Event_First_SKIP_And_Cliam": {
+        "recognition": "OCR",
+        "expected": [
+            "(?i)skip",
+            "确定",
+            "确认"
+        ],
+        "action": "Click",
+        "order_by": "Vertical",
+        "index": -1,
+        "next": [
+            "LimitedTime_Event_First_SKIP_And_Cliam_Call_Backup_Button"
+        ],
+        "timeout": 8000
+    },
+    "LimitedTime_Event_First_SKIP_And_Cliam_Call_Backup_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "max_hit": 1,
+        "action": "Click"
     },
     "LimitedTime_Event_First_Select_Level_And_Start": {
         "max_hit": 1,
