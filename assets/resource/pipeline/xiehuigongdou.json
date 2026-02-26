@@ -240,10 +240,19 @@
             "[JumpBack]XieHuiGongDou_LinkError",
             "[JumpBack]XieHuiGongDou_LinkError_ServerError",
             "[JumpBack]XieHuiGongDou_TouchStart_Connecting",
+            "XieHuiGongDou_Times_UP",
             "XieHuiGongDou_Solt1_Status",
             "XieHuiGongDou_Solt2_Status",
             "XieHuiGongDou_Solt3_Status",
         ]
+    },
+    "XieHuiGongDou_Times_UP": {
+        "recognition": "OCR",
+        "expected": [
+            "(?i)up"
+        ],
+        "next": [],
+        "focus": "[状态]检测协会共斗时间已经结束"
     },
     "XieHuiGongDou_Solt1_Status": {
         "recognition": "OCR",
