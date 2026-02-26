@@ -62,6 +62,12 @@
             "description": "启动游戏ing"
         },
         {
+            "name": "启动游戏2",
+            "entry": "StartGame_Start",
+            "default_check": true,
+            "description": "启动游戏ing,防止第一个启动失败"
+        },
+        {
             "name": "剪影模式",
             "entry": "JianYing_Setting_Start",
             "default_check": false,
