@@ -480,13 +480,13 @@
             "[JumpBack]Alchemy_LinkError",
             "[JumpBack]Alchemy_LinkError_ServerError",
             "[JumpBack]Alchemy_TouchStart_Connecting",
-            "[JumpBack]Alchemy_Collect_Order"
+            "[JumpBack]Alchemy_Collect_Order_Start_Select_CeLue"
         ],
         "max_hit": 1,
         "timeout": 5000,
         "focus": "[状态]开始检测并处理炼金贸易订单"
     },
-    "Alchemy_Collect_Order": {
+    "Alchemy_Collect_Order_Start_All_Shuijing": {
         "recognition": "OCR",
         "next": [],
         "roi": [
@@ -501,6 +501,114 @@
         "post_wait_freezes": 500,
         "timeout": 5000,
         "focus": "[动作]检测到可完成订单，执行贸易操作"
+    },
+    "Alchemy_Collect_Order_Start_Select_CeLue": {
+        "max_hit": 1,
+        "next": [],
+        "focus": "[状态]执行订单选择策略"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing": {
+        "next": [
+            "[JumpBack]Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_ZiShuiJing",
+            "[JumpBack]Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing",
+            "Alchemy_Collect_Order_Start_Only_ZiShuiJing_NO_DingDan"
+        ],
+        "focus": "[状态]正在筛选仅限紫水晶的订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_ZiShuiJing": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "紫水晶订单2.png"
+        ],
+        "action": "Click",
+        "threshold": [
+            0.95
+        ],
+        "roi": [
+            26,
+            897,
+            178,
+            289
+        ],
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_ZiShuiJing_Close"
+        ],
+        "focus": "[动作]匹配到紫水晶订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_ZiShuiJing_Close": {
+        "recognition": "OCR",
+        "expected": [
+            "确定",
+            "确认"
+        ],
+        "action": "Click",
+        "focus": "[动作]点击确认处理订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "蓝水晶订单2.png"
+        ],
+        "roi": [
+            26,
+            897,
+            178,
+            289
+        ],
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing_Delete"
+        ],
+        "focus": "[状态]识别到蓝水晶订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing_Delete": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "删除订单.png"
+        ],
+        "roi": [
+            30,
+            897,
+            166,
+            41
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]Alchemy_LinkError",
+            "[JumpBack]Alchemy_LinkError_ServerError",
+            "[JumpBack]Alchemy_TouchStart_Connecting",
+            "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing_Delete_Close"
+        ],
+        "focus": "[动作]点击删除非目标订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing_Delete_Close": {
+        "recognition": "OCR",
+        "expected": [
+            "确定",
+            "确认"
+        ],
+        "action": "Click",
+        "order_by": "Vertical",
+        "index": -1,
+        "focus": "[动作]确认删除订单"
+    },
+    "Alchemy_Collect_Order_Start_Only_ZiShuiJing_NO_DingDan": {
+        "recognition": "OCR",
+        "expected": [
+            "获取"
+        ],
+        "roi": [
+            26,
+            897,
+            178,
+            289
+        ],
+        "focus": "[状态]当前无对应订单，尝试获取"
     },
     "Alchemy_Comeback_home": {
         "action": "ClickKey",
