@@ -69,15 +69,21 @@
             171,
             48
         ],
-        "action": "Click",
-        "target": [
-            344,
-            1141,
-            29,
-            26
+        "next": [
+            "StartGame_Skip_Notice_Close"
         ],
         "post_delay": 1000,
         "focus": "[动作]检测到公告，点击关闭按钮跳过"
+    },
+    "StartGame_Skip_Notice_Close": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "threshold": [
+            0.95
+        ],
+        "action": "Click"
     },
     "StartGame_TouchStart": {
         "recognition": "OCR",
