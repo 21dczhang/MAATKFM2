@@ -405,10 +405,24 @@
             "description": "炼金订单类型选择，默认只做全紫(还没做，目前是全部做",
             "cases": [
                 {
-                    "name": "全部订单都做"
+                    "name": "全部订单都做",
+                    "pipeline_override": {
+                        "Alchemy_Collect_Order_Start_All_Shuijing": {
+                            "next": [
+                                "Alchemy_Collect_Order_Start_Only_ZiShuiJing"
+                            ]
+                        },
+                    }
                 },
                 {
-                    "name": "只接紫水晶订单"
+                    "name": "只接紫水晶订单",
+                    "pipeline_override": {
+                        "Alchemy_Collect_Order_Start_Select_CeLue": {
+                            "next": [
+                                "Alchemy_Collect_Order_Start_Only_ZiShuiJing"
+                            ]
+                        },
+                    }
                 },
                 {
                     "name": "只接蓝水晶订单"

@@ -228,7 +228,16 @@
         ],
         "timeout": 5000,
         "post_delay": 500,
+        "on_error": [],
         "focus": "[动作]点击槽位1：张贴榜单"
+    },
+    "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Slot1_Cancel": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "取消"
+        ],
+        "post_delay": 1000
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing": {
         "recognition": "OCR",
@@ -290,6 +299,7 @@
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
             "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao"
         ],
+        "post_delay": 1000,
         "focus": "[动作]点击开始招募按钮"
     },
     "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao": {
@@ -308,7 +318,8 @@
             "[JumpBack]QuanJingZhengCai_LinkError",
             "[JumpBack]QuanJingZhengCai_LinkError_ServerError",
             "[JumpBack]QuanJingZhengCai_TouchStart_Connecting",
-            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm"
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao_Confirm",
+            "QuanJingZhengCai_GotoQuanJingZhengCai_Start_Has_LingXiu_Or_JingYing_JingJiZhengZhao"
         ],
         "post_delay": 300,
         "focus": "[动作]检测到招募状态，准备使用紧急征召"

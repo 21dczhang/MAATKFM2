@@ -518,7 +518,7 @@
     "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_ZiShuiJing": {
         "recognition": "TemplateMatch",
         "template": [
-            "紫水晶订单2.png"
+            "紫水晶订单.png"
         ],
         "action": "Click",
         "threshold": [
@@ -550,13 +550,16 @@
     "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing": {
         "recognition": "TemplateMatch",
         "template": [
-            "蓝水晶订单2.png"
+            "蓝水晶订单1.png"
         ],
         "roi": [
             26,
             897,
             178,
             289
+        ],
+        "threshold": [
+            0.95
         ],
         "next": [
             "[JumpBack]Alchemy_LinkError",
@@ -569,7 +572,7 @@
     "Alchemy_Collect_Order_Start_Only_ZiShuiJing_First_Is_LanShuiJing_Delete": {
         "recognition": "TemplateMatch",
         "template": [
-            "删除订单.png"
+            "炼金-删除订单.png"
         ],
         "roi": [
             30,
@@ -595,6 +598,7 @@
         "action": "Click",
         "order_by": "Vertical",
         "index": -1,
+        "post_delay": 500,
         "focus": "[动作]确认删除订单"
     },
     "Alchemy_Collect_Order_Start_Only_ZiShuiJing_NO_DingDan": {
