@@ -260,6 +260,7 @@
     },
     "TiaoJiao_GotoTiaoJiao_Select_ShuXing": {
         "recognition": "DirectHit",
+        "enabled": false, //不加属性了，角色房间都满了，直接选最低的得了
         "next": [],
         "target": [
             133,
