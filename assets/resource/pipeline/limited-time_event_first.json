@@ -239,7 +239,8 @@
         ],
         "recognition": "TemplateMatch",
         "template": [
-            "activity/情人节巧克力活动.png" //有新活动在这里截图然后加进去
+            //"activity/情人节巧克力活动.png" //有新活动在这里截图然后加进去
+            "activity/本大爷养生馆.png"
         ],
         "threshold": [
             0.9
@@ -283,15 +284,69 @@
             "[JumpBack]LimitedTime_Event_First_LinkError",
             "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
             "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "[JumpBack]LimitedTime_Event_First_End",
+            "[JumpBack]LimitedTime_Event_First_Find_New_JuQing",
             "[JumpBack]LimitedTime_Event_First_Find_New_Level",
-            "[JumpBack]LimitedTime_Event_First_Find_Right_Button"
+            "[JumpBack]LimitedTime_Event_First_Find_New_Level2",
+            "[JumpBack]LimitedTime_Event_First_Click_Skip",
+            "[JumpBack]LimitedTime_Event_First_Find_Right_Button",
+            "[JumpBack]LimitedTime_Event_First_Click_QueDing"
         ],
-        "timeout": 5000,
+        "timeout": 10000,
         "focus": "[状态]剧情类活动：正在检索未达3星的新关卡"
+    },
+    "LimitedTime_Event_First_End": {
+        //回到这里表示不使用体力药水，循环要跳出这个太麻烦了，主要是加了默认点确认，
+        //回复体力界面如果有药水就有确认，回不去，麻烦。直接在这里结束任务
+        //下个任务会自动回到主界面，影响不大
+        "recognition": "OCR",
+        "next": [],
+        "expected": [
+            "回复",
+            "魔晶石"
+        ],
+        "roi": [
+            286,
+            296,
+            143,
+            42
+        ],
+        "action": "StopTask",
+    },
+    "LimitedTime_Event_First_Find_New_JuQing": {
+        "recognition": "OCR",
+        "expected": [
+            "^[NEW]{1,3}$"
+        ],
+        "roi": [
+            127,
+            229,
+            474,
+            913
+        ],
+        "target_offset": [
+            170,
+            75,
+            0,
+            0
+        ],
+        "action": "Click",
+    },
+    "LimitedTime_Event_First_Click_QueDing": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            127,
+            229,
+            474,
+            913
+        ],
+        "action": "Click"
     },
     "LimitedTime_Event_First_Find_New_Level": {
         "recognition": "TemplateMatch",
-        "action": "Click",
         "next": [
             "[JumpBack]LimitedTime_Event_First_LinkError",
             "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
@@ -302,6 +357,25 @@
         "threshold": [
             0.9
         ],
+        "template": [
+            "开始战斗.png"
+        ],
+        "post_delay": 1500,
+        "focus": "[动作]发现新关卡，点击进入准备界面"
+    },
+    "LimitedTime_Event_First_Find_New_Level2": {
+        "recognition": "TemplateMatch",
+        "next": [
+            "[JumpBack]LimitedTime_Event_First_LinkError",
+            "[JumpBack]LimitedTime_Event_First_LinkError_ServerError",
+            "[JumpBack]LimitedTime_Event_First_TouchStart_Connecting",
+            "LimitedTime_Event_First_Select_Role",
+            "[JumpBack]LimitedTime_Event_First_Select_Role_Click_right"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
         "template": [
             "最新的未打关卡.png"
         ],
@@ -412,7 +486,9 @@
         "focus": "[状态]体力不足，准备根据策略补充体力"
     },
     "LimitedTime_Event_First_NoEnoutht_AP_DoNot_Use_YaoShui_Or_MoJingShi": {
-        "next": [],
+        "next": [
+            //"LimitedTime_Award_Comeback_home"
+        ],
         "focus": "[动作]策略配置为不补充体力，准备结束任务"
     },
     "LimitedTime_Event_First_NoEnoutht_AP_Use_Vaild_Less_3Days_TiLiYaoShui": {

@@ -229,7 +229,8 @@
         ],
         "recognition": "TemplateMatch",
         "template": [
-            "activity/情人节巧克力活动.png" //有新活动在这里截图然后加进去
+            //"activity/情人节巧克力活动.png" //有新活动在这里截图然后加进去
+            "activity/本大爷养生馆.png"
         ],
         "threshold": [
             0.9
